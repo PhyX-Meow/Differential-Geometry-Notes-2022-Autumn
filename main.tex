@@ -48,11 +48,10 @@
 
 %==============================%
 %     请在这里添加其它宏包     %
-\usepackage{float}%我用来防止插图浮动
-\usepackage{tensor}% 张量指标
 %------------------------------%
-
- %\usepackage{physics}         % 提供了方便地打出 d/dx 等符号的命令
+% \usepackage{physics}         % 提供了方便地打出 d/dx 等符号的命令
+% \usepackage{float}           % 我用来防止插图浮动 <- 你不需要它
+\usepackage{tensor}            % 张量指标
 
 
 
@@ -162,40 +161,60 @@
 \begin{document}
 \maketitle
 \frontmatter
-\chapter{\centering Preface}
-\section*{Reference books}
+\tableofcontents
+\newpage
+
+%==============================%
+%           正文内容           %
+%------------------------------%
+
+\mainmatter
+\chapter*{\centering Preface}
+\section*{Textbook Reference}
 \begin{enumerate}[(1)]
     \item Do Carmo: Differential Geometry of Curves and Surfaces.
-    \item Sebasti\'an Montiel., Antorio Ros: Curves and Surfaces.
-    \item ~
+    \item Sebasti\'an Montiel, Antorio Ros: Curves and Surfaces.
+    \item \textit{Chinese Title, add later}
 \end{enumerate}
-\section*{Introduction of the course}
-The Goal of this course is to study the ``differential geometry of curves and surfaces''.\par
-$\bullet$ \textbf{Geometry}: How is a geometric object curved/ How to measure the curvedness of a geometric object? 
+\section*{Course Introduction}
+The Goal of this course is to study the ``differential geometry of curves and surfaces''.
+
+\noindent
+$\bullet$ \textbf{Geometry}: How is a geometric object curved / How to measure the curvedness of a geometric object? 
 \begin{exam}
      In the illustration below, (1) differs by ``topology''. In (2), they are topologically the same, while the lower curve is ``more curved'' than the upper curve.
 \end{exam}
 
-\begin{figure}[H]\centering
+\begin{center}
     \includegraphics[scale=0.3]{picture/preface_example1.jpg}
-\end{figure}
+\end{center}
 
 \begin{exam}
-    (3) differs by ``topology'', but in (4) $\mathbb{S}^2\left(1\right)$ is more curve than $\mathbb{S}^2\left(2\right)$, even topologically they are the same.(either homeomorphically or diffeomorhically).
+    (3) differs by ``topology'', but in (4) $\mathbb{S}^2(1)$ is more curve than $\mathbb{S}^2(2)$, even topologically they are the same.(either homeomorphically or diffeomorhically).
 \end{exam}
-\begin{figure}[H]\centering
+
+\begin{center}
     \includegraphics[scale=0.2]{picture/preface_example2.jpg}
-\end{figure}
-The ``Curved property'' also affects geometric quantities, like length, area, volume, angle between the curves, etc.\par
-\textbf{Local Geometry}: How does a ``curved '' space look like in a neighborhood of a point?\par 
-\textbf{Global Geometry}: If we know how a ``curved space'' is look like at each point, can we observe how such space looks like globally? This is usually related to topological problems.\par
-$\bullet$ \textbf{Differential}: In this course, by ``smoothness'' we mean the geometric objects we'll study are ``nice'' enough so we can apply ``calculus'' tools to study them.\par
+\end{center}
+
+The ``Curved property'' also affects geometric quantities, like length, area, volume, angle between the curves, etc.
+
+\textbf{Local Geometry}: How does a ``curved '' space look like in a neighborhood of a point?
+ 
+\textbf{Global Geometry}: If we know how a ``curved space'' is look like at each point, can we observe how such space looks like globally? This is usually related to topological problems.
+
+$\bullet$ \textbf{Differential}: In this course, by ``smoothness'' we mean the geometric objects we'll study are ``nice'' enough so we can apply ``calculus'' tools to study them.
+
 \textbf{Main tool}: Calculus! We'll see how powerful calculus is in this course, especially, like the maximal principle, integration by parts(stoke's theorem), Taylor's expansion, implicit function theory, etc.
-    \begin{figure}[H]\centering
-        \includegraphics[scale=0.2]{picture/preface_example3.jpg}
-    \end{figure}
-Queastion: How to tell the ``smoothness''?(Need to find good parametrization)Finding a good ``gauge''(that is ``coordinate'') to work with is also an important question in geometry.\par
-$\bullet$Curves: 1-d geometric object.\par
+
+\begin{center}
+    \includegraphics[scale=0.2]{picture/preface_example3.jpg}
+\end{center}
+
+Queastion: How to tell the ``smoothness''?(Need to find good parametrization)Finding a good ``gauge''(that is ``coordinate'') to work with is also an important question in geometry.
+
+$\bullet$Curves: 1-d geometric object.
+
 Surfaces: 2-d geometric object.
 \begin{remark}
     In this course, we only focus on curves and surfaces in $\mathbb{R}^3$.However, as a training on preparing for later geometry course, I suggest you also try to think about the ambiant space is $\mathbb{S}^3$ or $\mathbb{H}^3$.
@@ -203,16 +222,22 @@ Surfaces: 2-d geometric object.
 \end{remark}
 $\bullet$\textbf{Intrinsic geometry}: Study the geometric object without considering the ambiant space. This begins from the Gauss's elegent theorem and was developed by Riemann.
 \begin{exam}
-    Consider the unit sphere $\mathbb{S}^2$\par
-    Extrinsic geometry: view it as $x^2+y^2+z^2=1$ in $\mathbb{R}^3$.\par
-    Intrinsic geometry: $\left(\theta,\varphi\right)$ or $\left(\varphi,\theta\right)$ are ``essential'' coordinates on $\mathbb{S}^2$. $\dd s^2=\dd \varphi^2+\left(\sin\varphi\right)^2 \dd\theta^2$\par
-    (Caution: $\left(\theta,\varphi\right)$ is outer normal, while $\left(\varphi,\theta\right)$ is inner normal.)
+    Consider the unit sphere $\mathbb{S}^2$
+
+    Extrinsic geometry: view it as $x^2+y^2+z^2=1$ in $\mathbb{R}^3$.
+
+    Intrinsic geometry: $(\theta,\varphi)$ or $(\varphi,\theta)$ are ``essential'' coordinates on $\mathbb{S}^2$. $\dd s^2=\dd \varphi^2+(\sin\varphi)^2 \dd\theta^2$
+
+    (Caution: $(\theta,\varphi)$ is outer normal, while $(\varphi,\theta)$ is inner normal.)
 \end{exam}
 $\bullet$ Useful/Common techiques:
 \begin{enumerate}[1)]
-    \item Comparison: compare the studied geometric object with ``model space''. It's very important to study examples in geometry. As a suggestion you are expected to spend time to play with $\mathbb{S}^2$.For example: How is $\mathbb{S}^2$ curved? What's the shortest line in $\mathbb{S}^2$? How many symmetries are there on $\mathbb{S}^2$? Can you add ``extra structure'' on$\mathbb{S}^2$ to make it a complex object? Is this ``extra structure'' ``rigid''?What/s the ``moment map'' on $\mathbb{S}^2$? Does there exist a ``holomorphic'' map from $\mathbb{S}^2$ to a torus, or a surface of arbitrary genus? \par 
-    If we consider an ``Energy minimizing map'' from $\mathbb{S}^2$ to $\mathbb{S}^2$, what can we say about such map?(It is  holomorphic/antiholomorphic.)\par 
-    After you have learned Riemann Geometry, you'll see an energy minimizing map from $\mathbb{S}^2$ to a Riemannian manifold must be an angle-preserving map(conformal map).\par 
+    \item Comparison: compare the studied geometric object with ``model space''. It's very important to study examples in geometry. As a suggestion you are expected to spend time to play with $\mathbb{S}^2$.For example: How is $\mathbb{S}^2$ curved? What's the shortest line in $\mathbb{S}^2$? How many symmetries are there on $\mathbb{S}^2$? Can you add ``extra structure'' on$\mathbb{S}^2$ to make it a complex object? Is this ``extra structure'' ``rigid''?What/s the ``moment map'' on $\mathbb{S}^2$? Does there exist a ``holomorphic'' map from $\mathbb{S}^2$ to a torus, or a surface of arbitrary genus? 
+ 
+    If we consider an ``Energy minimizing map'' from $\mathbb{S}^2$ to $\mathbb{S}^2$, what can we say about such map?(It is  holomorphic/antiholomorphic.)
+ 
+    After you have learned Riemann Geometry, you'll see an energy minimizing map from $\mathbb{S}^2$ to a Riemannian manifold must be an angle-preserving map(conformal map).
+ 
     What kinds of 2-d geometric space could be $\mathbb{S}^2$ ?(this is a global geometry problem.)(i.e. what kinds of gemetric conditions can characterize $\mathbb{S}^2$ ?)
     \item To study higher dimensional objects,it's also important to understand lower dimensional objects, and it's also important to understand lower dimensional objects contained in the studied objects.
     \item Study ``functions''(more generally sections, including functions,vector fields, differential forms, etc.) on a given geometric object.
@@ -222,19 +247,11 @@ $\bullet$ Useful/Common techiques:
 \end{exam}
 We usually care about those functions related to geometry, such as distance functions, curvature-related functions, etc.
 \begin{exam}[More trivial than the last one]
-    Consider $f''\left(x\right)=0$, what can you say of the solution of it when $x$ lies on a line and when $x$ lies on a circle?
+    Consider $f''(x)=0$, what can you say of the solution of it when $x$ lies on a line and when $x$ lies on a circle?
 \end{exam}
-\tableofcontents
-\newpage
 
-%==============================%
-%           正文内容           %
-%------------------------------%
-
-\mainmatter
 \chapter{Differential Geometry of Curves}
-\large
-\section*{Linear algebra convention and its geometric explanation}
+\section{Linear algebra convention and its geometric explanation}
 \begin{itemize}
     \item We use ``ROW VECTOR'' in this course, i.e
     \[v\in \mathbb{R}^n, v=(v_1,v_2,\cdots,v_n)\]
@@ -285,8 +302,9 @@ We usually care about those functions related to geometry, such as distance func
 \begin{remark}[Important!]
     In row vector convention, a nondegenerate linear map corresponds to the right action of $GL(n,\mathbb{R})$ on $\mathbb{R}^n$. But this induces left action of $GL(n,\mathbb{R})$ on the orthonormal basis (frame) $\{e_1,e_2,\cdots,e_n\}$. This phenomenon provides an important example in differential geometry, which will be explained later in the theory of principle bundle.(i.e. let $G$ be a lie group, $G\curvearrowright M$ being a right action, where $M$ is a differentiable manifold, then this right action induces a left action of $G$ on the frame bundle of $M$.)
  \end{remark}
- \par 
- Let $\{\tilde{e}_1,\cdots,\tilde{e}_n\}$ be another basis of $\mathbb{R}^n$. Let $f$ be the corresponding linear map, i.e.
+ 
+ 
+ Let $\{\tilde{e}_1,\ldots,\tilde{e}_n\}$ be another basis of $\mathbb{R}^n$. Let $f$ be the corresponding linear map, i.e.
  \[f\begin{bmatrix}
     e_1\\
     e_2\\
@@ -305,20 +323,22 @@ We usually care about those functions related to geometry, such as distance func
 \end{bmatrix}\]
 \[\Rightarrow \tilde{e}_k=\sum_{j=1}^n B\indices{_k^j}e_j\]
 We compare the matrix of $\varphi$ in terms of $\left\{\tilde{e}_1 \cdots \tilde{e}_n\right\}$
-$$\varphi\left[\begin{array}{c}\tilde{e}_1 \\ \vdots \\ \tilde{e}_n\end{array}\right]=\varphi\left[B\left[\begin{array}{c}\tilde{e}_1 \\ \vdots \\ e_n\end{array}\right]\right]=B \cdot \varphi\left[\begin{array}{c}e_1 \\ \vdots \\ e_n\end{array}\right]\text{(linearity of }\varphi\text{)}$$
-$$
-=B A\left[\begin{array}{c}
-e_1 \\
-\vdots \\
-e_n
-\end{array}\right]=B A B^{-1}\left[\begin{array}{c}
-\tilde{e}_1 \\
-\dot{i} \\
-e_n
-\end{array}\right]
-$$
+\[
+    \varphi\left[\begin{array}{c}\tilde{e}_1 \\ \vdots \\ \tilde{e}_n\end{array}\right]=\varphi\left[B\left[\begin{array}{c}\tilde{e}_1 \\ \vdots \\ e_n\end{array}\right]\right]=B \cdot \varphi\left[\begin{array}{c}e_1 \\ \vdots \\ e_n\end{array}\right]\text{(linearity of }\varphi\text{)}
+\]
+\[
+    =B A\left[\begin{array}{c}
+    e_1 \\
+    \vdots \\
+    e_n
+    \end{array}\right]=B A B^{-1}\left[\begin{array}{c}
+    \tilde{e}_1 \\
+    \vdots \\
+    e_n
+    \end{array}\right]
+\]
 Note in this case.
-$$
+\[
 (\varphi \circ f)\left[\begin{array}{c}
 e_1 \\
 \vdots \\
@@ -328,23 +348,21 @@ e_1 \\
 \vdots \\
 e_n
 \end{array}\right]
-$$
+\]
 In terms of entries,
-$$
-\begin{aligned}
-\varphi\left(\tilde{e}_k\right) &=\varphi\left(\sum_{j=1}^n B\indices{_k^j} e_j\right)=\sum_{j=1}^n B\indices{_k^j} \varphi\left(e_j\right) \quad \text { (linearity) } \\
-&=\sum_{i, j=1}^n B\indices{_k^j} A\indices{_j^i} e_i=\sum_{i,j,p=1}^n B\indices{_k^j} A\indices{_j^i}\left(B^{-1}\right)\indices{_i^p} \widetilde{e}_p
-\end{aligned}
-$$
+\begin{align*}
+    \varphi(\tilde{e}_k) &=\varphi(\sum_{j=1}^n B\indices{_k^j} e_j)=\sum_{j=1}^n B\indices{_k^j} \varphi(e_j) \quad \text { (linearity) } \\
+    &=\sum_{i, j=1}^n B\indices{_k^j} A\indices{_j^i} e_i=\sum_{i,j,p=1}^n B\indices{_k^j} A\indices{_j^i}(B^{-1})\indices{_i^p} \widetilde{e}_p
+\end{align*}
 \begin{remark}
     This computation tells that the row vector convention yields to the fact that $GL(n,\mathbb{R})$ acting on itself from the right when we consider the action of $GL(n, \mathbb{R})$ on $\mathbb{R}^n$.
     In modern Geometry, it's more common to use column vector as convention. This row vector convention was adopted by S.S. Chern and also Do Cormo's book.
 \end{remark}
-\section{parametrized curves}
+\section{Parametrized Curves}
 \begin{defn}
-    Let $I=\left(a,b\right)$, if $\alpha\colon I\to \mathbb{R}^3$ is a $C^\infty$ map,
-    \[t \mapsto \left(x\left(t\right),y\left(t\right),z\left(t\right)\right)\]
-    then $\alpha\left(t\right)$ is a parametrized differentiable curve in $\mathbb{R}^3$. The image of $\alpha$ is called the trace of the curve. 
+    Let $I=(a,b)$, if $\alpha\colon I\to \mathbb{R}^3$ is a $C^\infty$ map,
+    \[t \mapsto (x(t),y(t),z(t))\]
+    then $\alpha(t)$ is a parametrized differentiable curve in $\mathbb{R}^3$. The image of $\alpha$ is called the trace of the curve. 
 \end{defn}
 \begin{remark}
     \hfill
@@ -352,15 +370,14 @@ $$
         \item $a,b$ could be finite number or infinity.
         \item Same curve may have different parametrizations.
         \item The parametrization automatically gives the direction of the motion on the curve.
-        \item ``Differentiable'' just means $\alpha\left(t\right)$ is a $C^\infty$ \textbf{map}, it does not say the (trace of) curve can not have singularities.
+        \item ``Differentiable'' just means $\alpha(t)$ is a $C^\infty$ \textbf{map}, it does not say the (trace of) curve can not have singularities.
     \end{enumerate}
-    
 \end{remark}
 \begin{exam}
     \hfill
     \begin{enumerate}[(1)]
-        \item $\alpha\left(t\right)=\left(t,|t|\right)$ is not a differentiable curve.
-        \begin{figure}[H]\centering
+        \item $\alpha(t)=(t,|t|)$ is not a differentiable curve.
+        \begin{center}
             \begin{tikzpicture}
                 \draw[domain=-2:0,smooth,variable=\t,black]
                 plot (\t,{-\t});
@@ -370,9 +387,9 @@ $$
                 \draw[->] (-2,0) -- (2,0) node[right] {$x$};
                 \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
             \end{tikzpicture}
-        \end{figure}
-        \item $\alpha=\left(t^3,t^2\right)$ is a differentiable curve. It can be also given by a equation $y^3=x^2$, which is a cuspidal cubic curve.
-        \begin{figure}[H]\centering
+        \end{center}
+        \item $\alpha=(t^3,t^2)$ is a differentiable curve. It can be also given by a equation $y^3=x^2$, which is a cuspidal cubic curve.
+        \begin{center}
             \begin{tikzpicture}
                 \draw[domain=-1.5:1.5,smooth,variable=\t,black]
                 plot ({\t^3},{\t*\t});
@@ -380,9 +397,9 @@ $$
                 \draw[->] (-2,0) -- (2,0) node[right] {$x$};
                 \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
             \end{tikzpicture}
-        \end{figure}
-        \item $\alpha\left(t\right)=\left(t^2-1,t^3-t\right)$. This parametrization appers in the ``blow-up'' process of $y^2=x^3+x^2$. Here ``blow-up'' is introducing tangents to seperate points.
-        \begin{figure}[H]\centering
+        \end{center}
+        \item $\alpha(t)=(t^2-1,t^3-t)$. This parametrization appers in the ``blow-up'' process of $y^2=x^3+x^2$. Here ``blow-up'' is introducing tangents to seperate points.
+        \begin{center}
             \begin{tikzpicture}
                 \draw[domain=-1.5:1.5,smooth,variable=\t,black]
                 plot ({\t*\t-1},{\t^3-\t});
@@ -390,89 +407,93 @@ $$
                 \draw[->] (-2,0) -- (2,0) node[right] {$x$};
                 \draw[->] (0,-2.5) -- (0,2.5) node[above] {$y$};
             \end{tikzpicture}
-        \end{figure}
+        \end{center}
     \end{enumerate}
 \end{exam}
 \begin{remark}
     (2) and (3) above may be the first examples you'll see in an algebraic geometry course.
 \end{remark}
+\noindent
 \textbf{Question}: At the origin, what can you obsefve on (2) and (3)?
-\par 
+
+\noindent
 \textbf{Answer}:
-    (2) $\alpha'\left(0\right)=0$.
-    (3) $\alpha$ is not one to one, but $\alpha'\left(0\right)\neq 0$.
-\par 
+    (2) $\alpha'(0)=0$.
+    (3) $\alpha$ is not one to one, but $\alpha'(0)\neq 0$.
+
+\noindent 
 \textbf{Question}: Define a differentiable curve in $\mathbb{R}^3$ and $\mathbb{S}^n$.
 \begin{remark}
-    Among above differentiable parametrizations, (2) and (3) are differentiable curves. However, if we take $\beta\left(t\right)=(t,t^{\frac{2}{3}})$, this also parametrizes (2), but it's not a differentiable curve!
+    Among above differentiable parametrizations, (2) and (3) are differentiable curves. However, if we take $\beta(t)=(t,t^{\frac{2}{3}})$, this also parametrizes (2), but it's not a differentiable curve!
 \end{remark}
 \begin{defn}
-    Let $\alpha\left(t\right)\colon I\to \mathbb{R}^3$ be a parametrized differentiable curve, then at $t_0\in I$.
-    \[ \alpha'\left(t_0\right)=\left(x'\left(t_0\right),y'\left(t_0\right),z'\left(t_0\right)\right)\]
-    is the velocity of $\alpha\left(t\right)$ at $t_0$.
+    Let $\alpha(t)\colon I\to \mathbb{R}^3$ be a parametrized differentiable curve, then at $t_0\in I$.
+    \[ \alpha'(t_0)=(x'(t_0),y'(t_0),z'(t_0))\]
+    is the velocity of $\alpha(t)$ at $t_0$.
     \begin{enumerate}[(1)]
-        \item If $\alpha'\left(t_0\right)\neq 0$, we call $\alpha\left(t_0\right)$ a regular point.
-        \item If $\alpha'\left(t_0\right) = 0$, we call $\alpha\left(t_0\right)$ a singular point.
-        \item If for all $t\in I$, $\alpha'\left(t\right)\neq 0$, we call $\alpha\left(t\right)$ a regular curve.
+        \item If $\alpha'(t_0)\neq 0$, we call $\alpha(t_0)$ a regular point.
+        \item If $\alpha'(t_0) = 0$, we call $\alpha(t_0)$ a singular point.
+        \item If for all $t\in I$, $\alpha'(t)\neq 0$, we call $\alpha(t)$ a regular curve.
     \end{enumerate}
 \end{defn}
+\noindent
 \textbf{Question}: What can you say about $C^\infty$ parametrization for a regular curve?
 \begin{quotation}
-    Regular curve $\Longleftrightarrow $ at each point, there is a unique tangent line.
+Regular curve $\Longleftrightarrow $ at each point, there is a unique tangent line.
 \end{quotation}
 \begin{exam}
-    $\alpha\left(t\right)=\left(t^3,t^2\right)$ is not a regular curve.(Since $\alpha'\left(0\right)=0$)
-    \begin{figure}[H]\centering
-        \begin{tikzpicture}
-            \draw[domain=-1.5:1.5,smooth,variable=\t,black]
-            plot ({\t^3},{\t*\t});
-            \draw (0,0) node{$\bullet$};
-            \draw[->] (-2,0) -- (2,0) node[right] {$x$};
-            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
-        \end{tikzpicture}
-    \end{figure}
+$\alpha(t)=(t^3,t^2)$ is not a regular curve.(Since $\alpha'(0)=0$)
+\begin{center}
+    \begin{tikzpicture}
+        \draw[domain=-1.5:1.5,smooth,variable=\t,black]
+        plot ({\t^3},{\t*\t});
+        \draw (0,0) node{$\bullet$};
+        \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
+    \end{tikzpicture}
+\end{center}
 \end{exam}
 \begin{exam}
-    $\alpha\left(t\right)=\left(t^2-1,t^3,t\right)$ is a regular curve.
-    \begin{figure}[H]\centering
-        \begin{tikzpicture}
-            \draw[domain=-1.5:1.5,smooth,variable=\t,black]
-            plot ({\t*\t-1},{\t^3-\t});
-            \draw (0,0) node{$\bullet$};
-            \draw[->] (-2,0) -- (2,0) node[right] {$x$};
-            \draw[->] (0,-2.5) -- (0,2.5) node[above] {$y$};
-        \end{tikzpicture}
-    \end{figure}
+$\alpha(t)=(t^2-1,t^3,t)$ is a regular curve.
+\begin{center}
+    \begin{tikzpicture}
+        \draw[domain=-1.5:1.5,smooth,variable=\t,black]
+        plot ({\t*\t-1},{\t^3-\t});
+        \draw (0,0) node{$\bullet$};
+        \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+        \draw[->] (0,-2.5) -- (0,2.5) node[above] {$y$};
+    \end{tikzpicture}
+\end{center}
 \end{exam}
 \begin{defn}
-    Let $\alpha\left(t\right)$ be a regular curve, then the tangent line at $t_0$ is \[l\left(t\right)=\alpha\left(t_0\right)+\alpha'\left(t_0\right)\left(t-t_0)\right)\]
-    \begin{figure}[H]\centering
-        \begin{tikzpicture}[scale=1.5]
-        \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)    % 绘制曲线
-            node[
-                pos = 0.6,    % 设置切点在曲线上的位置
-                sloped,    % 设置node按曲线斜率旋转
-                anchor = south west
-                ] (N) {};
-             
+Let $\alpha(t)$ be a regular curve, then the tangent line at $t_0$ is \[l(t)=\alpha(t_0)+\alpha'(t_0)(t-t_0))\]
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+    \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)    % 绘制曲线
+        node[
+            pos = 0.6,    % 设置切点在曲线上的位置
+            sloped,    % 设置node按曲线斜率旋转
+            anchor = south west
+            ] (N) {};
+         
 
-        \draw[blue]($(N.south west)!0.6cm!180:(N.south east)$) -- ($(N.south west)!0.6cm!(N.south east)$);
-        \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)
-            node[
-            pos = 0.2,    % 设置切点在曲线上的位置
-            sloped,    % 设置node按曲线斜率旋转
-            anchor = south west
-            ] (M) {}; 
-        \draw[cyan]($(M.south west)!0.6cm!180:(M.south east)$) -- ($(M.south west)!0.6cm!(M.south east)$);
-        \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)
-            node[
-            pos = 0.9,    % 设置切点在曲线上的位置
-            sloped,    % 设置node按曲线斜率旋转
-            anchor = south west
-            ] (M) {}; 
-        \draw($(M.south west)!1cm!180:(M.south east)$) -- ($(M.south west)!1cm!(M.south east)$);
-        \end{tikzpicture}
-    \end{figure}
+    \draw[blue]($(N.south west)!0.6cm!180:(N.south east)$) -- ($(N.south west)!0.6cm!(N.south east)$);
+    \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)
+        node[
+        pos = 0.2,    % 设置切点在曲线上的位置
+        sloped,    % 设置node按曲线斜率旋转
+        anchor = south west
+        ] (M) {}; 
+    \draw[cyan]($(M.south west)!0.6cm!180:(M.south east)$) -- ($(M.south west)!0.6cm!(M.south east)$);
+    \draw (0, -1) .. controls (1.5, 2) and (2, -3) .. (4,1.5)
+        node[
+        pos = 0.9,    % 设置切点在曲线上的位置
+        sloped,    % 设置node按曲线斜率旋转
+        anchor = south west
+        ] (M) {}; 
+    \draw($(M.south west)!1cm!180:(M.south east)$) -- ($(M.south west)!1cm!(M.south east)$);
+    \end{tikzpicture}
+\end{center}
 \end{defn}
 \begin{defn}
     Let $\alpha(t)$ be a regular curve, the arclenghth of $\alpha(t)$ is 
@@ -480,37 +501,45 @@ $$
     Then $s'(t)=\left|\alpha'(t)\right|$
 \end{defn}
 \textbf{Question} What's $\left|\alpha'(t)\right|$?
-\par 
+
+ 
 $\alpha(t)\colon I\to \mathbb{R}^3$ is a curve in $\mathbb{R}^3$. Here on $\mathbb{R}^3$, as the Euclidean space, we always assume the standard Euclidean inner product on it, i.e. $\forall u=(u_1,u_2,u_3),v=(v_1,v_2,v_3)$
 \[\langle u,v\rangle=u_1 v_1+u_2 v_2+ u_3 v_3=\sum_{i,j=1}^3\delta_{ij}u_i v_j\]
-Let $\alpha(t)=\left(x\left(t\right),y\left(t\right),z\left(t\right)\right),\alpha'\left(t\right)=\left(x'\left(t\right),y'\left(t\right),z'\left(t\right)\right)$, then $\left|\alpha'(t)\right|=\sqrt{\langle\alpha'\left(t\right),\alpha'\left(t\right)\rangle}$
+Let $\alpha(t)=(x(t),y(t),z(t)),\alpha'(t)=(x'(t),y'(t),z'(t))$, then $\left|\alpha'(t)\right|=\sqrt{\langle\alpha'(t),\alpha'(t)\rangle}$
 \begin{exer}
     Review vector Calculations, such as dot productm cross product and theri properties, especially geometric meanig of these calculatioin, such as length, area, volume, angle, orientation, etc.
 \end{exer}
-\textbf{Question}: Can you define the arclength of a regular curve in $\mathbb{R}^n$> How about on $\mathbb{S}^n$?
-\\
+\noindent
+\textbf{Question}: Can you define the arclength of a regular curve in $\mathbb{R}^n$> How about on $\mathbb{S}^n$? \\
 $\bullet$ Arclength parameter(an intrinsic parametrization of a curve)
 \begin{exam}
-    On a straight line, x=t describes the distance of the point away from the origin.
-    \begin{figure}[H]\centering
-        \begin{tikzpicture}
-            \draw[->] (-2,0) -- (2,0) node[right] {};
-            \draw (-1,0.05) node{$\bullet$};
-            \draw (0.2,0.2) node{$t$};
-            \draw[->,blue] (-1,0.1)--(0,0.1) node[right] {};
-        \end{tikzpicture}
-    \end{figure}
+On a straight line, x=t describes the distance of the point away from the origin.
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (2,0) node[right] {};
+        \draw (-1,0.05) node{$\bullet$};
+        \draw (0.2,0.2) node{$t$};
+        \draw[->,blue] (-1,0.1)--(0,0.1) node[right] {};
+    \end{tikzpicture}
+\end{center}
 \end{exam}
 On a general curve, we also want ``some'' parameter, which describes the arclength of point away from the initial point. This can happen iff $|\alpha'(t)|=1$,i.e. a point on the curve moves in a unit speed.
 \[\Rightarrow s(t)=\int_0^t \dd t=t.\]
 \textbf{Question}: For a given regular curve $\alpha(t)\colon I\to \mathbb{R}^3$, how to find such parameter?
-\par 
+
+\noindent 
 \textbf{Answer}: $s(t)=\int_{t_0}^t \left|\alpha'(t)\right|\dd t$ is a function in t, and $s'(t)=\left|\alpha'(t)\right|\neq 0$(because the curve is regular). By the implicit function theorem, there is a function 
-\[t=t(s),t'(s)=\frac{1}{\left|\alpha'(t)\right|}.\]
+\[
+    t=t(s),t'(s)=\frac{1}{\left|\alpha'(t)\right|}.
+\]
 This implies that 
-\[\alpha(t)=\alpha\left((t(s)\right)=\left(x\left((t(s)\right),y\left((t(s)\right),z\left((t(s)\right)\right)\]
-\[\left|\alpha'(s)\right|=\left|\alpha'(t)t'(s)\right|=\left|\alpha'(t)\right|\left|t'(s)\right|=1\]
-\par 
+\[
+    \alpha(t)=\alpha(t(s))=(x(t(s)),y(t(s)),z(t(s)))
+\]
+\[
+    \left|\alpha'(s)\right|=\left|\alpha'(t)t'(s)\right|=\left|\alpha'(t)\right|\left|t'(s)\right|=1
+\]
+
 \boxed{\textbf{Convention}} In this course, we only consider differentiable regular curves, which are parametrized by the arclength (for convenience).
 \begin{remark}
     In this course, we only consider the curve without self-intersecting points, i.e curves ``embedded into'' $\mathbb{R}^3$. Here ``embedded'' means $d\alpha$ is a linear isomorphism and $\alpha$ is homeomorphic to its image.
