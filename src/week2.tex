@@ -1,0 +1,89 @@
+\section{Local theory of a regular space curve}
+
+\begin{goal}
+    Describe a space curve by using geometric quantities.
+\end{goal}
+
+\begin{ques}
+    How to make a space curve? 
+\end{ques}
+Starting with a straight line, we can bend it and twist it in a given way to
+produce a space curve.
+\begin{itemize}
+    \item Bending the line \(\longrightarrow\) ``curvature''.
+    \item Twisting \(\longrightarrow\) ``torsion''.
+    \item Their relations are contained in Frenet formula.
+    \item Conversely, fundamental theorem of the local theory of curves
+        tells, once we're given two function, \(\kappa(s),\tau(s)\), we can
+        describe a unique curve in \(\mathbb{R}^3\) up to a rigid motion,
+        \st\ \(\kappa(s)\) is its curvature and \(\tau(s)\) is its torsion.
+\end{itemize}
+
+\noindent\underline{\bf Recall:} In Calculus, if \(y=f(x)\) represents a curve, then
+\(f''(x)\) tells the convexity of the curve. It measures how fast the velocity
+changes. It's also related to how straight line is bent.
+
+
+Let \(\alpha\colon I\to \mathbb{R}^2\) be a regular plane curve, parametrized by
+arc length, \ie\ \(|\alpha'(s)|=1\). Then \(\left<\alpha'(s),\alpha''(s)\right> =0\),
+and hence \(\alpha''(s)\perp\alpha'(s)\). For a plane curve, we take normal of the
+curve to be counterclockwise \(90^\circ\) rotation of the tangent vector.
+
+% Figure fig:w2-plane-curve-eg here
+
+Let \(N\) be the unit normal vector along \(\alpha(s)\), we have \[
+    \left<\alpha''(s),N(s)\right> =\pm|\alpha''(s)|
+.\] 
+\begin{defn}
+    The curvature of a plane curve \(\alpha(s)\) is defined as \[
+        \kappa(s)=\left<\alpha''(s),N(s)\right>
+    .\] 
+\end{defn}
+\begin{defn}
+    Further we denote \(T\) be the unit tangent vector, then the Frenet equation
+    of \(\alpha(s)\) is \[
+        \begin{cases}
+            T'=\kappa N \\
+            N'=-\kappa T
+        \end{cases}
+    .\] Note that \[
+        \left<T',N\right> =\kappa\implies \left<T,N'\right> =-\kappa
+    .\] 
+\end{defn}
+
+\begin{itemize}
+    \item \(\kappa>0\implies \) the point on the curve moves counterclockwise
+        direction or say ``to its left''.
+    \item \(\kappa<0\implies \) the point on the curve moves clockwise direction
+        or say ``to its right''.
+\end{itemize}
+
+\begin{ques}
+    For the curve in \cref{fig:w2-plane-curve-eg}, can you tell where \(\kappa>0\)
+    and where \(\kappa<0\) without doing calculation?
+\end{ques}
+
+\begin{remark}
+    The sign of the curvature of the plane curve is caused by the direction
+    convention of the unit normal vector. This could change according to the
+    orientation of a curve.
+\end{remark}
+
+Next, we take a look at the geometric meaning of \(|\alpha''(s)|\) at some point
+\(\alpha(s_0)\). By definition: \[
+    |\alpha''(s_0)|=\lim_{h \to 0} \left|\frac{\alpha'(s_0+h)-\alpha'(s_0)}{h}\right|
+.\] 
+% May be figure here
+We have
+\begin{align*}
+    |\alpha'(s_0+h)-\alpha'(s_0)|
+    &= \left(|\alpha'(s_0+h)|^2+|\alpha'(s_0)|^2-2\left<\alpha'(s_0+h),
+    \alpha'(s_0)\right> \right)^{\frac{1}{2}} \\
+    &= (2-2\cos\theta_h)^{\frac{1}{2}} \\
+    &= (2-2(1-\frac{1}{2}\theta_h^2)+\tilde{o}(\theta_h)^4)^{\frac{1}{2}} \\
+    &= (\theta_h^2+\tilde{o}(\theta_h)^4)^{\frac{1}{2}}
+.\end{align*}
+Hence \[
+    |\alpha''(s_0)|=\lim_{h \to 0} \left|\frac{\alpha'(s_0+h)-\alpha'(s_0)}{h}\right|
+    =\lim_{h \to 0} \left|\frac{\theta_h}{h}\right|=|\theta'(s_0)|
+.\] \ie\ \(|\alpha''(s)|\) measures the changing rate of angle of tangents.
