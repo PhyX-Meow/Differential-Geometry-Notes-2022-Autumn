@@ -29,7 +29,34 @@ arc length, \ie\ \(|\alpha'(s)|=1\). Then \(\left<\alpha'(s),\alpha''(s)\right> 
 and hence \(\alpha''(s)\perp\alpha'(s)\). For a plane curve, we take normal of the
 curve to be counterclockwise \(90^\circ\) rotation of the tangent vector.
 
-% Figure fig:w2-plane-curve-eg here
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,xscale=0.5,yscale=-0.5]
+    %Curve Lines [id:da7702103302711949] 
+    \draw    (141.28,156.07) .. controls (170.72,-26.63) and (441.91,2.34) .. (448.22,122.65) .. controls (454.52,242.96) and (305.26,214) .. (286.34,287.52) .. controls (267.42,361.04) and (334.69,383.32) .. (399.86,378.87) .. controls (465.03,374.41) and (523.9,347.67) .. (542.82,263.01) ;
+    %Straight Lines [id:da3645988582193562] 
+    \draw    (140.74,93.57) -- (276.21,9.96) ;
+    \draw [shift={(277.91,8.91)}, rotate = 148.32] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da28401015192032575] 
+    \draw    (209.33,51.24) -- (166.04,-19.96) ;
+    \draw [shift={(165,-21.67)}, rotate = 58.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da8270103736877523] 
+    \draw    (283.3,308.56) -- (361.67,311.59) ;
+    \draw [shift={(363.67,311.67)}, rotate = 182.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da9257450334110999] 
+    \draw    (288.56,235.59) -- (278.19,379.53) ;
+    \draw [shift={(278.05,381.53)}, rotate = 274.12] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da2500290048593601] 
+    \draw    (513.8,327.07) -- (453.9,279.58) ;
+    \draw [shift={(452.33,278.33)}, rotate = 38.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da16103254249771015] 
+    \draw    (474.39,378.31) -- (552,277.41) ;
+    \draw [shift={(553.22,275.82)}, rotate = 127.57] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    \end{tikzpicture}
+    \caption{
+        Example of a plane curve and its tangent and normal
+    }\label{fig:w2-plane-curve-eg}
+\end{figure}
 
 Let \(N\) be the unit normal vector along \(\alpha(s)\), we have \[
     \left<\alpha''(s),N(s)\right> =\pm|\alpha''(s)|
@@ -73,7 +100,7 @@ Next, we take a look at the geometric meaning of \(|\alpha''(s)|\) at some point
 \(\alpha(s_0)\). By definition: \[
     |\alpha''(s_0)|=\lim_{h \to 0} \left|\frac{\alpha'(s_0+h)-\alpha'(s_0)}{h}\right|
 .\] 
-% May be figure here
+% No figure here :(
 We have
 \begin{align*}
     |\alpha'(s_0+h)-\alpha'(s_0)|
@@ -87,3 +114,54 @@ Hence \[
     |\alpha''(s_0)|=\lim_{h \to 0} \left|\frac{\alpha'(s_0+h)-\alpha'(s_0)}{h}\right|
     =\lim_{h \to 0} \left|\frac{\theta_h}{h}\right|=|\theta'(s_0)|
 .\] \ie\ \(|\alpha''(s)|\) measures the changing rate of angle of tangents.
+
+In fact, for a plane curve, let \(\theta\) be the angle between \(\alpha'(s_0)\) and
+\(\alpha'(s)\), then \[
+    \left<\alpha'(s),\alpha'(s_0)\right> =\cos\theta_s\implies 
+    \left<\alpha''(s),\alpha'(s_0)\right> =-\sin\theta_s\cdot \theta_s'
+.\] Notice that \(\cos\theta_s\) is the projection of \(\alpha'(s_0)\) on the tangent
+\(\alpha'(s)\), hence \[
+    \sin\theta_s=\left<\alpha'(s_0),N(s)\right> 
+.\] On the other hand, \(\alpha''(s)=T'(s)=\kappa(s)N(s)=\pm|\alpha''(s)|N(s)\),
+this gives \(\theta_s'=\pm|\alpha''(s)|\).
+
+
+Let \(\alpha\colon I\to \mathbb{R}^3\) be a space curve, parametrized by arclength,
+\ie\ \(|\alpha'(s)=1|\), we also have \(\left<\alpha'(s),\alpha''(s)\right> =0\),
+\ie\ \(\alpha''(s)\perp\alpha'(s)\).
+
+Unlike case of dim 2, it does not make sense to prescribe a normal vector of
+a curve. However, from above discussion, we see the geometric meaning of
+\(|\alpha''(s)|\) is the measure of how fast the point on the curve leaving the
+straight line. We came into following definition:
+\begin{defn}
+    The \emph{curvature} of a regular space curve \(\alpha(s)\) parametrized by
+    arclength is defined as \[
+        \kappa(s)=|\alpha''(s)|
+    .\] And the unit normal vector at \(\alpha(s)\) is \[
+        N=\frac{\alpha''(s)}{|\alpha''(s)|},\quad\text{for }|\alpha''(s)|>0
+    .\] 
+\end{defn}
+\begin{remark}\hfill
+\begin{itemize}
+    \item If \(|\alpha''(s)|\equiv 0\) then \(\alpha\) must be a straight line,
+        and all unit normal vectors line on a unite circle \(\perp\alpha\).
+    \item If \(|\alpha''(s_0)|=0\), we call \(s_0\) a singular point of order 1.
+        (Note. \(s_0\) \st\ \(|\alpha(s_0)|=0\) is called a singular point 
+        of order 0) At such points, there is no well-defined normal vector.
+    \end{itemize}
+\end{remark}
+
+\begin{defn}
+The plane determined by \(T,N\) is called the \emph{osculating plane} of
+\(\alpha(s)\). The unite normal vector of the osculating plane
+\[
+    B=T\times N
+\] is called \emph{binormal vector}.
+\end{defn}
+\begin{remark}\hfill
+\begin{itemize}
+    \item \(\{T,N,B\}\) satisfies the right hand rule.
+    \item \(|B'|\) measures how fast the point leaves the osculating plane.
+\end{itemize}
+\end{remark}
