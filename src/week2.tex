@@ -4,9 +4,9 @@
     Describe a space curve by using geometric quantities.
 \end{goal}
 
-\begin{ques}
+\begin{question}
     How to make a space curve? 
-\end{ques}
+\end{question}
 Starting with a straight line, we can bend it and twist it in a given way to
 produce a space curve.
 \begin{itemize}
@@ -61,12 +61,12 @@ curve to be counterclockwise \(90^\circ\) rotation of the tangent vector.
 Let \(N\) be the unit normal vector along \(\alpha(s)\), we have \[
     \left<\alpha''(s),N(s)\right> =\pm|\alpha''(s)|
 .\] 
-\begin{defn}
+\begin{definition}
     The curvature of a plane curve \(\alpha(s)\) is defined as \[
         \kappa(s)=\left<\alpha''(s),N(s)\right>
     .\] 
-\end{defn}
-\begin{defn}
+\end{definition}
+\begin{definition}
     Further we denote \(T\) be the unit tangent vector, then the Frenet equation
     of \(\alpha(s)\) is \[
         \begin{cases}
@@ -76,7 +76,7 @@ Let \(N\) be the unit normal vector along \(\alpha(s)\), we have \[
     .\] Note that \[
         \left<T',N\right> =\kappa\implies \left<T,N'\right> =-\kappa
     .\] 
-\end{defn}
+\end{definition}
 
 \begin{itemize}
     \item \(\kappa>0\implies \) the point on the curve moves counterclockwise
@@ -85,10 +85,10 @@ Let \(N\) be the unit normal vector along \(\alpha(s)\), we have \[
         or say ``to its right''.
 \end{itemize}
 
-\begin{ques}
+\begin{question}
     For the curve in \cref{fig:w2-plane-curve-eg}, can you tell where \(\kappa>0\)
     and where \(\kappa<0\) without doing calculation?
-\end{ques}
+\end{question}
 
 \begin{remark}
     The sign of the curvature of the plane curve is caused by the direction
@@ -134,34 +134,232 @@ Unlike case of dim 2, it does not make sense to prescribe a normal vector of
 a curve. However, from above discussion, we see the geometric meaning of
 \(|\alpha''(s)|\) is the measure of how fast the point on the curve leaving the
 straight line. We came into following definition:
-\begin{defn}
+\begin{definition}
     The \emph{curvature} of a regular space curve \(\alpha(s)\) parametrized by
     arclength is defined as \[
         \kappa(s)=|\alpha''(s)|
     .\] And the unit normal vector at \(\alpha(s)\) is \[
         N=\frac{\alpha''(s)}{|\alpha''(s)|},\quad\text{for }|\alpha''(s)|>0
     .\] 
-\end{defn}
+\end{definition}
 \begin{remark}\hfill
 \begin{itemize}
     \item If \(|\alpha''(s)|\equiv 0\) then \(\alpha\) must be a straight line,
-        and all unit normal vectors line on a unite circle \(\perp\alpha\).
+        and all unit normal vectors line on a unit circle \(\perp\alpha\).
     \item If \(|\alpha''(s_0)|=0\), we call \(s_0\) a singular point of order 1.
         (Note. \(s_0\) \st\ \(|\alpha(s_0)|=0\) is called a singular point 
         of order 0) At such points, there is no well-defined normal vector.
     \end{itemize}
 \end{remark}
 
-\begin{defn}
+\begin{definition}
 The plane determined by \(T,N\) is called the \emph{osculating plane} of
-\(\alpha(s)\). The unite normal vector of the osculating plane
+\(\alpha(s)\). The unit normal vector of the osculating plane
 \[
     B=T\times N
 \] is called \emph{binormal vector}.
-\end{defn}
+\end{definition}
 \begin{remark}\hfill
 \begin{itemize}
     \item \(\{T,N,B\}\) satisfies the right hand rule.
     \item \(|B'|\) measures how fast the point leaves the osculating plane.
 \end{itemize}
+If we denote \(\theta_h\) be angle between \(B(s_0+h)\) and \(B(s_0)\), similar to
+former calculation, we have
+\begin{align*}
+    |B'(s_0)|&= \lim_{h \to 0} \left|\frac{B(s_0+h)-B(s_0)}{h}\right| \\
+    &= \lim_{h \to 0} \left|\frac{\sqrt{2-2\cos\theta_h}}{h}\right| \\
+    &= |\theta_{s_0}'|
+.\end{align*}
+\end{remark}
+
+As we saw, at each (non-singular) point on a space curve \(\alpha(s)\), we can
+associate an oriented orthonormal frame \(\{T,N,B\}\).
+\begin{question}
+    How these three vector fields are related to the geometry of the curve?
+\end{question}
+By definition, we write out 0-order info of \(\{T,N,B\}\), \ie\ \[
+    \begin{cases}
+        T=\alpha' & \\
+        N=\frac{\alpha''}{|\alpha''|} & \implies T'=\alpha''=\kappa N \\
+        B=T\times N & \implies B'=T'\times N+T\times N'=T\times N'
+    \end{cases}
+.\] Since \(|B|=1\), we have \(B'\perp B\). Also from above we see \(B'\perp T\),
+hence \(B'\parallel N\).
+\begin{definition}
+    We define \[
+        B'=\tau N
+    .\] Here \(\tau(s)\) is called the torsion of \(\alpha(s)\).
+\end{definition}
+
+Next, we also want to find \(N'\). \(N=B\times T\) gives
+\begin{align*}
+    N'&= B'\times T+B\times T' \\
+    &= \tau N\times T+B\times (\kappa N) \\
+    &= -\kappa T-\tau B
+.\end{align*}
+\begin{theorem}
+    The fundamental equations of a space curve (also called the Frenet equations)
+    is given by
+    \begin{equation}\label{eq:frenet3}
+        \begin{bmatrix}
+            T'\\ N'\\ B'
+        \end{bmatrix}=\begin{bmatrix}
+            0 & \kappa & 0 \\
+            -\kappa & 0 & -\tau \\
+            0 & \tau & 0
+        \end{bmatrix}\begin{bmatrix}
+            T\\ N\\ B
+        \end{bmatrix}
+    .\end{equation}
+\end{theorem}
+
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item \(\tau\equiv 0\) but \(\kappa\neq 0\) at all points \(\implies \alpha(s)\)
+    is a plane curve. (Note this may be not true if we don't assume \(\kappa\neq 0\),
+    see ex.10 in Do Carmo's book) \\
+    \(\kappa\equiv 0\implies \alpha(s)\) is a straight line.
+
+    Note \(\tau\equiv 0\implies B'=0\implies B\) is constant vector. Further, \[
+        (\alpha\cdot B)'=\alpha'\cdot B=T\cdot B=0,
+    \] gives \(\alpha\cdot B=\text{constant}\implies (\alpha(s)-\alpha(s_0))
+    \cdot B=0\). Since \(\kappa\neq 0\) at all points, the osculating plane
+    is always well-defined, hence \(B\) is always defined, we proved \(\alpha\) lie
+    in some plane perpendicular to vector \(B\).
+    \item In different textbooks, you may see the definition of \(\tau\) having a
+        different sign from here.
+\end{enumerate}
+\end{remark}
+
+\itshape{}
+Friendly warning: When studying the Geometry, (even later in Riemannian Geometry),
+it happens a lot that different authors use different sign convention for the same
+definition. It's very important that you should fix your own notation, ant keep it
+consistently!
+\normalfont{}
+
+\begin{definition}
+    \(\{T,N,B\}\) is called Frenet trihedron of \(\alpha(s)\), it gives an moving 
+    orthonormal basis of \(\mathbb{R}^3\) along the curve \(\alpha(s)\).
+\end{definition}
+The Frenet equation describes how such moving orthonormal basis moves along 
+\(\alpha(s)\).
+
+\begin{remark}
+    Note that in above discussion, we have chosen a special parameter, the arclength
+    parameter, of \(\alpha(s)\). In the study of Geometry, finding a good
+    parametrization can simplify a lot of work and itself an important problem. In
+    more general framework, it's called a ``Gauge related'' problem.
+\end{remark}
+
+We have seen that given a regular curve \(\alpha(s)\), parametrized by arclength,
+the Frenet equation is \cref{eq:frenet3}, for some functions \(\kappa(s)>0\) be
+its curvature and \(\tau(s)\) be its torsion. Conversely, we ask
+\begin{question}
+    If we're given smooth functions \(\kappa(s),\tau(s)\) with \(\kappa(s)>0\),
+    \begin{enumerate}[(1)]
+        \item (Existence) Does there exist a regular curve \(\alpha(s)\) \st\ 
+            \(\kappa(s)\) is its curvature and \(\tau(s)\) is its torsion?
+        \item (Uniqueness) If such curve exists, is it unique in some sense?
+    \end{enumerate}
+\end{question}
+The answer is {\large\bfseries YES!}
+
+\begin{theorem}[Fundamental theorem of the local theory of curves]
+    Let \(\kappa(s),\tau(s)\colon I\to \mathbb{R}\) be smooth functions, assume
+    \(\kappa(s)>0\), then
+    \begin{itemize}
+        \item (Existence) There is a regular curve realize \(\kappa\) and \(\tau\)
+            as its curvature and torsion.
+        \item (Uniqueness) If \(\alpha,\beta\) are two such curves parametrized by
+            arclength parameter, then they only differ by a rigid motion of
+            \(\mathbb{R}^3\). \ie\ \(\exists\,T\in O(3),c\in \mathbb{R}^3\) \st\ 
+            \(\beta=T\alpha+c\).
+    \end{itemize}
+\end{theorem}
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item Existence follows from a Cauchy problem (initial value problem) of
+        ODE system.
+    \item The curve is unique up to a rotation of \(\mathbb{R}^3\) and a translation.
+\end{enumerate}
+\end{remark}
+
+\begin{proof}
+    If we denote \[
+        X(s)=\begin{bmatrix}
+            T \\ N \\ B
+        \end{bmatrix},\ 
+        P(s)=\begin{bmatrix}
+            & \kappa & \\
+            -\kappa & & -\tau \\
+            & \tau & 
+        \end{bmatrix}
+    .\] Where \(T,N,B\) are viewed as \textbf{row vectors}. Then the Frenet equation
+    writes as \[
+        X'=PX
+    .\] This is a first order linear ODE (of nine unknown functions), then by the
+    existence and uniqueness theorem of ODEs, given any initial value \[
+        X(0)=\begin{bmatrix}
+            T_0 \\ N_0 \\ B_0
+        \end{bmatrix}
+    \] witch form an orthonormal basis, the system has a unique solution that extend
+    to whole domain \(I\).
+
+    We need to check the solution actually is orthonormal frame for each \(s\),
+    notice the orthonormal relation can be written as \[
+        XX^t=I_3
+    .\] Where \(I_3\) is the identity matrix of dimension three. Take differential
+    on left hand side of the equation we get
+    \begin{align*}
+        \frac{\dif}{\dif s}(XX^t)&= X'X^t+X(X^t)'=X'X^t+X(X')^t \\
+        &= PXX^t+X(PX)^t \\
+        &= PXX^t+XX^t P^t \\
+        &= PXX^t-XX^t P
+    .\end{align*}
+    If we denote \(Y=XX^t\), we see \[
+        Y'=PY-YP
+    \] gives again a first order ODE system, with initial value \(Y(0)=I_3\). But
+    there is an obvious solution \(Y\equiv I_3\), so by uniqueness theorem, this
+    is it. This proves \(XX^t=I_3\) for any \(s\).
+
+    Until now, we have proved the existence of orthonormal moving frame
+    \(\{T,N,B\}\). Notice \(T\) is just \(\alpha'(s)\), so given initial point
+    \(\alpha(0)=\alpha_0\), integrate w.r.t \(s\) gives a valid solution \[
+        \alpha(s)=\alpha_0+\int_{0}^{s}T(\xi)\dif \xi
+    .\]
+
+    For the uniqueness, we need to look carefully into the initial condition we
+    chose for the solution \(\alpha\), that is, choice of initial frame
+    \(\{T_0,N_0,B_0\}\) and initial point \(\alpha_0\). Given two valid solution
+    curve \(\alpha,\beta\), with initial condition \((X_a,\alpha_0)\) and \((X_b,
+    \beta_0)\), we choose an orthogonal matrix \(T=X_b X_a^{-1}\), a constant
+    \(c=\beta_0-T\alpha_0\), then we see the curve \[
+        \tilde{\beta}=T(\alpha-\alpha_0)+\beta_0=T\alpha+c
+    \] satisfy exactly the same initial condition as \(\beta\), so they must agree.
+    This proves the uniqueness up to rigid motion we stated before.
+\end{proof}
+
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item \textbf{Exercise:} Check that for solution given above, \(\kappa\) and
+        \(\tau\) are its curvature and torsion.
+    \item We can view the ODE problem at a somehow higher point. Consider the space
+        of all orthonormal frames, it is actually a smooth manifold. It's a little
+        non-trivial but we can identity the space with three dimensional rotation
+        group \(SO(3)\), smoothly embedded into \(\mathbb{R}^9\), the space of
+        three dimensional matrices. The equation, can be interpreted to a (time
+        dependent) vector field on \(SO(3)\). One can verify the vector field
+        is tangent to the manifold, so it is actually a vector field not only in
+        \(\mathbb{R}^9\) but in \(SO(3)\) itself. Similar to the existence and
+        uniqueness theorem of ODEs on Euclid spaces, we have a version of such
+        theorem for smooth manifolds. It states that for a smooth manifold \(M\),
+        a (maybe time dependent) smooth vector field \(X\) on \(M\), then with any
+        given initial point \(p\), there exists an integral curve on \(M\) starting
+        at \(p\), tangent to \(X\) everywhere, and it is unique. Using the theorem,
+        we can say that with given initial \(\{T_0,N_0,B_0\}\), there exists a
+        unique solution \(\{T(s),N(s),B(s)\}\). Note that the solution is
+        automatically lie on \(SO(n)\), no need to verify it is orthonormal.
+\end{enumerate}
 \end{remark}

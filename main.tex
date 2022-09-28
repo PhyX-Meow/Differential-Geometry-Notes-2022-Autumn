@@ -52,9 +52,7 @@
 % \usepackage{physics}         % 提供了方便地打出 d/dx 等符号的命令
 % \usepackage{float}           % 我用来防止插图浮动 <- 你不需要它
 \usepackage{tensor}            % 张量指标
-
-
-
+\usepackage{commath}
 %==============================%
 
 %==============================%
@@ -83,26 +81,27 @@
 %==============================%
 %         定理环境设置         %
 %------------------------------%
-\theoremstyle{plain}\newtheorem{thm}{Theorem}
-\theoremstyle{definition}\newtheorem{defn}[thm]{Definition}
-\theoremstyle{plain}\newtheorem{axiom}[thm]{Axiom}
-\theoremstyle{plain}\newtheorem{coro}[thm]{Corollary}
-\theoremstyle{plain}\newtheorem{lemma}[thm]{Lemma}
-\theoremstyle{plain}\newtheorem{prop}[thm]{Proposition}
-\theoremstyle{plain}\newtheorem{conj}[thm]{Conjecture}
-\theoremstyle{plain}\newtheorem{prob}[thm]{Problem}
-\theoremstyle{plain}\newtheorem{const}[thm]{Construction}
-\theoremstyle{remark}\newtheorem{notation}[thm]{Notation}
-\theoremstyle{definition}\newtheorem*{ques}{Question}
-\theoremstyle{definition}\newtheorem*{ans}{Answer}
+\theoremstyle{plain}\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{plain}\newtheorem{axiom}[theorem]{Axiom}
+\theoremstyle{plain}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{plain}\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{plain}\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{plain}\newtheorem{prop}[theorem]{Proposition}
+\theoremstyle{plain}\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{plain}\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{plain}\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{remark}\newtheorem{notation}[theorem]{Notation}
+\theoremstyle{definition}\newtheorem*{question}{Question}
+\theoremstyle{definition}\newtheorem*{answer}{Answer}
 \theoremstyle{definition}\newtheorem*{goal}{Goal}
-\theoremstyle{plain}\newtheorem*{app}{Application}
-\theoremstyle{plain}\newtheorem*{exam}{Example}
-\theoremstyle{plain}\newtheorem*{exer}{Exercise}
+\theoremstyle{plain}\newtheorem*{application}{Application}
+\theoremstyle{plain}\newtheorem*{example}{Example}
+\theoremstyle{plain}\newtheorem*{exercise}{Exercise}
 \theoremstyle{remark}\newtheorem*{remark}{Remark}
 \theoremstyle{remark}\newtheorem*{note}{\small{Note}}
 \numberwithin{equation}{section}
-\numberwithin{thm}{section}
+\numberwithin{theorem}{section}
 \numberwithin{figure}{section}
 %==============================%
 

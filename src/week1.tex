@@ -106,11 +106,11 @@ In terms of entries,
     In modern Geometry, it's more common to use column vector as convention. This row vector convention was adopted by S.S. Chern and also Do Cormo's book.
 \end{remark}
 \section{Parametrized Curves}
-\begin{defn}
+\begin{definition}
     Let $I=(a,b)$, if $\alpha\colon I\to \mathbb{R}^3$ is a $C^\infty$ map,
     \[t \mapsto (x(t),y(t),z(t))\]
     then $\alpha(t)$ is a parametrized differentiable curve in $\mathbb{R}^3$. The image of $\alpha$ is called the trace of the curve. 
-\end{defn}
+\end{definition}
 \begin{remark}
     \hfill
     \begin{enumerate}[1)]
@@ -120,7 +120,7 @@ In terms of entries,
         \item ``Differentiable'' just means $\alpha(t)$ is a $C^\infty$ \textbf{map}, it does not say the (trace of) curve can not have singularities.
     \end{enumerate}
 \end{remark}
-\begin{exam}
+\begin{example}
     \hfill
     \begin{enumerate}[(1)]
         \item $\alpha(t)=(t,|t|)$ is not a differentiable curve.
@@ -156,7 +156,7 @@ In terms of entries,
             \end{tikzpicture}
         \end{center}
     \end{enumerate}
-\end{exam}
+\end{example}
 \begin{remark}
     (2) and (3) above may be the first examples you'll see in an algebraic geometry course.
 \end{remark}
@@ -173,7 +173,7 @@ In terms of entries,
 \begin{remark}
     Among above differentiable parametrizations, (2) and (3) are differentiable curves. However, if we take $\beta(t)=(t,t^{\frac{2}{3}})$, this also parametrizes (2), but it's not a differentiable curve!
 \end{remark}
-\begin{defn}
+\begin{definition}
     Let $\alpha(t)\colon I\to \mathbb{R}^3$ be a parametrized differentiable curve, then at $t_0\in I$.
     \[ \alpha'(t_0)=(x'(t_0),y'(t_0),z'(t_0))\]
     is the velocity of $\alpha(t)$ at $t_0$.
@@ -182,13 +182,13 @@ In terms of entries,
         \item If $\alpha'(t_0) = 0$, we call $\alpha(t_0)$ a singular point.
         \item If for all $t\in I$, $\alpha'(t)\neq 0$, we call $\alpha(t)$ a regular curve.
     \end{enumerate}
-\end{defn}
+\end{definition}
 \noindent
 \textbf{Question}: What can you say about $C^\infty$ parametrization for a regular curve?
 \begin{quotation}
 Regular curve $\Longleftrightarrow $ at each point, there is a unique tangent line.
 \end{quotation}
-\begin{exam}
+\begin{example}
 $\alpha(t)=(t^3,t^2)$ is not a regular curve. (Since $\alpha'(0)=0$)
 \begin{center}
     \begin{tikzpicture}
@@ -199,8 +199,8 @@ $\alpha(t)=(t^3,t^2)$ is not a regular curve. (Since $\alpha'(0)=0$)
         \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
     \end{tikzpicture}
 \end{center}
-\end{exam}
-\begin{exam}
+\end{example}
+\begin{example}
 $\alpha(t)=(t^2-1,t^3,t)$ is a regular curve.
 \begin{center}
     \begin{tikzpicture}
@@ -211,8 +211,8 @@ $\alpha(t)=(t^2-1,t^3,t)$ is a regular curve.
         \draw[->] (0,-2.5) -- (0,2.5) node[above] {$y$};
     \end{tikzpicture}
 \end{center}
-\end{exam}
-\begin{defn}
+\end{example}
+\begin{definition}
 Let $\alpha(t)$ be a regular curve, then the tangent line at $t_0$ is \[l(t)=\alpha(t_0)+\alpha'(t_0)(t-t_0))\]
 \begin{center}
     \begin{tikzpicture}[scale=1.5]
@@ -241,25 +241,25 @@ Let $\alpha(t)$ be a regular curve, then the tangent line at $t_0$ is \[l(t)=\al
     \draw($(M.south west)!1cm!180:(M.south east)$) -- ($(M.south west)!1cm!(M.south east)$);
     \end{tikzpicture}
 \end{center}
-\end{defn}
-\begin{defn}
+\end{definition}
+\begin{definition}
     Let $\alpha(t)$ be a regular curve, the arc-length of $\alpha(t)$ is 
     \[s(t)=\int_{t_0}^t \left|\alpha'(t)\right|\dd t.\]
     Then $s'(t)=\left|\alpha'(t)\right|$
-\end{defn}
+\end{definition}
 \textbf{Question} What's $\left|\alpha'(t)\right|$?
 
  
 $\alpha(t)\colon I\to \mathbb{R}^3$ is a curve in $\mathbb{R}^3$. Here on $\mathbb{R}^3$, as the Euclidean space, we always assume the standard Euclidean inner product on it, i.e. $\forall u=(u_1,u_2,u_3),v=(v_1,v_2,v_3)$
 \[\langle u,v\rangle=u_1 v_1+u_2 v_2+ u_3 v_3=\sum_{i,j=1}^3\delta_{ij}u_i v_j\]
 Let $\alpha(t)=(x(t),y(t),z(t)),\alpha'(t)=(x'(t),y'(t),z'(t))$, then $\left|\alpha'(t)\right|=\sqrt{\langle\alpha'(t),\alpha'(t)\rangle}$
-\begin{exer}
+\begin{exercise}
     Review vector Calculations, such as dot product, cross product and their properties, especially geometric meanie of these calculation, such as length, area, volume, angle, orientation, etc.
-\end{exer}
+\end{exercise}
 \noindent
 \textbf{Question}: Can you define the arclength of a regular curve in $\mathbb{R}^n$> How about on $\mathbb{S}^n$? \\
 $\bullet$ Arclength parameter(an intrinsic parametrization of a curve)
-\begin{exam}
+\begin{example}
 On a straight line, x=t describes the distance of the point away from the origin.
 \begin{center}
     \begin{tikzpicture}
@@ -269,7 +269,7 @@ On a straight line, x=t describes the distance of the point away from the origin
         \draw[->,blue] (-1,0.1)--(0,0.1) node[right] {};
     \end{tikzpicture}
 \end{center}
-\end{exam}
+\end{example}
 On a general curve, we also want ``some'' parameter, which describes the arclength of point away from the initial point. This can happen iff $|\alpha'(t)|=1$,i.e. a point on the curve moves in a unit speed.
 \[\Rightarrow s(t)=\int_0^t \dd t=t.\]
 \textbf{Question}: For a given regular curve $\alpha(t)\colon I\to \mathbb{R}^3$, how to find such parameter?
