@@ -320,9 +320,19 @@ The answer is {\large\bfseries YES!}
     .\end{align*}
     If we denote \(Y=XX^t\), we see \[
         Y'=PY-YP
-    \] gives again a first order ODE system, with initial value \(Y(0)=I_3\). But
-    there is an obvious solution \(Y\equiv I_3\), so by uniqueness theorem, this
-    is it. This proves \(XX^t=I_3\) for any \(s\).
+    \] In coordinates, if we set \(T=v_1,N=v_2,B=v_3\), and \[
+        y_{ij}(s)=\left<v_i(s),v_j(s)\right> ,\quad
+        P=(a_{ij})_{i,j=1}^3
+    .\] We have \(y_{ij}=y_{ji}, a_{ij}=-a_{ji}\), and then
+    \begin{align*}
+        \frac{\dif}{\dif s}y_{ij}&= \left<v_i',v_j\right> +\left<v_i,v_j'\right> \\
+        &= \left<a_{ik}v_k,v_j\right> +\left<v_i,a_{jk}v_k\right> \\
+        &= a_{ik}y_{kj}+a_{jk}y_{ki} \\
+        &= a_{ik}y_{kj}-y_{ik}a_{kj}
+    .\end{align*}
+    This gives again a first order ODE system, with initial value \(Y(0)=I_3\), or
+    say \(y_{ij}(0)=\delta_{ij}\), but there is an obvious solution \(Y\equiv I_3\),
+    so by uniqueness theorem, this is it. This proves \(XX^t=I_3\) for any \(s\).
 
     Until now, we have proved the existence of orthonormal moving frame
     \(\{T,N,B\}\). Notice \(T\) is just \(\alpha'(s)\), so given initial point
@@ -345,6 +355,9 @@ The answer is {\large\bfseries YES!}
 \begin{enumerate}[(1)]
     \item \textbf{Exercise:} Check that for solution given above, \(\kappa\) and
         \(\tau\) are its curvature and torsion.
+    \item The condition \(\kappa>0\) is needed for uniqueness. Can you construct a
+        counterexample when there is one point \st\ \(\kappa=0\).
+    \item Uniqueness can be proved without knowledge of ODEs, see theorem after this remark.
     \item We can view the ODE problem at a somehow higher point. Consider the space
         of all orthonormal frames, it is actually a smooth manifold. It's a little
         non-trivial but we can identity the space with three dimensional rotation
@@ -360,6 +373,38 @@ The answer is {\large\bfseries YES!}
         at \(p\), tangent to \(X\) everywhere, and it is unique. Using the theorem,
         we can say that with given initial \(\{T_0,N_0,B_0\}\), there exists a
         unique solution \(\{T(s),N(s),B(s)\}\). Note that the solution is
-        automatically lie on \(SO(n)\), no need to verify it is orthonormal.
+        automatically lie in \(SO(n)\), no need to verify it is orthonormal.
 \end{enumerate}
 \end{remark}
+
+\begin{proof}[Proof. (Uniqueness, without ODE knowledge)]\hfill
+
+    Let \(\alpha(s),\beta(s)\) share the same \(\kappa(s),\tau(s)\) as their
+    curvature and torsion, by similarly a rotation and a translation, we assume they
+    have same initial condition, \ie\ \(\alpha(0)=\beta(0)\), and the Frenet frame
+    agree at \(s=0\). We claim now we must have \(\alpha(s)=\beta(s),\forall\,s\).
+    
+    Notice \(\alpha(s)=\alpha(0)+\int_{s_0}^{s}\alpha'(s)\dif s\), so it
+    suffices to show \(T_\alpha=T_\beta\), equivalently \[
+        |T_\alpha-T_\beta|^2=0.
+    \] Take differential we get:
+    \begin{align*}
+        \frac{1}{2}\frac{\dif}{\dif s}|T_\alpha-T_\beta|^2
+        &= \left<T_\alpha-T_\beta,T_\alpha'-T_\beta'\right> \\
+        &= -\left<T_\alpha,\kappa N_\beta\right> -\left<T_\beta,\kappa
+        N_\alpha\right>
+    .\end{align*}
+    Similar calculation gives
+    \begin{align*}
+        \frac{1}{2}\frac{\dif}{\dif s}|N_\alpha-N_\beta|^2
+        &= \left<N_\alpha,\kappa T_\beta+\tau B_\beta\right>
+        +\left<N_\beta,\kappa T_\alpha+\tau B_\alpha\right> \\
+        \frac{1}{2}\frac{\dif}{\dif s}|B_\alpha-B_\beta|^2
+        &= -\left<B_\alpha,\tau N_\beta\right> -\left<B_\beta,\tau N_\alpha\right> 
+    .\end{align*}
+    Sum the three equation we have \[
+        \frac{1}{2}\frac{\dif}{\dif s}(|T_\alpha-T_\beta|^2+|N_\alpha-N_\beta|^2
+        +|B_\alpha-B_\beta|^2)=0
+    .\] But the sum of square equals 0 at \(s=s_0\), so it is identically 0,
+    in particular, \(T_\alpha=T_\beta\) for all \(s\).
+\end{proof}
