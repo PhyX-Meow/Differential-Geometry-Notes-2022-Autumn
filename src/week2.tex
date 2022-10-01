@@ -110,7 +110,7 @@ We have
     &= (2-2(1-\frac{1}{2}\theta_h^2)+\tilde{o}(\theta_h)^4)^{\frac{1}{2}} \\
     &= (\theta_h^2+\tilde{o}(\theta_h)^4)^{\frac{1}{2}}
 .\end{align*}
-Hence \[
+Hence, \[
     |\alpha''(s_0)|=\lim_{h \to 0} \left|\frac{\alpha'(s_0+h)-\alpha'(s_0)}{h}\right|
     =\lim_{h \to 0} \left|\frac{\theta_h}{h}\right|=|\theta'(s_0)|
 .\] \ie\ \(|\alpha''(s)|\) measures the changing rate of angle of tangents.
@@ -161,10 +161,10 @@ The plane determined by \(T,N\) is called the \emph{osculating plane} of
 \end{definition}
 \begin{remark}\hfill
 \begin{itemize}
-    \item \(\{T,N,B\}\) satisfies the right hand rule.
+    \item \(\{T,N,B\}\) satisfies the right-hand rule.
     \item \(|B'|\) measures how fast the point leaves the osculating plane.
 \end{itemize}
-If we denote \(\theta_h\) be angle between \(B(s_0+h)\) and \(B(s_0)\), similar to
+If we denote \(\theta_h\) be the angle between \(B(s_0+h)\) and \(B(s_0)\), similar to
 former calculation, we have
 \begin{align*}
     |B'(s_0)|&= \lim_{h \to 0} \left|\frac{B(s_0+h)-B(s_0)}{h}\right| \\
@@ -178,13 +178,13 @@ associate an oriented orthonormal frame \(\{T,N,B\}\).
 \begin{question}
     How these three vector fields are related to the geometry of the curve?
 \end{question}
-By definition, we write out 0-order info of \(\{T,N,B\}\), \ie\ \[
+By definition, we write 0-order info of \(\{T,N,B\}\), \ie\ \[
     \begin{cases}
         T=\alpha' & \\
         N=\frac{\alpha''}{|\alpha''|} & \implies T'=\alpha''=\kappa N \\
         B=T\times N & \implies B'=T'\times N+T\times N'=T\times N'
     \end{cases}
-.\] Since \(|B|=1\), we have \(B'\perp B\). Also from above we see \(B'\perp T\),
+.\] Since \(|B|=1\), we have \(B'\perp B\). Also, from above we see \(B'\perp T\),
 hence \(B'\parallel N\).
 \begin{definition}
     We define \[
@@ -240,7 +240,7 @@ consistently!
 \normalfont{}
 
 \begin{definition}
-    \(\{T,N,B\}\) is called Frenet trihedron of \(\alpha(s)\), it gives an moving 
+    \(\{T,N,B\}\) is called Frenet trihedron of \(\alpha(s)\), it gives a moving 
     orthonormal basis of \(\mathbb{R}^3\) along the curve \(\alpha(s)\).
 \end{definition}
 The Frenet equation describes how such moving orthonormal basis moves along 
@@ -311,7 +311,7 @@ The answer is {\large\bfseries YES!}
     notice the orthonormal relation can be written as \[
         XX^t=I_3
     .\] Where \(I_3\) is the identity matrix of dimension three. Take differential
-    on left hand side of the equation we get
+    on left-hand side of the equation we get
     \begin{align*}
         \frac{\dif}{\dif s}(XX^t)&= X'X^t+X(X^t)'=X'X^t+X(X')^t \\
         &= PXX^t+X(PX)^t \\
@@ -356,11 +356,11 @@ The answer is {\large\bfseries YES!}
     \item \textbf{Exercise:} Check that for solution given above, \(\kappa\) and
         \(\tau\) are its curvature and torsion.
     \item The condition \(\kappa>0\) is needed for uniqueness. Can you construct a
-        counterexample when there is one point \st\ \(\kappa=0\).
+        counterexample when there is one point \st\ \(\kappa=0\)?
     \item Uniqueness can be proved without knowledge of ODEs, see theorem after this remark.
     \item We can view the ODE problem at a somehow higher point. Consider the space
         of all orthonormal frames, it is actually a smooth manifold. It's a little
-        non-trivial but we can identity the space with three dimensional rotation
+        non-trivial, but we can identify the space with the three dimensional rotation
         group \(SO(3)\), smoothly embedded into \(\mathbb{R}^9\), the space of
         three dimensional matrices. The equation, can be interpreted to a (time
         dependent) vector field on \(SO(3)\). One can verify the vector field
