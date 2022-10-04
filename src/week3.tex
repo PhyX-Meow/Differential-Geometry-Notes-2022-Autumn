@@ -383,7 +383,8 @@ As an application, if $k(s)\not\equiv 0$, then $s=s(\theta)$
 is defined so that $\frac{\dd s}{\dd \theta}=\frac{1}{k}$,
 \ie\ $\theta$ can be used as a parameter
 of $\alpha(s)$. Such $\theta$ is called the angle parameter.\\
-{\LARGE\textbf{!}} In the study of geometry, the sign of the curvature is a
+{\Large\textcolor{red}{\textbf{!}}} 
+In the study of geometry, the sign of the curvature is a
 very important thing to keep in mind.
 \begin{definition}
     Let $\alpha\colon I\to \mathbb{R}^3$ be a regular curve. The point at
@@ -776,7 +777,11 @@ This implies that there must be points on both sides of $L$.
 \subsection{Minkowski problem(1-d)}
 \begin{theorem}[1-d Minkowski problem]
     \label{thm: Minkowski problem}
-    Given a periodic, strictly positive function k, there is an oval in 
+    Given a periodic, strictly positive function k, satisfying the following condition:
+    \[\int_0^{2\pi}\frac{\cos \theta}{k}\dd \theta=
+    \int_0^{2\pi}\frac{\sin \theta}{k}\dd \theta
+    .\]
+    There is an oval in 
     $\mathbb{R}^2$ (\ie\ simple closed strictly convex curve) such that 
     the curvature function is $k$. 
 \end{theorem}
@@ -895,8 +900,14 @@ $\alpha(s)$ is closed $\Leftrightarrow~h(0)=h(2\pi),~h'(0)=h'(2\pi)
 \begin{remark}
     In general (higher dimensional case) solving a similar P.D.E. equation is highly nontrivial!
     
-    Cheng-Yau 1976 CPAM: given a $C^{k,\alpha}$ positive function $k$ on the
-    sphere $\mathbb{S}^n$ ($k\ge 3$), there is a strictly convex closed 
+    Cheng-Yau 1976 CPAM: given a $C^{k,\alpha}$ positive function $K$ on the
+    sphere $\mathbb{S}^n$ ($k\ge 3$), which satisfies
+    \[
+    \int_{\mathbb{S}^n}\frac{x_i}{K}\dd V_{\mathbb{S}^n}=0
+    ,\]
+    where $x_1,x_2,\cdots,x_{n+1}$ are coordinate functions on 
+    $\mathbb{S}^n$. 
+    Then there is a strictly convex closed 
     hypersurface $M^n \hookrightarrow \mathbb{R}^{n+1}$ such
-    that the Gaussian curvature is $k$.
+    that the Gaussian curvature is $K$.
 \end{remark} 
