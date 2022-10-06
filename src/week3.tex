@@ -1,4 +1,3 @@
-\setlength{\headheight}{33.24858pt}
 \section{Global theory of plane curves}
 
 The global theory is related to ``topology'' of the geometric objects.
@@ -145,7 +144,7 @@ For simplicity, we write
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
     %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 
     %Shape: Ellipse [id:dp6953189046620603] 
@@ -305,7 +304,7 @@ is a unit tangent vector, \ie\ $|t(s)|=1$.
 
     \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
-    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
         %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 
         %Shape: Polygon Curved [id:ds0026171910463155257] 
@@ -527,7 +526,7 @@ This implies that there must be points on both sides of $L$.
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
 %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 
 %Shape: Polygon Curved [id:ds3071120878409017] 
@@ -815,8 +814,11 @@ a strictly convex curve, then $k>0$, and we can use the angle parameter $\theta$
     \end{tikzpicture}
 \end{center}
 Consider a function
-\[h(s)=-\langle \alpha(s),\vec{n}(s)\rangle\text{ support function}.\]
-(Recall: $\int_C h(s)\dd s=2\cdot\mathrm{Area}$). Clearly $h(0)=h(2\pi)$ if
+\[
+    h(s)=-\left<\alpha(s),\vec{n}(s)\right>\text{ support function}.
+\]
+(Recall $\int_C h(s)\dd s=2\cdot\mathrm{Area}$).\\
+Clearly $h(0)=h(2\pi)$ if
  we use 
  $h(\theta)=-\langle\alpha\left(s(\theta)\right),\vec{n}\left(s(\theta)\right)\rangle$. 
  \begin{align*}
@@ -832,7 +834,7 @@ We also conclude that
     +\langle \alpha(\theta), \vec{n}\rangle \cdot \vec{n}\\
     &=h'(\theta)\vec{t}-h(\theta)\vec{n}
 ,\end{align*}
-\ie\ the curve is determined by the support function $h$. 
+\ie\ the curve is determined by the support function $h$. \\
 $\left(\alpha(s)=h'(s)\dfrac{\dd s}{\dd \theta}\vec{t}-h(s)\vec{n}=h'(s)\dfrac{1}{k}\vec{t}-h(s)\vec{n}\right)$
 \begin{align*}
     h''(\theta)&=\langle \alpha'(s)\frac{\dd s}{\dd \theta},\vec{t}\rangle
@@ -869,8 +871,9 @@ In fact, from o.d.e, we can directly construct the solution like this:
     +\sin\theta \int_0^\theta \frac{\cos \psi}{k}\dd \psi  
 .\]
 Recall that $\vec{t}(s)=(\cos\theta,\sin\theta),~\vec{n}(s)=(-\sin \theta,\cos\theta).$
+Since
 \begin{align*}
-    \because \alpha(\theta)&=h'(\theta)\vec{t}-h(\theta)\vec{n}\\
+    \alpha(\theta)&=h'(\theta)\vec{t}-h(\theta)\vec{n}\\
     &=\left(
         \cos\theta\sin\theta\int_0^\theta\frac{\sin\psi}{k}
         +\cos^2\theta\int_0^\theta\frac{\cos\psi}{k},
