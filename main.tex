@@ -49,10 +49,10 @@
 %==============================%
 %     请在这里添加其它宏包     %
 %------------------------------%
-% \usepackage{physics}         % 提供了方便地打出 d/dx 等符号的命令
 % \usepackage{float}           % 我用来防止插图浮动 <- 你不需要它
 \usepackage{tensor}            % 张量指标
 \usepackage{commath}
+\usepackage{physics}           % 提供了方便地打出 d/dx 等符号的命令
 %==============================%
 
 %==============================%
@@ -62,10 +62,8 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\img}{Im}
-\DeclareMathOperator{\dd}{d\!}
 \newcommand{\card}{\texttt{\#}}
 \newcommand{\ie}{\emph{i.e.}}
 \newcommand{\st}{\emph{s.t.}}
@@ -181,6 +179,9 @@
 \input{src/week1.tex}
 \input{src/week2.tex}
 \input{src/week3.tex}
+
+\chapter{Differential Geometry of Surfaces}
+\input{src/week4.tex}
 
 %==============================%
 
