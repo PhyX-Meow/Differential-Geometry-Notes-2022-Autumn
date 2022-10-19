@@ -316,7 +316,7 @@ and regular. To see they are homeomorphism, we can compute e.g. \[
     F_1^{-1}(x,y,z)=(\arccos \frac{x}{\sqrt{x^2+y^2}}, \arccos z)
 .\] 
 
-\noindent (c) Stereographical parametrization.
+\noindent (c) Stereographic parametrization.
 
 Consider the ray connecting north pole \((0,0,1)\) and point \((x,y,z)\) on
 \(\mathbb{S}^2\). Then there is a unique point \((u,v)\) on \(xy\)-plane on the
@@ -326,3 +326,53 @@ ray, the projection is given by \[
 \] which is rational map, with inverse \[
     p_N^{-1}(u,v)=(\frac{2u}{1+u^2+v^2},\frac{2v}{1+u^2+v^2},1-\frac{2}{1+u^2+v^2})
 \] also rational and normal.
+
+Similarly consider the projection from \(S=(0,0,-1)\), \(p_S(x,y,z)=(\frac{y}{1+z},
+\frac{x}{1+z})\), these two charts can cover \(\mathbb{S}^2\).
+
+\begin{exercise}
+    Check the transition function \[
+        p_S\circ p_N^{-1}=(\frac{u}{u^2+v^2},\frac{v}{u^2+v^2})
+    .\] 
+\end{exercise}
+
+\begin{remark}
+    In the stereographic projection parametrization, if we identify \(\mathbb{R}^2\)
+    with \(\mathbb{C}^1\), and introduce complex coordinate \[
+        w_1=\frac{x}{1-z}+\frac{y}{1-z}i,\quad
+        w_2=\frac{x}{1+z}-\frac{y}{1+z}i
+    .\] Then we can check \[
+        w_1\cdot w_2=1\quad \text{and} \quad
+        p_S\circ p_N^{-1}(w_1)=w_2
+    .\] In this way, we have given a ``complex structure'' on \(\mathbb{S}^2\),
+    the resulting surface is an 1 dim complex manifold, called \(\mathbb{CP}^1\).
+    You'll learn more abort \(\mathbb{CP}^n\) in complex / algebraic geometry.
+\end{remark}
+
+\textbf{\color{red}!!} \(\mathbb{S}^2\) is a very important example in geometry. One
+should keep this example in mind and try to understand and explore it in studding
+geometry. \(\mathbb{S}^2\) is a (strictly) convex surface, has maximal number
+of \(\mathbb{S}^1\) action (This tells the moment polytope is a line segment).
+It has 3-rotation axis (3 Killing vector fields). It looks the same everywhere
+(homogeneous). However, since every circle on \(\mathbb{S}^2\) can shrink to a point,
+without obstruction, \ie\ \(\pi_1(\mathbb{S}^2)=0\), the fundamental group does not
+play a role here.
+
+\begin{example}[3]
+    Graph of a function, \ie\ \((x,y,z=f(x,y))\) is a regular surface. More
+    generally, if a surface \(S\) can be expressed (locally or globally) as graph
+    of smooth functions, then \(S\) is a regular surface.
+\end{example}
+Parametrization is given by \[
+    F\colon U\to S,\quad (x,y)\to (x,y,f(x,y))
+.\] We have 
+\begin{enumerate}[(a)]
+    \item \(F\) is smooth \checkmark{}
+    \item \(F\) is homeomorphism, \(F^{-1}(x,y,z)=(x,y)\).
+    \item \(F\) is regular \(\det\mathrm{Jac}(\dd{F})=1\).
+\end{enumerate}
+
+\begin{example}[4]
+    More generally, the level set of a smooth function \(f(x,y,z)\) at a
+    \underline{regular value} is a regular surface.
+\end{example}
