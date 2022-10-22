@@ -31,7 +31,7 @@ Similarly, if the point lies on other five charts(see \cref{charts on unit spher
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
     %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 
     %Shape: Axis 2D [id:dp5905610283034792] 
@@ -87,6 +87,7 @@ Similarly, if the point lies on other five charts(see \cref{charts on unit spher
 
 
 \end{tikzpicture}
+
 Smoothness is not affected by the coordinate change. Moreover, it's easy to
 apply the chain rule to find relation of differentials of f between
 different coordinate charts.
@@ -280,8 +281,7 @@ different coordinate charts.
     $\mathbb{S}^2(1)$ by changing radius.
 \end{example}
 {\Large\textcolor{red}{\textbf{!}}} {All diffeomorphism of a surface}
-is a
-group.(Lie group)(because the composition(multiplication of the group)
+is a group. (Lie group) (because the composition (multiplication of the group)
 of two diffeomorphism is also a diffeomorphism).
 \begin{example}
     ${x^2+y^2+z^2=1}$ is diffeomorphic to ${\left(\frac{x}{a}\right)^2
@@ -306,7 +306,7 @@ of two diffeomorphism is also a diffeomorphism).
         \left(\frac{u}{a}\right)^2
         +\left(\frac{v}{b}\right)^2+\left(\frac{w}{c}\right)^2=1
         .\]
-    By checking points in other five charts on $\mathbb{S}^2$, we obtain $\varphi\colon \mathbb{S}^2\to \text{ellipsoid}$ is a diffeomorphism.($\varphi^{-1}$ is self-clear in the above expression.)
+    By checking points in other five charts on $\mathbb{S}^2$, we obtain $\varphi\colon \mathbb{S}^2\to \text{ellipsoid}$ is a diffeomorphism. ($\varphi^{-1}$ is self-clear in the above expression.)
 \end{proof}
 \section{Tangent plane and differential of a map}
 $\bullet$ Let $S$ be a regular surface, \(p_0\in S\). In Calculus, we
@@ -326,14 +326,14 @@ However, this definition has some deficiency:
 \begin{enumerate}[(1)]
     \item We ``have'' not checked what happened if we change the parameter.
 
-          \textcolor{blue}{(In geometry, whenever you define a concept by using
-              some parametrization, you should always check that the concept doesn't
-              depend on the choice of your parametrization, so it's a well-defined
-              definition.)}
+      \textcolor{blue}{(In geometry, whenever you define a concept by using
+          some parametrization, you should always check that the concept doesn't
+          depend on the choice of your param, so it's a well-defined
+          definition.)}
     \item When we write the equation of the tangent plane, we have used
-          Euclidean inner product in $\mathbb{R}^3$.
+      Euclidean inner product in $\mathbb{R}^3$.
 
-          \textcolor{blue}{(The tangent space should be an intrinsic object, \ie\ it depends on the surface itself only.)}
+      \textcolor{blue}{(The tangent space should be an intrinsic object, \ie\ it depends on the surface itself only.)}
 \end{enumerate}
 \begin{definition}[Tangent vector]
     $V$ is called a tangent vector at \(p\in S\) if \(\exists\) a smooth
@@ -434,8 +434,8 @@ if \(\alpha_1(0)=\alpha_2(0)\) and \(\alpha_1'(0)=\alpha_2'(0)\).
               more abstract.
     \end{enumerate}
 \end{remark}
-Claim: Local expression of tangent vector is independent of the choice
-of local parametrization.
+\textbf{Claim:} Local expression of tangent vector is independent of the choice of
+local param.
 \begin{proof}
     Let \(\alpha(s)\colon (-\epsilon,\epsilon)\to S\) be the regular curve
     such that \(\alpha'(0)=V\) for the given tangent vector \(V\) at \(p\).
@@ -599,9 +599,9 @@ of local parametrization.
 \begin{enumerate}[(1)]
     \item On \(\mathbb{R}^n\).
     \begin{itemize}
-        \item A vector is \(V=(v^1,v^2,\cdots,v^n)\).
-        \item A standard basis is \(\{e_1,e_2,\cdots,e_n\}\), where 
-        \(e_i=(0,\cdots,\mathop{1}\limits^{i^{th}},\cdots,0)\).\\
+        \item A vector is \(V=(v^1,v^2,\ldots,v^n)\).
+        \item A standard basis is \(\{e_1,e_2,\ldots,e_n\}\), where 
+        \(e_i=(0,\ldots,\mathop{1}\limits^{i^{th}},\ldots,0)\).\\
         \(\Rightarrow V=\sum_{i=1}^n v^i e_i\).
         \item \(f\) is smooth in \(\mathbb{R}^n\), the directional 
         derivative  along a vector \(v\) at \(p\) is 
@@ -610,7 +610,7 @@ of local parametrization.
                 =\sum_{i=1}^n v^i\left.\pdv{f}{x^i}\right|_p  
                 =\left.\left(\sum_{i=1}^n v^i\pdv{x^i}\right)f\right|_p.
         \]
-        Hence, we can identify \(e_i=\pdv{x^i}\) for \(i=1,2,\cdots,n\)
+        Hence, we can identify \(e_i=\pdv{x^i}\) for \(i=1,2,\ldots,n\)
         and shall call \(\pdv{x^i}\) the coordinate vector (field).
         \[
             \Rightarrow V=\sum_{i=1}^n  v^i e_i=\sum_{i=1}^n v^i\pdv
@@ -649,12 +649,14 @@ of local parametrization.
         curve \(\alpha\colon (-\epsilon,\epsilon)\to S\) such that
         \(\alpha(t)=p\), \(\alpha'(0)=V\).
         \item To compute \(V\), we choose a local parametrization
-        \[F\colon U(\subset \mathbb{R}^2)\to S\subset \mathbb{R}^3\]
-        \[(y^1,y^2)\mapsto (x^1,x^2,x^3)\]
-        \(\Rightarrow \alpha(s)=F\left(y^1(s),y^2(s)\right)\)(This is to 
+        \begin{align*}
+            F\colon U(\subset \mathbb{R}^2) &\longrightarrow S\subset \mathbb{R}^3\\
+            (y^1,y^2) &\longmapsto (x^1,x^2,x^3)
+        .\end{align*}
+        \(\Rightarrow \alpha(s)=F\left(y^1(s),y^2(s)\right)\) (This is to 
         say we consider 
         \(\alpha\colon(-\epsilon,\epsilon)\to U
-        \mathop{\longrightarrow }\limits^{F} S\).)\\
+        \mathop{\longrightarrow }\limits^{F} S\)).
         \[
             \Rightarrow V=\alpha'(0)=\left.
             \left(
@@ -803,17 +805,19 @@ of local parametrization.
         Note that \(\varphi_\alpha\colon U_\alpha \to \varphi_\alpha
         \left(U_\alpha\right)\) actually endow a coordinate on the chart
          \(U_\alpha\), \ie\ \(p\in U_\alpha\), \(\varphi_\alpha(p)
-         =\left(x^1(p),x^2(p),\cdots,x^n(p)\right).
+         =\left(x^1(p),x^2(p),\ldots,x^n(p)\right).
          \)
          Hence, \(p\in M\), choose \(U_\alpha\) as its coordinate chart
          \[
-            \Rightarrow T_p M=\Span\left\{\pdv{x^1},\cdots,\pdv{x^n}
+            \Rightarrow T_p M=\Span\left\{\pdv{x^1},\ldots,\pdv{x^n}
             \right\}.
          \]
          Note that if at \(p\), there are two coordinate charts
-         \(\left\lbrace U,\left(x^1,\cdots,x^n\right)\right\rbrace\)
-         and 
-         \(\left\lbrace V,\left(y^1,\cdots,y^n\right)\right\rbrace\),
+         \[
+             \left\lbrace U,\left(x^1,\ldots,x^n\right)\right\rbrace
+             \text{ and } 
+             \left\lbrace V,\left(y^1,\ldots,y^n\right)\right\rbrace,
+         \]
          and a vector \(V\in T_p S\) is expressed as 
          \[
             V=\sum_{i=1}^n V^i\pdv{x^i}=\sum_{\alpha=1}^n 
@@ -857,13 +861,15 @@ of local parametrization.
         \begin{itemize}
             \item \(\varphi_\alpha\colon U_\alpha\to \varphi
             \left(U_\alpha\right)\subset \mathbb{R}^n\) is a 
-            homeomorphism. \(\varphi_\alpha(p)=\left(x^1_\alpha(p),
-            x^2_\alpha(p),\cdots,x^n_\alpha(p)\right)\)
+            homeomorphism,
+            \[
+                \varphi_\alpha(p)=\left(x^1_\alpha(p),
+                x^2_\alpha(p),\ldots,x^n_\alpha(p)\right).
+            \]
             \item \(\varphi_\beta\circ \varphi_\alpha^{-1}\colon
             \varphi_\alpha\left(U_\alpha\cap U_\beta\right)
             \to \varphi_\beta\left(U_\alpha\cap U_\beta\right)
-            \)
-            is smooth, \(\forall\alpha,\beta\) such that 
+            \) is smooth, \(\forall\alpha,\beta\) such that 
             \(U_\alpha\cap U_\beta\neq \emptyset\).
         \end{itemize}
         \item For each \(U_\alpha\), \(\pi^{-1}\left(U_\alpha\right)\)
@@ -876,14 +882,14 @@ of local parametrization.
             \mathbb{R}^n
         \]
         \[
-            (p,V)\mapsto \left(\varphi_\alpha(p),V^1,V^2,\cdots,
+            (p,V)\mapsto \left(\varphi_\alpha(p),V^1,V^2,\ldots,
             V^n\right).    
         \]
         Note \(\widetilde{\varphi}_\alpha(p)=\left(x^1_\alpha(p)
-        ,x^2_\alpha(p),\cdots,x^n_\alpha(p)\right)\), 
+        ,x^2_\alpha(p),\ldots,x^n_\alpha(p)\right)\), 
         \(V=\sum_{i=1}^n V^i(p)\pdv{x^i}\), then
         \[\widetilde{\varphi}_\alpha^{-1}\left(x^1_\alpha
-        ,\cdots,x^n_\alpha;V^1,\cdots,V^n\right)=
+        ,\ldots,x^n_\alpha;V^1,\ldots,V^n\right)=
         \left(p,\sum V^i \pdv{x^i}\right)
         ,\]
         \ie\ \(\widetilde{\varphi}_\alpha\) is bijective and
@@ -909,14 +915,14 @@ of local parametrization.
             \widetilde{\varphi}_\alpha(p,V)
             = \left(x^1_\alpha(p),
             \cdots,x^n_\alpha(p);
-            V^1_\alpha,\cdots,V^n_\alpha
+            V^1_\alpha,\ldots,V^n_\alpha
             \right)
         \]
         \[
             \widetilde{\varphi}_\beta(p,V)
             = \left(x^1_\beta(p),
             \cdots,x^n_\beta(p);
-            V^1_\beta,\cdots,V^n_\beta
+            V^1_\beta,\ldots,V^n_\beta
             \right) 
         \]
         \begin{align*}
@@ -926,12 +932,12 @@ of local parametrization.
             \left(
                 x^1_\alpha(p),
             \cdots,x^n_\alpha(p);
-            V^1_\alpha,\cdots,V^n_\alpha
+            V^1_\alpha,\ldots,V^n_\alpha
             \right)
             \\=
             \left(x^1_\beta(p),
             \cdots,x^n_\beta(p);
-            V^1_\beta,\cdots,V^n_\beta
+            V^1_\beta,\ldots,V^n_\beta
             \right), 
         \end{align*}
             where
@@ -950,12 +956,12 @@ of local parametrization.
             \left(
                 x^1_\alpha(p),
             \cdots,x^n_\alpha(p);
-            V^1_\alpha,\cdots,V^n_\alpha
+            V^1_\alpha,\ldots,V^n_\alpha
             \right)
             \\&=
             \left(
                 \varphi_\beta\circ \varphi_\alpha^{-1}
-                \left(x^1_\alpha,\cdots,x^n_\alpha\right);
+                \left(x^1_\alpha,\ldots,x^n_\alpha\right);
                 \sum_{i=1}^n V^i_\alpha 
                 \pdv{y^1_\beta}{x^i_\alpha},
                 \cdots,
@@ -983,7 +989,7 @@ of local parametrization.
                 V\colon M\to TM    
             \]
             such that \(\pi\circ V=\mathrm{id}_M\). In a coordinate
-            chart \(\left(U_\alpha,\left(x^1_\alpha,\cdots
+            chart \(\left(U_\alpha,\left(x^1_\alpha,\ldots
             x^n_\alpha
             \right)\right)\), \[
               V=\sum_{i=1}^n V^i_\alpha(x)\pdv{x^i_\alpha} 

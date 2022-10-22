@@ -375,5 +375,200 @@ Parametrization is given by \[
 
 \begin{example}[4]
     More generally, the level set of a smooth function \(f(x,y,z)\) at a
-    \underline{regular value} is a regular surface.
+    \underline{regular} \underline{value} is a regular surface.
 \end{example}
+
+\begin{definition}[Critical point (value) \& regular point (value)]
+    Let \(F\colon U\subset \mathbb{R}^m\to \mathbb{R}^n\) be smooth map.
+    \begin{itemize}
+    \item If \(\dd{F_p}\colon\mathbb{R}^m\to \mathbb{R}^n\) is surjective, \ie 
+        \(\rank\dd{F_p}=n\), then \(p\) is called a regular point. \(c\in
+        \mathbb{R}^n\) is called a regular value if \(\forall\,p\in F^{-1}(c)\) is
+        regular point. If \(F^{-1}(c)\) is empty we also call \(c\) a regular point.
+    \item If \(\dd{F_P}\) is not surjective, then \(p\) is called a critical point,
+        and \(F(p)\) is called a critical value.
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    If \(c\) is a regular value, then \(F^{-1}(c)\) is a smooth embedded submanifold
+    of \(\mathbb{R}^n\), with codimension \(n\).
+\end{remark}
+
+From linear algebra, \(\dd{F_p}\) is surjective \(\iff \dim\ker\dd{F_p}=m-n\).
+Hence, when we talk abort ``regular'' point / value, it only makes sense when
+\(m\ge n\).
+
+Now, let's consider the case we're interested in. Let
+\begin{align*}
+    f\colon\mathbb{R}^3 &\longrightarrow \mathbb{R}\quad\text{is smooth function} \\
+    (x,y,z) &\longmapsto f(x,y,z)
+.\end{align*}
+We compute \(\dd{f_p},\quad p\in U\subset \mathbb{R}^3=\Span\{\pdv{x},\pdv{y},
+\pdv{z}\},\quad\mathbb{R}^1=\{\pdv{w}\}\): \[
+    \left[ \dd{f_p}(\pdv{x}) \right] h=\pdv{x}(h\circ f)(p)=\pdv{h}{w}\pdv{f}{x},
+    \quad\forall\, h\text{ smooth function in } w
+.\]
+Hence \[
+    \dd{f_p}(\pdv{x})=\pdv{f}{w}(p)\pdv{w}
+.\] \ie\ \[
+    \dd{f_p}\begin{bmatrix}
+        \pdv{x} \\
+        \pdv{y} \\
+        \pdv{z}
+    \end{bmatrix}
+    =\begin{bmatrix}
+        \pdv{f}{x} \\
+        \pdv{f}{y} \\
+        \pdv{f}{z}
+    \end{bmatrix}\pdv{w}
+.\] Hence \(p\) is critical value \(\iff \rank\begin{bmatrix}
+    \pdv{f}{x} \\
+    \pdv{f}{y} \\
+    \pdv{f}{z}
+\end{bmatrix}_p<1
+\iff \pdv{f}{x}=\pdv{f}{y}=\pdv{f}{z}=0\) at \(p\).
+
+This is exactly how we define the ``critical point'' of \(f(x,y,z)\) formerly.
+\(p\) is a regular point \(\iff \) at least one of partial derivatives is nonzero
+at \(p\).
+
+\begin{prop}[Level surface is regular]
+    Let \(f\colon U\subset\mathbb{R}^3\to \mathbb{R}\) be a smooth function. \(c\)
+    is regular value of \(f\), then \[
+        f^{-1}(c)=\{(x,y,z)\in U:f(x,y,z)=c\}
+    \] is a regular surface (in \(U\)).
+\end{prop}
+
+For example, \(f(x,y,z)=x^2+y^2+z^2\), then \(\forall\,c>0\), level surface
+\(f^{-1}(c)\) is regular. This is exactly the sphere of radius \(\sqrt{c}\).
+
+\begin{proof}
+    \(\forall\,p\in U\) \st\ \(f(p)=c\), write \(p=(x,y,z)\). Since \(c\) is regular
+    value, at least one of \(f_x(p),f_y(p),f(z)\) is non-vanishing. Wlog assume
+    \(f_z(p)\neq 0\). Then by implicit function theorem, \(\exists\) a neighbourhood
+    of \((x,y)\) \st\ \(z=h(x,y)\) and \(f(x,y,h(x,y))=c\) locally.
+    Hence near \(p\) we have a local parametrization given by graph \((x,y,h(x,y))\),
+    then \(f^{-1}(c)\) is regular by example (3).
+\end{proof}
+
+\begin{theorem}[Implicit function]
+    Let \(U\subset \mathbb{R}^m,\ V\subset \mathbb{R}^n\) be open sets,
+    \(F\colon U\times V\to \mathbb{R}^n\) be smooth (Only need \(C^1\)) map \[
+        (x^1,\ldots,x^m,y^1,\ldots,y^n)\mapsto (f^1,\ldots,f^n)
+    .\] If \(f(x_0,y_0)=0\) and \(\pdv{(f^1,\ldots,f^n)}{(y^1,\ldots,y^n)}\)
+    has full rank (\ie\ rank \(n\)) at \((x_0,y_0)\), then \(\exists\) a
+    neighbourhood \(x_0\in U_0\subset U,\ y_0\in V_0\subset V\) and \(h\colon U_0
+    \to V_0\) a smooth map, \st\ locally \((y^1,\ldots,y^n)=h(x^1,\ldots,x^m)\) and 
+    \(F(x^1,\ldots,x^m,g(x^1,\ldots,x^m))=0\).
+\end{theorem}
+
+\begin{remark}
+    The implicit function theorem is one of the most frequently used theorems
+    in geometry and PDE theory. As an exercise, please review the version you learned
+    in previous class. In geometry, roughly speaking, the implicit function theorem
+    can be understood as: the tangent plane determines the ``small'' neighbourhood
+    of a point on a regular surface.
+\end{remark}
+
+In example (3), we see the graph of a smooth function \(f(x,y)\) is a regular
+surface. The converse is also true locally.
+\begin{prop}
+    \(S\) is a regular surface in \(\mathbb{R}^3\), \(p\in S\), then there is a
+    neighbourhood \(U\) of \(p\) \st\ \(U\) is a graph of a smooth function
+    (Either \(z=f_1(x,y)\) or \(y=f_2(z,x)\) or \(x=f_3(y,z)\)).
+\end{prop}
+\begin{proof}
+    \(S\) is regular \(\implies \) near \(p\) we have local parametrization
+    \begin{align*}
+        F\colon U\subset \mathbb{R}^2 &\longrightarrow S\subset \mathbb{R}^3 \\
+        (u,v) &\longmapsto (x(u,v),y(u,v),z(u,v))
+    .\end{align*}
+    Since \(\dd{F_p}\) is injective \(\implies \) at least one of \[
+        \left|\pdv{(x,y)}{(u,v)}\right|,\quad
+        \left|\pdv{(y,z)}{(u,v)}\right|,\ 
+        \text{or }\left|\pdv{(z,x)}{(u,v)}\right|
+    \] is non-vanishing.
+    If we assume \(\left|\pdv{(x,y)}{(u,v)}\right|\neq 0\), then by the inverse
+    (implicit) function thm, \(u,v\) are functions of \(x,y\) \ie\ \[
+        \begin{cases}
+            x=x(u,v) \\
+            y=y(u,v)
+        \end{cases}\longleftrightarrow
+        \begin{cases}
+            u=u(x,y) \\
+            v=v(x,y)
+        \end{cases}
+    .\] Hence above local parametrization \(F\) can be rewritten as \[
+        \tilde{F}(x,y)=(x,y,z(u(x,y),v(x,y)))=(x,y,z(x,y)).
+    \] 
+\end{proof}
+
+On a regular surface \(S\), one prefers to find a ``nice'' coordinate
+(local parametrization) to carry out computation to analyze geometric properties.
+If there is a possible local parametrization, the following proposition says it
+suffices to check (1) and (3) in the definition, and only part of (2), then this
+parametrization is indeed a parametrization on \(S\).
+\begin{prop}
+    \(S\) is a regular surface, \(F\colon U\to \mathbb{R}^3\) is a (local)
+    parametrization, near some point \(p\), if \(F\) is smooth and regular, also
+    \(F\) is bijective, then \(F^{-1}\) is also continuous.
+\end{prop}
+\begin{proof}
+    Essentially by the implicit function thm, refer to Do Carmo's book.
+\end{proof}
+
+\begin{example}
+    We have checked \(\mathbb{S}^2\) is a regular surface by using the local
+    parameter induced from \(\mathbb{R}^3\). Hence once we write the spherical
+    coordinate, then clearly it gives a local parametrization by above proposition.
+\end{example}
+
+% Figure here
+\begin{example}[Torus]
+    Rotating \((y-\sqrt{2})^2+z^2=1\) around \(z\)-axis, then the resulting surface
+    is a torus \[
+        (\sqrt{x^2+y^2}-\sqrt{2})^2+z^2=1
+    .\] This is a level surface of \(f(x,y,z)=(\sqrt{x^2+y^2}-\sqrt{2})^2+z^2\) and
+    1 is a regular value. Hence it's a regular surface. It's convenient to use
+    the following parametrization \[
+        \begin{cases}
+            x=(\sqrt{2}+\cos\theta)\sin\vphi \\
+            y=(\sqrt{2}+\cos\theta)\cos\vphi \\
+            z=\sin\theta
+        \end{cases}
+    .\] 
+\end{example}
+
+\begin{exercise}[Homework]
+    Show that the two-sheeted cone, with its vertex at origin \[
+        \{(x,y,z)\in \mathbb{R}^3:x^2+y^2-z^2=0\}
+    \] is not a regular surface.
+\end{exercise}
+% Figure here
+
+% \begin{proof}
+    % For a regular surface, we know at each point, there is a unique tangent plane.
+    % Now we show at the vertex point of the cone, there are at lease two tangent
+    % planes:
+    % \begin{enumerate}[(1)]
+        % \item Consider two lines \[
+            % \begin{cases}
+                % (x,x,\sqrt{2}x)\\
+                % (x,x,-\sqrt{2}x)
+            % \end{cases},
+        % \] then the normal vector of the plane is \((1,-1,0)\).
+        % \item Consider two lines \[
+            % \begin{cases}
+                % (x,x,\sqrt{2}x)\\
+                % (x,-x,\sqrt{2}x)
+            % \end{cases},
+        % \] then the normal vector of the plane is \((\sqrt{2},0,-1)\).
+    % \end{enumerate}
+% \end{proof}
+
+\begin{exercise}
+    \(P=\{(x,y,z):x=y\}\), let \(X\colon U\to \mathbb{R}^3\) given by \[
+        X(u,v)=(u+v,u-v,uv)
+    \] where \(U=\{(u,v)\in \mathbb{R}^2:u>v\}\). Clearly \(X(U)\subset P\). Is
+    \(X\) a parametrization of \(P\)?
+\end{exercise}
