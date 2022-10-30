@@ -326,9 +326,9 @@ However, this definition has some deficiency:
 \begin{enumerate}[(1)]
     \item We ``have'' not checked what happened if we change the parameter.
 
-      \textcolor{blue}{(In geometry, whenever you define a concept by using
+    \textcolor{blue}{(In geometry, whenever you define a concept by using
           some parametrization, you should always check that the concept doesn't
-          depend on the choice of your param, so it's a well-defined
+          depend on the choice of your parametrization, so it's a well-defined
           definition.)}
     \item When we write the equation of the tangent plane, we have used
       Euclidean inner product in $\mathbb{R}^3$.
@@ -435,7 +435,7 @@ if \(\alpha_1(0)=\alpha_2(0)\) and \(\alpha_1'(0)=\alpha_2'(0)\).
     \end{enumerate}
 \end{remark}
 \textbf{Claim:} Local expression of tangent vector is independent of the choice of
-local param.
+local parametrization.
 \begin{proof}
     Let \(\alpha(s)\colon (-\epsilon,\epsilon)\to S\) be the regular curve
     such that \(\alpha'(0)=V\) for the given tangent vector \(V\) at \(p\).
@@ -546,7 +546,8 @@ local param.
         \vdot \pdv{(u,v)}{s}\right|_{s=0}
         =
         \pdv{(x,y,z)}{(\alpha,\beta)}\vdot
-        \underbrace{\pdv{(\alpha,\beta)}{(u,v)}\vdot\pdv{(u,v)}{(\alpha,\beta)}}_{\text{identity matrix}}
+        \underbrace{\pdv{(\alpha,\beta)}{(u,v)}\vdot\pdv{(u,v)}
+        {(\alpha,\beta)}}_{\text{identity matrix}}
         \vdot\left. \pdv{(\alpha,\beta)}{s}
         \right|_{s=0}
     \]
@@ -578,7 +579,8 @@ local param.
 \begin{remark}
     \hfill
     \begin{enumerate}[(1)]
-        \item \(T_p S\) is the full image of linear space under a linear map, thus \(T_pS\) is a linear space of dimension 2.
+        \item \(T_p S\) is the full image of linear space under a linear 
+        map, thus \(T_pS\) is a linear space of dimension 2.
         \item \(dF_q\) is injective \(\Rightarrow\)\(F_u(q),F_v(q)\) are
               linearly independent, and they are tangent vectors of coordinate
               curve \(F(u,v_0)\) and \(F(u_0,v)\) at \((u_0,v_0)=q\),
@@ -597,7 +599,8 @@ local param.
 \end{remark}
 \subsection*{Tangent vector, tangent space, tangent bundle and tangent vector field}
 \begin{enumerate}[(1)]
-    \item On \(\mathbb{R}^n\).
+    \item \label{Tangent vector: R^n case}
+    On \(\mathbb{R}^n\).
     \begin{itemize}
         \item A vector is \(V=(v^1,v^2,\ldots,v^n)\).
         \item A standard basis is \(\{e_1,e_2,\ldots,e_n\}\), where 
@@ -667,7 +670,7 @@ local param.
             \right|_{p(s=0)}.
         \]
         Notice \(V\) is a vector in \(\mathbb{R}^3\), by using notation
-        in (1)
+        in \cref{Tangent vector: R^n case}
         \[
             V_p=\sum_{\alpha=1}^3\left(\sum_{i=1}^2\pdv{x^\alpha}{y^i}
             \dv{y^i}{s}\right)\left. \pdv{x^\alpha}  \right|_p.
@@ -691,7 +694,8 @@ local param.
             F_{y^i}=\sum_{\alpha=1}^3\pdv{x^\alpha}{y^i}\pdv
             {x^\alpha},
         \] 
-        by using the notation in (1), and we can write
+        by using the notation in \cref{Tangent vector: R^n case}, 
+        and we can write
         \[
             F_{y^i}=\pdv{F}{y^i}=dF_{F^{-1}(p)}\left(\pdv{y^i}\right),
             ~i=1,2.
@@ -874,7 +878,7 @@ local param.
         \end{itemize}
         \item For each \(U_\alpha\), \(\pi^{-1}\left(U_\alpha\right)\)
         contains all pairs \((p,V),p\in U_\alpha,V\in T_p M\). We define
-        local trivialization (an local coordinate chart near \((p,V)\) 
+        local trivialization (local coordinate chart near \((p,V)\)) 
         by letting 
         \[
             \widetilde{\varphi}_\alpha\colon 
@@ -1064,15 +1068,15 @@ local param.
                 -2uv\pdv{v}
             \end{cases}    
         .\]  
-        Note \((x,y)=(0,0)\) is just the north pole and 
-        \((u,v)=(0,0)\) is just the south pole. 
+        Note \((x,y)=(0,0)\) is just the North Pole and 
+        \((u,v)=(0,0)\) is just the South Pole. 
         At these two points, the coordinate vector fields 
         are zero vectors, e.g. \(\pdv{x},\pdv{y}\) are zero
-        vectors at the south pole.
+        vectors at the South Pole.
         This means that we can not extend the tangent 
         plane in the trivialization 
         \(p_N^{-1}\left(\mathbb{R}^2\right)\)
-        passing through the south pole, hence we can not
+        passing through the South Pole, hence we can not
         have a global trivialization of \(T\mathbb{S}^2\).
          \(T\mathbb{S}^2\ncong \mathbb{S}^2\times 
          \mathbb{R}^2\)
@@ -1091,7 +1095,7 @@ about the tangent space.
         \left\{\text{constant functions}\right\}\oplus 
         C^\infty_p(M)=\mathbb{R}\oplus C^\infty_p(M).     
     \]
-    \item Let \(V\) be an tangent vector at \(p\), 
+    \item Let \(V\) be a tangent vector at \(p\), 
     \(V\colon C^\infty(M)\to \mathbb{R}\) and \(V|_{\mathbb{R}}=0\).
     Moreover, it's easy to see by the Leibniz rule that 
     \(V|_{C_p^\infty(M)^2}=0\)
@@ -1123,3 +1127,194 @@ about the tangent space.
 \begin{remark}
     This last part is not required in this course.
 \end{remark}
+\begin{definition}[Differential of a map]
+    Let \(S_1,S_2\) be regular surfaces, \(f\colon S_1\to S_2\) is a
+    \(C^\infty\) map. Its differential at \(p\)
+    \[
+      df_p\colon T_p S_1\to T_{f(p)}S_2  
+    \]
+    is defined as follows:
+
+    \(\forall v\in T_p S_1\), take an \(\alpha(s)\colon 
+    \left(-\epsilon,\epsilon\right)\to S_1\) such that
+    \(\alpha'(0)=v,\alpha(0)=p\). Then \(df_p(v)\) is defined
+    as 
+    \[
+        df_p(v)=\left.\dv{s}\right|_{s=0} f\left(\alpha(s)\right)
+         \in T_{f(p)}S_2   .\tag{1}\label{differential of a map}
+    \] 
+\end{definition}
+\begin{remark}
+    Although in the definition above, we do not involve coordinate,
+    in practice we usually need to do computation with coordinate.
+\end{remark}
+\begin{itemize}
+    \item \(df_p\colon T_p S_1\to T_{f(p)}S_2\) is a linear map.
+\end{itemize}
+\begin{proof}
+    On \(S_1\) near \(p\), we choose local parametrization 
+\(F\colon U\to S_1\). On \(S_2\) near \(f(p)\), we choose local 
+parametrization \(G\colon V\to S_2\). We have seen 
+\[
+    dF_p\left(\mathbb{R}^2\right)=T_p S_1    
+\] 
+\[
+    dG_{f(p)}\left(\mathbb{R}^2\right)=T_{f(p)} S_2
+,\]
+and \(dF_p\), \(dG_{f(p)}\) are both invertible linear maps. Hence,
+we have the following diagram.
+\begin{center}
+    \begin{tikzcd}
+        S_1 \arrow[rr, "f"]                   
+              &  & S_2             
+                 &  & T_p S_1 \arrow[rr, "df_p"]                                                          &  & T_{f(p)}S_2                          \\
+        \mathbb{R}^2\supset U 
+        \arrow[rr, "d\left(G^{-1}\circ f\circ F\right)"'] 
+        \arrow[u, "F"'] &  & V\subset\mathbb{R}^2 
+        \arrow[u, "G"'] \arrow[rr, "\text{linearize at }p", shift left=8] 
+        &  & \mathbb{R}^2 \arrow[rr, "d\left(G^{-1}\circ f\circ F\right)_p"'] 
+        \arrow[u, "dF_p"'] &  & \mathbb{R}^2 \arrow[u, "dG_{f(p)}"']
+        \end{tikzcd}
+\end{center}
+By the chain rule,
+\[
+    d\left(G^{-1}\circ f\circ F\right)_p=dG^{-1}_{f(p)}
+    \circ df_p\circ dF_{F^{-1}(p)}.
+\]
+From calculus, we know 
+\(d\left(G^{-1}\circ f\circ F\right)_p\colon\mathbb{R}^2
+\to\mathbb{R}^2\)
+is a linear map and \(dF_p\), \(dG^{-1}_{f(p)}\) are linear maps.
+Hence, we conclude \(df_p\colon T_p S_1\to T_{f(p)}S_2\) is also linear.
+\end{proof}
+\begin{remark}
+    \hfill
+    \begin{enumerate}[(a)]
+        \item In \cref{differential of a map}, if taking \(S_2=\mathbb{R}\),
+        then we have defined the ``differential of a smooth function \(f\)''
+        \[
+            df_p(v)=\left.\dv{s}\right|_{s=0}
+            \left(f\left(\alpha(s)\right)\right)    
+        ,\]
+        where \(df_p(v)\) should be understood as the ``directional
+         derivation'' of \(f\) at \(p\). Now \(df_p\) is
+         a covector, belonging to \(T_p^*S\), the dual space of 
+         \(T_p S\) =\{all linear maps \(\omega\colon T_p S\to 
+         \mathbb{R}\)\}. \(T_p^* S\) is also a linear space.
+         If \(T_p S=\Span\{e_1,e_2\}\), then \(T_p^*S=
+         \Span\{e^*_1,e^*_2\}\) where 
+         \[ e^*_i\left(e_j\right)=
+         \begin{cases}
+            1& i=j      \\
+            0 & i\neq j.
+         \end{cases}
+         \]
+         Note: globally not all covectors can be written as \(df\)
+         Due to the obstruction from topology, \ie\ \(H^1(M,\mathbb{R})\).
+         \item Later, you may also see (with other definition of tangent
+         vector) \(df_p(V)=V(f)(p)\), where\(V(f)\) means taking 
+         derivative of \(f\) along \(V\).
+         \item
+            \( d(f+g)_p(V)=df_p(V)+dg_p(V) \)\\
+            \(d(f\cdot g)_p(V)=df_p(V)g(p)+f(p)dg_p(V)
+            \text{ (Leibniz rule)} \)  
+        \end{enumerate}
+\end{remark}
+\begin{exercise}
+    \hfill
+    \begin{enumerate}[(1)]
+        \item \(\mathrm{Id}\colon M\to M\) is the identity map.
+        \(\Rightarrow d(\mathrm{Id})_p(V)=V\).
+        \item \label{computation of a differential}
+        Compute the differential of a rotational map on 
+        \(\mathbb{S}^2\). We use local parametrization on 
+        \(\mathbb{S}^2\): 
+        \[\left(\sin\varphi\cos\theta,
+        \sin\varphi\sin\theta,\cos\varphi\right)^t=p.\]
+        Consider the rotation of \(\mathbb{S}^2\) around the 
+        \(z\)-axis in counterclockwise direction about degree
+        \(\alpha\)
+        \begin{align*}
+            \Rightarrow R(\alpha)(p)&=
+            \left(\sin\varphi\cos(\theta+\alpha),
+            \sin\varphi\sin(\theta+\alpha),\cos\varphi\right)^t\\
+            &=\left(\sin\varphi\left(\cos\theta\cos\alpha-
+            \sin\theta\sin\alpha\right),\sin\varphi\left(
+                \sin\theta\cos\alpha+\cos\theta\sin\alpha
+            \right),\cos\varphi\right)^t\\
+            &=\underbrace{
+            \begin{pmatrix}
+                \cos\alpha & -\sin\alpha &0 \\
+                \sin\alpha & \cos\alpha & 0\\
+                0 & 0 & 1
+            \end{pmatrix}}_{A}
+            \begin{pmatrix}
+                \sin\varphi\cos\theta\\
+                \sin\varphi\sin\theta\\
+                \cos\varphi
+            \end{pmatrix}
+        .\end{align*}
+        Note \(R(\alpha)\colon \mathbb{S}^2\to \mathbb{S}^2\)
+        is a linear action (map). To compute \(dR_p\), we need
+        to know for \(v \in T_p\mathbb{S}^2\), what is 
+        \(dR_p(v)\)?
+
+        Let \(\gamma(s)\) be the curve on \(S\) such that 
+        \(\gamma'(0)=v\), then
+            \begin{align*}
+                dR_p(v)&=\left.\dv{s}\right|_{s=0}
+                R_p\left(\gamma(s)\right)\\
+                &=\left.\dv{s}\right|_{s=0}\left(A\cdot \gamma(s)\right)
+                =A\cdot \gamma'(0)=A\cdot v
+            ,\end{align*}
+            this means \(dR_p(v)\) is the rotation of the vector 
+            \(v\) about degree \(alpha\).(see)
+            \item Let \(f\colon S_1\to S_2\) be a diffeomorphism
+            of two regular surfaces. Then at \(p\in S_1\), 
+            \(df_p \colon T_p S_1\to T_{f(p)}S_2\) is a linear 
+            isomorphism. The converse is only true locally.
+    \end{enumerate}
+\end{exercise}
+\begin{definition}[Local diffeomorphism]
+    \(S_1,S_2\) are regular surfaces, \(p\in S_1\), the map 
+    \(\varphi\colon S_1\to S_2\) is called a local 
+    diffeomorphism at \(p\), if \(\exists\) a neighborhood
+    \(U\) of \(p\) such that \(\varphi\colon U\to \varphi(U)\)
+    is a diffeomorphism.
+\end{definition}
+\begin{proposition}[Inverse function (mapping) theorem]
+    \(\varphi\colon S_1\to S_2\) is a differentiable map, 
+    \(p\in S_1\). If \(\varphi\colon T_p S_1\to T_{\varphi(p)}S_2\)
+    is an isomorphism, then \(\exists\) a neighborhood \(U\) of 
+    \(p\) such that \(\varphi\colon U\to \varphi(U)\) is a local 
+    diffeomorphism at \(p\).
+\end{proposition}
+\begin{exercise} (Following \cref{computation of a differential})
+    \begin{enumerate}[(1)]
+        \item Find the rotational map of \(\mathbb{S}^2\) around 
+        other 2 axes.
+        \[
+            B=\begin{pmatrix}
+                1&0&0\\
+                0&\cos\beta&-\sin\beta\\
+                0&\sin\beta&\cos\beta
+            \end{pmatrix}\quad
+            C=\begin{pmatrix}
+                \cos\gamma&0&-\sin\gamma\\
+                0&1&0\\
+                \sin\gamma&0&\cos\gamma
+            \end{pmatrix}    
+        \]
+        \item What can you observe from matrices \(A\), \(B\) and 
+        \(C\)? 
+
+        (Their determinant is 1 and form a basis of \(SO(3)\)
+        =\{all rotational maps of \(\mathbb{S}^2\)\}. Observe that
+        the rotations of \(\mathbb{S}^2\) should preserve the 
+        lengths and angles over \(\mathbb{S}^2\). This is just 
+        based on ``observation'' later, and after we define 
+        the lengths and angles in \(\mathbb{S}^2\) we'll 
+        check this.)
+    \end{enumerate} 
+\end{exercise}
+
