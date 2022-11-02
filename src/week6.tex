@@ -1,0 +1,93 @@
+\section{Orientation of a regular surface}
+\begin{question}
+    Consider \(\mathbb{S}^2\) with spherical parametrization, are following two
+    parametrizations the same?
+    \begin{itemize}
+        \item \((\vphi,\theta)\longmapsto(\sin\vphi\cos\theta,\sin\vphi\sin\theta,
+            \cos\vphi)\)
+        \item \((\theta,\vphi)\longmapsto(\sin\vphi\cos\theta,\sin\vphi\sin\theta,
+            \cos\vphi)\)
+    \end{itemize}
+\end{question}
+
+The answer is NO\@! They give different normal directions which decide ``inside'' and
+``outside'' of \(\mathbb{S}^2\).
+
+\noindent\underline{\bfseries Recall:} \(\mathbb{R}^2\) is orientable. It has two
+orientations. Given a basis \(\{e_1,e_2\}\), let
+\begin{align*}
+    J_{+}=\Bigl\{E_{+}=\{e_1^+,e_2^+\}&:E_{+}\text{ has same orientation as }E.\\
+    &\text{ \ie\ }\begin{bmatrix}
+        e_1^+\\ e_2^+
+    \end{bmatrix}=\underbrace{\begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{bmatrix}}_{A_{+}}\begin{bmatrix}
+        e_1 \\ e_2
+    \end{bmatrix}
+    \text{ and }\det A_{+}>0\Bigr\};
+\end{align*}
+\begin{align*}
+    J_{-}=\Bigl\{E_{-}=\{e_1^-,e_2^-\}&:E_{-}\text{ has same orientation as }E.\\
+    &\text{ \ie\ }\begin{bmatrix}
+        e_1^-\\ e_2^-
+    \end{bmatrix}
+    =A_{-}\begin{bmatrix}
+        e_1 \\ e_2
+    \end{bmatrix}
+    \text{ and }\det A_{-}>0\Bigr\}.
+\end{align*}
+Then either \(J_{+}\) or \(J_{-}\) gives an orientation of \(\mathbb{R}^2\).
+
+\begin{question}\hfill
+\begin{enumerate}[(1)]
+    \item Let \(S\) be a regular surface, how can we define orientation?
+    \item Are all surfaces orientable?
+\end{enumerate}
+\end{question}
+
+Assume we have two parametrizations around \(p\):
+\begin{align*}
+    F&\colon U\to S &&T_p S\cong \mathbb{R}^2=\Span\{F_u,F_v\} \\
+    G&\colon V\to S &&T_p S\cong \mathbb{R}^2=\Span\{G_\alpha,G_\beta\}
+.\end{align*}
+Note near \(p\), \(F(u,v)=G(\alpha,\beta)\implies \) \[
+    \begin{bmatrix}
+        G_\alpha \\ G_\beta
+    \end{bmatrix}=\begin{bmatrix}
+        u_\alpha & v_\alpha \\
+        u_\beta & v_\beta
+    \end{bmatrix}\begin{bmatrix}
+        F_u \\ F_v
+    \end{bmatrix}
+.\] 
+\ie\ Two parametrizations \(F\) and \(G\) give the same orientation iff \[
+    \left|\pdv{(u,v)}{(\alpha,\beta)}\right|>0
+.\] 
+
+\begin{definition}[Orientation of a regular surface]
+    We say a regular surface \(S\) is orientable if there exists a coordinate
+    chart covering of \(S\), \st\ if a point \(p\) belongs to two charts, then the
+    induced basis on \(T_p S\) by the two parametrizations have the same orientation
+    in above sense.
+\end{definition}
+
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item ``Orientation'' is a global intrinsic property. ``Orientability'' is
+    essentially reflected by the topology of the surface. In algebraic topology
+    course, you'll see that the orientability is determined by the 1st
+    Stiefel-Whitney class in \(H^1(M,\mathbb{Z}/2\mathbb{Z})\) for a vector
+    bundle on topological manifold \(M\).
+    With additional ``smooth'' structure on \(M\), we have more ways to check
+    the orientability, for example, \(\exists\) a nowhere vanishing top
+    differential form (or say, a volume form).
+    \item One of important applications of ``orientation'' in this course (and
+    later in Reimann Geometry) is allowing us to define ``integration'' on a regular
+    surface.
+\end{enumerate}
+\end{remark}
+
+\begin{exercise}
+    Give a definition of orientation of \(\mathbb{R}^n\) as a vector space.
+\end{exercise}

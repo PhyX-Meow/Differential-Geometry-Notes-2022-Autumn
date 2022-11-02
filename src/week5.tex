@@ -1290,31 +1290,34 @@ Hence, we conclude \(df_p\colon T_p S_1\to T_{f(p)}S_2\) is also linear.
     diffeomorphism at \(p\).
 \end{proposition}
 \begin{exercise} (Following \cref{computation of a differential})
-    \begin{enumerate}[(1)]
-        \item Find the rotational map of \(\mathbb{S}^2\) around 
-        other 2 axes.
-        \[
-            B=\begin{pmatrix}
-                1&0&0\\
-                0&\cos\beta&-\sin\beta\\
-                0&\sin\beta&\cos\beta
-            \end{pmatrix}\quad
-            C=\begin{pmatrix}
-                \cos\gamma&0&-\sin\gamma\\
-                0&1&0\\
-                \sin\gamma&0&\cos\gamma
-            \end{pmatrix}    
-        \]
-        \item What can you observe from matrices \(A\), \(B\) and 
-        \(C\)? 
+\begin{enumerate}[(1)]
+    \item Find the rotational map of \(\mathbb{S}^2\) around 
+    other 2 axes.
+    \[
+        B=\begin{pmatrix}
+            1&0&0\\
+            0&\cos\beta&-\sin\beta\\
+            0&\sin\beta&\cos\beta
+        \end{pmatrix}\quad
+        C=\begin{pmatrix}
+            \cos\gamma&0&-\sin\gamma\\
+            0&1&0\\
+            \sin\gamma&0&\cos\gamma
+        \end{pmatrix}    
+    \]
+    \item What can you observe from matrices \(A\), \(B\) and 
+    \(C\)? 
 
-        (Their determinant is 1 and form a basis of \(SO(3)\)
-        =\{all rotational maps of \(\mathbb{S}^2\)\}. Observe that
-        the rotations of \(\mathbb{S}^2\) should preserve the 
-        lengths and angles over \(\mathbb{S}^2\). This is just 
-        based on ``observation'' later, and after we define 
-        the lengths and angles in \(\mathbb{S}^2\) we'll 
-        check this.)
-    \end{enumerate} 
+    (Their determinant is 1 and form a basis of \(SO(3)\)
+    =\{all rotational maps of \(\mathbb{S}^2\)\}. Observe that
+    the rotations of \(\mathbb{S}^2\) should preserve the 
+    lengths and angles over \(\mathbb{S}^2\). This is just 
+    based on ``observation'' later, and after we define 
+    the lengths and angles in \(\mathbb{S}^2\) we'll 
+    check this.)
+    \item Let \(f\colon S_1\to S_2\) be a diffeomorphism of two regular surfaces,
+        then at \(p\in S_1\), \(\dd{f_p}\colon T_pS_1\to T_{f(p)}S_2\) is
+        a linear isomorphism. The converse is only true locally.
+\end{enumerate} 
 \end{exercise}
 
