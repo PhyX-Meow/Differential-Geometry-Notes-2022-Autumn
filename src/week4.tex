@@ -203,11 +203,11 @@ The proof of the claim needs the inverse function theorem.
 
 \begin{remark}
     From linear algebra, a linear operator on finite dimensional vector space
-    is injective iff it's surjective. Hence it's sufficient to check \(\det(\dd{F_p})
+    is injective iff it's surjective. Hence, it's sufficient to check \(\det(\dd{F_p})
     \neq 0\), \ie\ \(\dd{F_p}\) is non-singular.
 \end{remark}
 
-\textbf{\color{red}!!} Apriori, we don't know if \(F_2^{-1}\) is smooth, since we
+\textbf{\color{red}!!} A priori, we don't know if \(F_2^{-1}\) is smooth, since we
 have not defined what ``smooth map'' on a surface mean.
 
 \begin{proof}[Proof of claim]
@@ -229,7 +229,7 @@ have not defined what ``smooth map'' on a surface mean.
     .\] By inverse function theorem, \(\exists\) a neighbourhood \(D\subset
     \mathbb{R}^3\) of \((p,t)\) \st\ \(h\) is invertible on \(D\), and \(h^{-1}\)
     smooth. Now since \(F_1^{-1}\circ F_2=\eval{h^{-1}\circ F_2}_{t=0}\), and RHS
-    is smooth, we conclude that \(F_1^{-1}\circ F_2\) is smooth. Similarly \(G^{-1}\)
+    is smooth, we conclude that \(F_1^{-1}\circ F_2\) is smooth. Similarly, \(G^{-1}\)
     is smooth.
 \end{proof}
 
@@ -291,7 +291,7 @@ the equator are left. To cover them, we add 4 more charts:
     F_5(z,x)&= (x,\sqrt{1-x^2-z^2},z) &&\text{(right)} \\
     F_6(z,x)&= (z,-\sqrt{1-x^2-z^2},x) &&\text{(left)}
 \end{align*}
-We can check \(F_2\)-\(F_6\) also satisfy the definition. Hence we have given each
+We can check \(F_2\)-\(F_6\) also satisfy the definition. Hence, we have given each
 point a smooth chart, and \(\mathbb{S}^2\) is regular.
 \begin{exercise}
     Check transition maps between \(F_1\)-\(F_6\) are smooth.
@@ -319,7 +319,7 @@ and regular. To see they are homeomorphism, we can compute e.g. \[
 
 \noindent (c) Stereographic parametrization.
 
-Consider the ray connecting north pole \((0,0,1)\) and point \((x,y,z)\) on
+Consider the ray connecting North Pole \((0,0,1)\) and point \((x,y,z)\) on
 \(\mathbb{S}^2\). Then there is a unique point \((u,v)\) on \(xy\)-plane on the
 ray, the projection is given by \[
     p_N\colon \mathbb{S}^2\setminus\{N\}\to \mathbb{R}^2,
@@ -408,7 +408,7 @@ We compute \(\dd{f_p},\quad p\in U\subset \mathbb{R}^3=\Span\{\pdv{x},\pdv{y},
     \left[ \dd{f_p}(\pdv{x}) \right] h=\pdv{x}(h\circ f)(p)=\pdv{h}{w}\pdv{f}{x},
     \quad\forall\, h\text{ smooth function in } w
 .\]
-Hence \[
+Hence, \[
     \dd{f_p}(\pdv{x})=\pdv{f}{w}(p)\pdv{w}
 .\] \ie\ \[
     \dd{f_p}\begin{bmatrix}
@@ -421,7 +421,7 @@ Hence \[
         \pdv{f}{y} \\
         \pdv{f}{z}
     \end{bmatrix}\pdv{w}
-.\] Hence \(p\) is critical value \(\iff \rank\begin{bmatrix}
+.\] Hence, \(p\) is critical value \(\iff \rank\begin{bmatrix}
     \pdv{f}{x} \\
     \pdv{f}{y} \\
     \pdv{f}{z}
@@ -444,10 +444,10 @@ For example, \(f(x,y,z)=x^2+y^2+z^2\), then \(\forall\,c>0\), level surface
 
 \begin{proof}
     \(\forall\,p\in U\) \st\ \(f(p)=c\), write \(p=(x,y,z)\). Since \(c\) is regular
-    value, at least one of \(f_x(p),f_y(p),f(z)\) is non-vanishing. Wlog assume
+    value, at least one of \(f_x(p),f_y(p),f(z)\) is non-vanishing. W.L.O.G. assume
     \(f_z(p)\neq 0\). Then by implicit function theorem, \(\exists\) a neighbourhood
     of \((x,y)\) \st\ \(z=h(x,y)\) and \(f(x,y,h(x,y))=c\) locally.
-    Hence near \(p\) we have a local parametrization given by graph \((x,y,h(x,y))\),
+    Hence, near \(p\) we have a local parametrization given by graph \((x,y,h(x,y))\),
     then \(f^{-1}(c)\) is regular by example (3).
 \end{proof}
 
@@ -489,7 +489,7 @@ surface. The converse is also true locally.
         \text{or }\left|\pdv{(z,x)}{(u,v)}\right|
     \] is non-vanishing.
     If we assume \(\left|\pdv{(x,y)}{(u,v)}\right|\neq 0\), then by the inverse
-    (implicit) function thm, \(u,v\) are functions of \(x,y\) \ie\ \[
+    (implicit) function theorem, \(u,v\) are functions of \(x,y\) \ie\ \[
         \begin{cases}
             x=x(u,v) \\
             y=y(u,v)
@@ -498,7 +498,7 @@ surface. The converse is also true locally.
             u=u(x,y) \\
             v=v(x,y)
         \end{cases}
-    .\] Hence above local parametrization \(F\) can be rewritten as \[
+    .\] Hence, above local parametrization \(F\) can be rewritten as \[
         \tilde{F}(x,y)=(x,y,z(u(x,y),v(x,y)))=(x,y,z(x,y)).
     \] 
 \end{proof}
@@ -514,12 +514,12 @@ parametrization is indeed a parametrization on \(S\).
     \(F\) is bijective, then \(F^{-1}\) is also continuous.
 \end{prop}
 \begin{proof}
-    Essentially by the implicit function thm, refer to Do Carmo's book.
+    Essentially by the implicit function theorem, refer to Do Carmo's book.
 \end{proof}
 
 \begin{example}
     We have checked \(\mathbb{S}^2\) is a regular surface by using the local
-    parameter induced from \(\mathbb{R}^3\). Hence once we write the spherical
+    parameter induced from \(\mathbb{R}^3\). Hence, once we write the spherical
     coordinate, then clearly it gives a local parametrization by above proposition.
 \end{example}
 
@@ -529,7 +529,7 @@ parametrization is indeed a parametrization on \(S\).
     is a torus \[
         (\sqrt{x^2+y^2}-\sqrt{2})^2+z^2=1
     .\] This is a level surface of \(f(x,y,z)=(\sqrt{x^2+y^2}-\sqrt{2})^2+z^2\) and
-    1 is a regular value. Hence it's a regular surface. It's convenient to use
+    1 is a regular value. Hence, it's a regular surface. It's convenient to use
     the following parametrization \[
         \begin{cases}
             x=(\sqrt{2}+\cos\theta)\sin\vphi \\
