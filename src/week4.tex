@@ -252,14 +252,14 @@ Now we give an intrinsic definition (No need to assume \(S\subset \mathbb{R}^3\)
 
 \section{Examples of Regular Surfaces}
 
-\begin{example}[1]
+\begin{example}
     \(\mathbb{R}^2\hookrightarrow\mathbb{R}^3\) is a regular surface with (trivial)
     global parametrization \[
         F(x,y)=(x,y,0)
     .\] 
 \end{example}
 
-\begin{example}[2]
+\begin{example}
     \label{charts on unit sphere}
     Standard 2-sphere \(\mathbb{S}^2=\{(x,y,z):x^2+y^2+z^2=1\}\). This is a very
     important example, we'll give (local) parametrization for \(\mathbb{S}^2\)
@@ -359,7 +359,7 @@ It has 3-rotation axis (3 Killing vector fields). It looks the same everywhere
 without obstruction, \ie\ \(\pi_1(\mathbb{S}^2)=0\), the fundamental group does not
 play a role here.
 
-\begin{example}[3]
+\begin{example}\label{Graph of a function}
     Graph of a function, \ie\ \((x,y,z=f(x,y))\) is a regular surface. More
     generally, if a surface \(S\) can be expressed (locally or globally) as graph
     of smooth functions, then \(S\) is a regular surface.
@@ -373,7 +373,7 @@ Parametrization is given by \[
     \item \(F\) is regular \(\det\mathrm{Jac}(\dd{F})=1\).
 \end{enumerate}
 
-\begin{example}[4]
+\begin{example}
     More generally, the level set of a smooth function \(f(x,y,z)\) at a
     \underline{regular} \underline{value} is a regular surface.
 \end{example}
@@ -448,7 +448,7 @@ For example, \(f(x,y,z)=x^2+y^2+z^2\), then \(\forall\,c>0\), level surface
     \(f_z(p)\neq 0\). Then by implicit function theorem, \(\exists\) a neighbourhood
     of \((x,y)\) \st\ \(z=h(x,y)\) and \(f(x,y,h(x,y))=c\) locally.
     Hence, near \(p\) we have a local parametrization given by graph \((x,y,h(x,y))\),
-    then \(f^{-1}(c)\) is regular by example (3).
+    then \(f^{-1}(c)\) is regular by \cref{Graph of a function}.
 \end{proof}
 
 \begin{theorem}[Implicit function]
@@ -470,7 +470,7 @@ For example, \(f(x,y,z)=x^2+y^2+z^2\), then \(\forall\,c>0\), level surface
     of a point on a regular surface.
 \end{remark}
 
-In example (3), we see the graph of a smooth function \(f(x,y)\) is a regular
+In \cref{Graph of a function}, we see the graph of a smooth function \(f(x,y)\) is a regular
 surface. The converse is also true locally.
 \begin{prop}
     \(S\) is a regular surface in \(\mathbb{R}^3\), \(p\in S\), then there is a

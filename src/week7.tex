@@ -1,4 +1,4 @@
-\begin{example}[3]Helicoid and catenoid (from homework)
+\begin{example}Helicoid and catenoid (from homework)
 
 In your homework you have found local parametrization of helicoid and 
 catenoid 
@@ -763,7 +763,7 @@ with \(\begin{pmatrix}
         -\left|\alpha'(t)\right|^2\le 0.\]
         \underline{Hence}, sign of the \engordnumber{2} fundamental form
     depends on the choice of orientation(\ie\ the unit normal).
-    \item Helicoid (in which every point look like a saddle point). 
+    \item Helicoid (in which every point looks like a saddle point). 
     \(H(u,v)=(v\cos u,v\sin u,a u)\)
     \[H_u=(-v\sin u,v\cos u,a),\quad H_v=(\cos u,\sin u,0).\]
     \[H_{uu}=(-v\cos u,-v\sin u,0),H_{uv}=(-\sin u,\cos u,0),
@@ -836,8 +836,7 @@ can be obtained by using a plane containing \(p,v\) to intersect with
 
 \underline{Goal}: Understanding how \engordnumber{2} fundamental 
 form reflects the surface is curved locally near a point.
-\begin{enumerate}[(1)]
-    \item Normal curvature 
+\subsection{Normal curvature}
     
     Let \(\alpha(s)\) be a regular curve parametrized by the arclength In
     \(S\). 
@@ -950,10 +949,11 @@ with \(S\)
     along direction \(v\) is \(\II(v,v)\) tells us that how the 
     surface is curved along direction \(v\) at \(p\).
 \end{itemize}
-\begin{example}
-    \hfill
-    \begin{enumerate}[(1)]
-        \item Normal sections are the great circles of radius \(1\).
+\begin{example}Sphere: \(x^2+y^2+z^2=1\).
+    \label{normal curvature-sphere}
+\end{example}
+
+Normal sections are the great circles of radius \(1\).
          \[\therefore \II(v,v)=1,\quad\forall |v|=1.\]
         \begin{center}
             \begin{tikzpicture}[scale=2]%抄的知乎：https://zhuanlan.zhihu.com/p/494100190
@@ -1011,8 +1011,11 @@ with \(S\)
             }
             \end{tikzpicture}
         \end{center}
-        \item Cylinder \(x^2+y^2=1\).
+     \begin{example}Cylinder: \(x^2+y^2=1\).
+        \label{normal curvature-cylinder}
+     \end{example}
         \[\vec{N}:\text{ inner normal.}\]
+
         Let \(v_1\) be the unit normal along vertical lines.
         \(\Rightarrow\) normal section is just the line along \(v_1\) 
         \(\Rightarrow k_1=0\). Let \(v_2\) be the unit normal parallel
@@ -1049,11 +1052,15 @@ with \(S\)
             node[right]{\(v_2\)};
             \end{tikzpicture}
         \end{center}
-        \item Catenoid.
-        
+        \begin{example}Catenoid: \(\varphi(u,v)=
+            \left(c\cosh\frac{u}{c}\cos v,
+            c\cosh\frac{u}{c}\sin v,\sinh u\right)\)
+            \label{normal curvature-catenoid}
+        \end{example}
+
         The normal section obtained by \(S\cap \Span\{v_1,\vec{N}\}\)
         is a catenary, with \(k_1<0\). The normal section obtained by 
-        \(S\cap \Span\{v_2,\vec{N}\}\) is a circle, with \(k_2<0\).
+        \(S\cap \Span\{v_2,\vec{N}\}\) is a circle, with \(k_2>0\).
         \begin{center}
         \begin{tikzpicture}
             \begin{axis}[xticklabels={,,},%不显示x坐标轴数字
@@ -1111,6 +1118,86 @@ with \(S\)
             \end{axis}
         \end{tikzpicture}
         \end{center}
-    \end{enumerate}
-\end{example}
-\end{enumerate}
+    As you may notice, in \cref{normal curvature-sphere}, all 
+    normal curvatures are the same at all points and along any 
+    direction. In \cref{normal curvature-cylinder} and 
+    \cref{normal curvature-catenoid}, at any point there are extremal
+    directions at which the normal curvature achieves 
+    the maximum and the minimum. Let's discuss more on these two special 
+    normal curvatures.
+\subsection{Principle curvature and principle direction}
+Since \(d N_p\colon T_p S\to T_p S\) is linear and 
+symmetric(self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
+\[
+        d N_p\begin{pmatrix}
+            e_1\\
+            e_2
+        \end{pmatrix}
+        =\underbrace{\begin{pmatrix}
+            a_{11}&a_{12}\\
+            a_{21}&a_{22}
+        \end{pmatrix}}_{symmetric}
+        \begin{pmatrix}
+            e_1\\
+            e_2
+        \end{pmatrix}
+\]
+\(\Rightarrow \exists\) an orthonormal basis {\(\tilde{e_1}
+,\tilde{e_2}\)} of \(T_p S\) such that 
+\[
+        d N_p \begin{pmatrix}
+            \tilde{e_1}\\
+            \tilde{e_2}
+        \end{pmatrix}
+        =\begin{pmatrix}
+            -k_1& 0\\
+            0&-k_2
+        \end{pmatrix}\begin{pmatrix}
+            \tilde{e_1}\\
+            \tilde{e_2}
+        \end{pmatrix}
+        \quad (k_1\ge k_2)
+\]
+\begin{definition}[Principle curvature and principle direction]
+    \(k_1\) and \(k_2\) above are called the principle curvature
+    and \(\tilde{e_1},\tilde{e_2}\) are called the principle
+    directions at \(p\).
+\end{definition}
+\begin{remark}
+    \(k_1\) and \(k_2\) are the maximum and minimum values of 
+    the \engordnumber{2} fundamental form \(\II\) restricted on 
+    the unit vectors of \(T_p S\).
+\end{remark}
+\begin{proof}
+    \[
+    \II\left(\tilde{e_1},\tilde{e_1}\right)=-\left\langle
+        d N_p\left(\tilde{e_1}\right),\tilde{e_1}\right\rangle
+        =\left\langle k_1 \tilde{e_1},\tilde{e_1}\right\rangle
+        =k_1.
+    \]
+    Similarly, \(\II\left(\tilde{e_2},\tilde{e_2}\right)=k_2\).
+
+    For any unit vector \(v\in T_p S\), \(v=
+    v_1\tilde{e_1}+v_2\tilde{e_2}\), with \(|v|=1\).
+    \begin{align*}
+        \II(v,v)&=-\left\langle dN_p(v),v\right\rangle\\
+        &=-\left\langle v_1 d N_p\left(\tilde{e_1}\right)
+        +v_2dN_p\left(\tilde{e_2}\right),v_1\tilde{e_1}+v_2
+        \tilde{e_2}\right\rangle\\
+        &=k_1 v_1^2 +k_2 v_2^2=
+        \begin{cases}
+            k_1+(k_1-k_2)v_2^2\le k_1,\\
+            (k_1-k_2)v_1^2+k_2\ge k_2.
+        \end{cases}
+    \end{align*}
+    Hence, \(k_1\) and \(k_2\) are maximum and minimum values of normal
+    curvature. Moreover, \(\forall\) unit vector \(v\in T_p S\) and 
+    {\(e_1,e_2\)} the principle direction, we can write
+    \[
+        v=\cos \theta e_1+\sin\theta e_2,
+    \]
+    \[
+        k_{\vb{n}}(v)=k_1 \cos^2\theta +k_2 \sin^2\theta.    
+    \]
+    The last is called ``Euler formula''.
+\end{proof}
