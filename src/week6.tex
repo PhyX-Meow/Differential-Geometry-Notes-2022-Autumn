@@ -285,3 +285,113 @@ guarantee that \(\left|\pdv{(\alpha,\beta)}{(u,v)}\right|\) is positive everywhe
 
 \section{The first fundamental form on \(S\)}
 
+The first fundamental form on \(S\) inherits from the Euclidean inner product of
+\(\mathbb{R}^3\). It allows us to measure geometric quantities like
+\begin{itemize}
+    \item Distance between pairs;
+    \item Angle between curves;
+    \item Area of a region;
+    \item etc.
+\end{itemize}
+It is an intrinsic, globally defined concept on \(S\). In the language of Riemannian
+Geometry, the 1st fundamental form is also called the ``pull-back'' Riemannian
+metric on \(S\). It's related to the ``isometric immersion (embedding)'' in 
+Riemannian Geometry course.
+
+\begin{center}
+\textcolor{red}{
+    \textbf{\large!} The 1st fundamental form determines the ``intrinsic
+    geometry''.
+}
+\end{center}
+
+We first give the definition of the 1st fundamental form, then explain where it
+comes from.
+
+Let \(S\subset \mathbb{R}^3\) be a regular surface. \(\forall\,p\in S\), we take
+local parametrization
+\begin{align*}
+    \vphi\colon U\subset \mathbb{R}^2 &\longrightarrow S \\
+    (u,v)&\longmapsto \vphi(u,v)=(x,y,z)
+.\end{align*}
+and \(p=\vphi(u_0,v_0)\), then 
+\begin{align*}
+    \vphi_u(u_0,v_0)&=\eval{(x_u,y_u,z_u)}_{(u_0,v_0)}\in \mathbb{R}^3 \\
+    \vphi_v(v_0,v_0)&=\eval{(x_v,y_v,z_v)}_{(u_0,v_0)}\in \mathbb{R}^3
+.\end{align*}
+And \(T_p S\cong \mathbb{R}^2=\Span\{\vphi_u(u_0,v_0),\vphi_v(u_0,v_0)\}\).
+
+Define \[
+    E=\left<\vphi_u,\vphi_u\right>_p\quad F=\left<\vphi_u,\vphi_v\right>_p\quad
+    G=\left<\vphi_v,\vphi_v\right>.
+\] The 1st fundamental form at \(p\in S\) is defined as \[
+    I_p=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2
+.\] To understand this, let's start with inner product in \(\mathbb{R}^3\). \[
+    \mathbb{R}^3=\Span\{e_1,e_2,e_3\}=\Span\{\pdv{x},\pdv{y},\pdv{z}\}
+    =\Span\{\pdv{x^1},\pdv{x^2},\pdv{x^3}\}.
+\] Here, since for each vector \(v\) with length 1, it uniquely determines a
+directional derivative \(\nabla_v\) and vice versa.
+Hence we can identify \(e_1=(1,0,0)\) with \(\pdv{x^1}\), and \(e_2=\pdv{x^2}\),
+\(e_3=\pdv{x^3}\).
+
+The inner product on \(\mathbb{R}^3\) is
+\begin{align*}
+    g_{\mathbb{R}^3}\colon\mathbb{R}^3\times\mathbb{R}^3&\longrightarrow\mathbb{R}\\
+    (v,w) &\longmapsto \left<v,w\right>,
+    \quad v,w \text{ vectors in }\mathbb{R}^3
+.\end{align*}
+Satisfy:
+\begin{itemize}
+    \item \(g(v,w)=g(w,q)\)
+    \item \(g(av_1+bv_2,w)=ag(v_1,w)+bg(v_2,w)\)
+    \item \(g(v,v)\ge 0\) and \(g(v,v)=0\iff v=0\).
+\end{itemize}
+If \(v=\sum_{i=1}^3 v^i\pdv{x^i},w=\sum_{j=1}^{3}w^j\pdv{x^j}\), then \[
+    g_{\mathbb{R}^3}(v,w)=\sum_{i,j=1}^{3}\delta_{ij}v^i w^j,
+    \quad \text{where }\delta_{ij}=\begin{cases}
+        1 & i=j\\
+        0 & i\neq j
+    \end{cases}
+.\] 
+
+\((\mathbb{R}^3)^*\), dual space of \(\mathbb{R}^3\) is defined as follows:\\
+For a vector \(v\in \mathbb{R}^3\), we define an element \(\alpha_v\in(\mathbb{R}^3)
+^*\) by \[
+    \alpha_v=g_{\mathbb{R}^3}(v,\cdot)\colon \mathbb{R}^3\to R, \quad 
+    w\mapsto \alpha_v(w)=g_{\mathbb{R}^3}(v,w)
+.\] The dual basis of \(\{e_1,e_2,e_3\}=\{\pdv{x^1},\pdv{x^2},\pdv{x^3}\}\) is \[
+    \{e_1^*,e_2^*,e_3^*\}=\{\dd{x^1},\dd{x^2},\dd{x^3}\}
+.\] \st\ \(e_i^*(e_j)=g(e_i,e_j)=\delta_{ij}\). Then \((\mathbb{R}^3)^*=\Span
+\{e_1^*,e_2^*,e_3^*\}=\Span\{\dd{x^1},\dd{x^2},\dd{x^3}\}\). Hence \[
+    \alpha_v=\sum_{i=1}^3 v^i \dd{x^i},\quad
+    v^1=\left<v,\pdv{x^i}\right> ,\quad
+    g_{\mathbb{R}^3}(v,\cdot)=\alpha_v\in (\mathbb{R}^3)^*
+.\] By relaxing \(v\) in \(g_{\mathbb{R}^3}(v,\cdot)\), we can view \(g_{\mathbb{R}
+^3}\) as a symmetric element in \((\mathbb{R}^3)^*\otimes (\mathbb{R}^3)^*\).
+From linear algebra, \[
+    \mathrm{Sym}((\mathbb{R}^3)^*\otimes (\mathbb{R}^3)^*)=
+    \Span\{\dd{x^i}\dd{x^j}=\dd{x^j}\dd{x^i}\}_{i,j=1,2,3}
+.\] Hence we can write \[
+    g_{\mathbb{R}^3}=\delta_{ij}\dd{x^i}\dd{x^j}=
+    (\dd{x^1})^2+(\dd{x^2})^2+(\dd{x^3})^2
+.\] Now let \(S\subset \mathbb{R}^3\) with local parametrization given at the
+beginning of this section, \ie\ \(x^i=x^i(u,v)\). We have \[
+    \dd{x^1}=x_u^1\dd{u}+x_v^1\dd{v},\quad
+    \dd{x^2}=x_u^2\dd{u}+x_v^2\dd{v},\quad
+    \dd{x^3}=x_u^3\dd{u}+x_v^3\dd{v}
+.\] Then we consider restrict \(g_{\mathbb{R}^3}\) on \(TS\),
+\begin{align*}
+    g_{\mathbb{R}^3}|_{TS}
+    &=(x_u^1\dd{u}+x_v^1\dd{v})^2+(x_u^2\dd{u}+x_v^2\dd{v})^2
+    +(x_u^3\dd{u}+x_v^3\dd{v})^2 \\
+    &=\left((x_u^1)^2+(x_u^2)^2+(x_u^3)^2\right)\dd{u}^2
+    +2(x_u^1x_v^1+x_u^2+x_v^2+x_u^3x_v^3)\dd{u}\dd{v} \\
+    &\quad+\left((x_v^1)^2+(x_v^2)^2+(x_v^3)^2\right)\dd{v}^2 \\
+    &=\left<\vphi_u,\vphi_u\right>\dd{u}^2+2\left<\vphi_u,\vphi_v\right>\dd{u}\dd{v}
+    +\left<\vphi_v,\vphi_v\right>\dd{v^2} \\
+    &=E\dd{u^2}+2F\dd{u}\dd{v}+G\dd{v}^2
+.\end{align*}
+Therefore, we see the 1st fundamental form is just the restriction of Euclidean
+inner product of \(\mathbb{R}^3\) on \(TS\).
+
+\newpage
