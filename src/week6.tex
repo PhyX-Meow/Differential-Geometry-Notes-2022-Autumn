@@ -283,7 +283,7 @@ guarantee that \(\left|\pdv{(\alpha,\beta)}{(u,v)}\right|\) is positive everywhe
     \ie\ surfaces having well-defined unit normal vector field everywhere.
 \end{remark}
 
-\section{The first fundamental form on \(S\)}
+\section{The first fundamental form on \texorpdfstring{\(S\)}{S}}
 
 The first fundamental form on \(S\) inherits from the Euclidean inner product of
 \(\mathbb{R}^3\). It allows us to measure geometric quantities like
@@ -394,4 +394,162 @@ beginning of this section, \ie\ \(x^i=x^i(u,v)\). We have \[
 Therefore, we see the 1st fundamental form is just the restriction of Euclidean
 inner product of \(\mathbb{R}^3\) on \(TS\).
 
-\newpage
+\underline{Recall:} \(\vphi\colon U\subset \mathbb{R}^2\to S,p\in S\), then \[
+    \dd{\vphi_p}\colon T_{(u_0,v_0)}U\to T_p S,
+    \quad T_{(u_0,v_0)}U\cong \mathbb{R}^2=\Span\{\pdv{u},\pdv{v}\}.
+\] Then \[
+    \dd{\vphi_p}(\pdv{u})=\vphi_u,\quad \dd{\vphi_p}(\pdv{v})=\vphi_v
+.\] We get
+\begin{align*}
+    I_p(\pdv{u},\pdv{u})&=E=g_{\mathbb{R}^3}(\vphi_u,\vphi_u)
+    =g_{\mathbb{R}^3}(\dd{\vphi_p}(\pdv{u}),\dd{\vphi_p}(\pdv{u})) \\
+    I_p(\pdv{u},\pdv{v})&=E=g_{\mathbb{R}^3}(\vphi_u,\vphi_v)
+    =g_{\mathbb{R}^3}(\dd{\vphi_p}(\pdv{u}),\dd{\vphi_p}(\pdv{v})) \\
+    I_p(\pdv{v},\pdv{v})&=E=g_{\mathbb{R}^3}(\vphi_v,\vphi_v)
+    =g_{\mathbb{R}^3}(\dd{\vphi_p}(\pdv{v}),\dd{\vphi_p}(\pdv{v}))
+.\end{align*}
+
+Therefore, the 1st fundamental form is a positive definite bilinear form
+defined on \(T_p S\cong T_{(u_0,v_0)}U\).
+
+\begin{remark}
+    In Riemannian Geometry, the generalization of above defines a ``pull-back''
+    metric \(\vphi^*g\) by \(\vphi\colon M\to N\).
+\end{remark}
+
+\begin{exercise}
+    Consider a vector \(v\in T_p S\), compute \(I_p(v,v)\).
+\end{exercise}
+
+\begin{remark}
+    Since \(I_p=(\dd{u},\dd{v})\begin{pmatrix}
+        E & F \\
+        F & E
+    \end{pmatrix}\begin{pmatrix}
+        \dd{u} \\ \dd{v}
+    \end{pmatrix}\), we might also refer \(\begin{pmatrix}
+        E & F \\
+        F & G
+    \end{pmatrix}\) as the 1st fundamental form.
+\end{remark}
+
+\begin{theorem}
+    \(I\) is independent of local parametrization.
+\end{theorem}
+\begin{proof}
+    Let \(\vphi(u,v)\) and \(\psi(\alpha,\beta)\) be two local parametrizations
+    near \(p\). \[
+        \begin{cases}
+            u=u(\alpha,\beta) \\
+            v=v(\alpha,\beta)
+        \end{cases}
+        \text{ has inverse }
+        \begin{cases}
+            \alpha=\alpha(u,v) \\
+            \beta=\beta(u,v)
+        \end{cases}
+    .\] Then \[
+        \begin{pmatrix}
+            \dd{u} \\ \dd{v}
+        \end{pmatrix}=\begin{pmatrix}
+        u_{\alpha} & u_\beta \\
+        v_\alpha & v_\beta
+        \end{pmatrix}\begin{pmatrix}
+            \dd{\alpha} \\ \dd{\beta}
+        \end{pmatrix}=\pdv{(u,v)}{(\alpha,\beta)}\begin{pmatrix}
+            \dd{\alpha} \\ \dd{\beta}
+        \end{pmatrix}
+    .\] \[
+        \begin{pmatrix}
+            \left<\vphi_u,\vphi_v\right> & \left<\vphi_u,\vphi_v\right> \\
+            \left<\vphi_v,\vphi_u\right> & \left<\vphi_v,\vphi_v\right> 
+        \end{pmatrix}=\begin{pmatrix}
+            \alpha_u & \beta_u \\
+            \alpha_v & \beta_v
+        \end{pmatrix}\begin{pmatrix}
+        \left<\psi_\alpha,\psi_\beta\right> & \left<\psi_\alpha,\psi_\beta\right> \\
+        \left<\psi_\beta,\psi_\alpha\right> & \left<\psi_\beta,\psi_\beta\right> 
+        \end{pmatrix}\begin{pmatrix}
+            \alpha_u & \alpha_v \\
+            \beta_u & \beta_v
+        \end{pmatrix}
+    .\] This gives
+    \begin{align*}
+        &(\dd{u},\dd{v})
+        \begin{pmatrix}
+            \left<\vphi_u,\vphi_v\right> & \left<\vphi_u,\vphi_v\right> \\
+            \left<\vphi_v,\vphi_u\right> & \left<\vphi_v,\vphi_v\right> 
+        \end{pmatrix}\begin{pmatrix}
+        \dd{u} \\ \dd{v}
+        \end{pmatrix} \\
+        =&(\dd{\alpha},\dd{\beta})\underbrace{\begin{pmatrix}
+            u_\alpha & u_\beta \\
+            v_\alpha & v_\beta
+            \end{pmatrix}\begin{pmatrix}
+            \alpha_u & \alpha_v \\
+            \beta_u & \beta_v
+        \end{pmatrix}}_{\mathrm{Id}}\begin{pmatrix}
+        \left<\psi_\alpha,\psi_\beta\right> & \left<\psi_\alpha,\psi_\beta\right> \\
+        \left<\psi_\beta,\psi_\alpha\right> & \left<\psi_\beta,\psi_\beta\right> 
+        \end{pmatrix}\underbrace{\begin{pmatrix}
+            \alpha_u & \alpha_v \\
+            \beta_u & \beta_v
+        \end{pmatrix}\begin{pmatrix}
+            u_\alpha & u_\beta \\
+            v_\alpha & v_\beta
+        \end{pmatrix}}_{\mathrm{Id}} \\
+        =& (\dd{\alpha},\dd{\beta})\begin{pmatrix}
+        \left<\psi_\alpha,\psi_\beta\right> & \left<\psi_\alpha,\psi_\beta\right> \\
+        \left<\psi_\beta,\psi_\alpha\right> & \left<\psi_\beta,\psi_\beta\right> 
+        \end{pmatrix}\begin{pmatrix}
+            \dd{\alpha} \\ \dd{\beta}
+        \end{pmatrix}
+    .\end{align*}
+\end{proof}
+
+\begin{remark}
+    By this theorem, on a regular surface, to compute the 1st fundamental form,
+    it suffices to work it out in a coordinate chart. As you will see, in this
+    course and later in Riemannian Geometry course, there will be a lot of ``local
+    computation''.
+\end{remark}
+
+\begin{example}[Plane]
+    \(P\subset \mathbb{R}^3\) a plane through \(p_0=(x_0,y_0,z_0)\), consisting two
+    orthonormal vectors \(w_1\) and \(w_2\), viewed as vectors in \(\mathbb{R}^3\).
+    Then \[
+        \vphi(u,v)=p_0+uw_1+vw_2
+    .\] \(\implies \) \[
+        I=\dd{u}^2+\dd{v}^2
+    .\] Let \(v\) be a vector in \(P\), \(v=a\vphi_u+b\vphi=aw_1+bw_2\). Then \[
+        I(v,v)=(a,b)\begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}\begin{pmatrix}
+            a \\ b
+        \end{pmatrix}=a^2+b^2=|v|^2
+    .\] 
+\end{example}
+
+\begin{example}[Cylinder]
+    \(\vphi(u,v)=(\cos u, \sin u, v),\ \{0<u<2\pi,v\in \mathbb{R}\}\). \\
+    Direct calculate shows \[
+        I=\dd{u}^2+\dd{v}^2
+    .\] 
+\end{example}
+\begin{question}
+    It looks both the plane and cylinder have the same 1st fundamental form. This
+    means a vector at a point \(p\in P\) will have the same length when we ``move''
+    the point \(p\) and vector onto the cylinder (Think about the cylinder as gluing
+    two edges of a paper). On the other hand, cylinder is clearly not the plane.
+    What can you conclude?
+
+    (The difference lies in ``topology''. There is non-shrinking circles on the
+    cylinder. The plane and cylinder locally look the ``same'' (with the same
+    measurement). But globally they are different).
+\end{question}
+
+\begin{example}
+    \(\mathbb{S}^2=\{x^2+y^2+z^2=1\}\), compute the 1st fundamental form in
+    three parametrizations introduced before. (Left as exercise)
+\end{example}
