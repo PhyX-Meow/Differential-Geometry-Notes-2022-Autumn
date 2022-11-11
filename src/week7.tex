@@ -1,6 +1,6 @@
 \begin{example}Helicoid and catenoid (from homework)
 
-In your homework you have found local parametrization of helicoid and 
+In your homework you have found local parametrizations of helicoid and 
 catenoid 
 \begin{align*}
     H(u,v)&=\left(v\cos u, v\sin u, a u\right)\\
@@ -16,7 +16,7 @@ catenoid
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[scale=1.5]{picture/week7/catenoid.png}
+        \includegraphics[scale=1.49]{picture/week7/catenoid.png}
         \caption{Catenoid}    
     \end{subfigure}
 \end{figure}
@@ -45,7 +45,8 @@ catenoid
 \(\bullet\)Application of the \engordnumber{1} fundamental form
 
 \begin{enumerate}[(1)]
-    \item Arclength of a curve on \(S\)
+    \item Arclength of a curve on \(S\).
+    
     Note that for a vector \(v\in \mathbb{R}^2\), \(I(v,v)=|v|^2\).
     Let \(\alpha(t)\colon (0,t)\to S\) be a curve in \(S\) and 
     \(\varphi \colon U\to S\), \((u,v)\mapsto\varphi (u,v)\) be a 
@@ -75,7 +76,8 @@ catenoid
     \]
     This explains the ``geometric meaning'' of \(I\), \ie\ it measures 
     the infinitesimal arclength.
-    \item Angle between two curves intersecting at \(t_0\)
+    \item Angle between two curves intersecting at \(t_0\).
+    
     Let \(\alpha\colon I\to S\), \(\beta\colon I\to S\) be two curves 
     on \(S\), \(\alpha(t_0)=\beta(\bar{t}_0)=p\in S\). 
     \begin{center}
@@ -156,10 +158,11 @@ and (6.95,1.4) .. (10.93,3.29)   ;
          In particular, we conclude that
          \[F=0\Leftrightarrow \text{Two coordinate curves are orthogonal,}\]
          and such parametrization is called an orthogonal parametrization.
-         (e.g. \(\mathbb{S}^2\), \(\theta,\varphi\) and stereographic
-          projection are two such parametrizations) 
+         (e.g. For \(\mathbb{S}^2\), \((\theta,\varphi)\) and 
+         the stereographic projection are two such parametrizations) 
     \end{question}
-    \item (Surface) area
+    \item (Surface) Area.
+    
     Let \(S\) be a regular surface. Choose a parametrization 
     \(\varphi\colon U\to S\). Let \(Q\subset S\) be a bounded domain.
     Assume \(Q\subset \varphi(U)\), so \(\varphi^{-1}(Q)\subset U\) is 
@@ -296,7 +299,7 @@ choice of parametrizations.}
     \dd u\dd v=\iint \sqrt{EG-F^2}\dd u\dd v.\]
 \end{remark}
 \end{enumerate}
-\section{Gauss map and the \texorpdfstring{\engordnumber{2}}{2nd} fundamental form}
+\section{Gauss maps and the \texorpdfstring{\engordnumber{2}}{2nd} fundamental form}
 \(\bullet\) Gauss maps.
 \begin{question}
     \textcolor{blue}{How is a regular surface curved in \(\mathbb{R}^3\)}? 
@@ -611,7 +614,7 @@ On the other hand,
     \begin{pmatrix}
         E&F\\
         F&G
-    \end{pmatrix}
+    \end{pmatrix}.
 \end{align*}
 \[
     \Rightarrow 
@@ -811,7 +814,7 @@ with \(\begin{pmatrix}
     \]
     \[\Rightarrow \II_{\vb{n}_-}=d \theta^2\sim \begin{pmatrix}
         1&0\\0&0
-    \end{pmatrix}\]
+    \end{pmatrix}.\]
     \end{enumerate}  
 \end{example}
 \begin{remark}
@@ -820,10 +823,10 @@ with \(\begin{pmatrix}
 \end{remark}
 \section{Geometric meaning of the \texorpdfstring{\engordnumber{2}}{2nd} fundamental form and curvatures}
 \underline{Recall}: \begin{itemize}
-    \item Gauss map \[\vec{N}\colon S\to \mathbb{S}^2(1)\]
-    \[p\mapsto \vec{N}_p\]
+    \item Gauss map \[\vec{N}\colon S\to \mathbb{S}^2(1),\]
+    \[p\mapsto \vec{N}_p.\]
     \item \(d \vec{N}_p\colon T_p S\to T_{\vec{N}(p)}\mathbb{S}^2(1)
-    \simeq T_pS\)
+    \simeq T_pS.\)
     \item \(\forall v \in T_p S\), \(\II(v,v)=-\left\langle d 
     \vec{N}_p(v),v
     \right\rangle=\left\langle \vec{N}_p,
@@ -900,7 +903,7 @@ with \(S\)
     \[
         \alpha''(s)=\varphi_{uu}\left(u'(s)\right)^2 +2\varphi_{uv}
         u'(s)v'(s)+\varphi_{vv}\left(v'(s)\right)^2
-        +\underbrace{\varphi_u u''(s)+\varphi_v v''(s)}_{tangential}
+        +\underbrace{\varphi_u u''(s)+\varphi_v v''(s)}_{tangential}.
     \]
     \begin{align*}
         &\left\langle \alpha''(s),
@@ -925,7 +928,7 @@ with \(S\)
         ,\quad \tau'(s)=\frac{1}{\left|\alpha'(\tau)\right|}.
     \]
     \begin{align*}
-        \alpha'(s)&=\alpha'(\tau)\tau'(s)\\
+        \alpha'(s)&=\alpha'(\tau)\tau'(s),\\
         \alpha''(s)&=\alpha''(\tau)\left(\tau'(s)\right)^2+
         \alpha'(\tau)\tau''(s).
     \end{align*}
@@ -1020,7 +1023,7 @@ Normal sections are the great circles of radius \(1\).
         Let \(v_1\) be the unit normal along vertical lines.
         \(\Rightarrow\) normal section is just the line along \(v_1\) 
         \(\Rightarrow k_1=0\). Let \(v_2\) be the unit normal parallel
-         to \(xy\) plane.\(\Rightarrow\)
+         to \(xy\) plane.\(\Rightarrow \)
         normal section is a horizontal circle. \(Rightarrow k_2=1\) (that is the 
         curvature of a circle). As we move the horizontal circle to the vertical line
         (\ie\ \(v_2\to v_1\)), the normal curvature is decreasing.
@@ -1054,8 +1057,8 @@ Normal sections are the great circles of radius \(1\).
             \end{tikzpicture}
         \end{center}
         \begin{example}Catenoid: \(\varphi(u,v)=
-            \left(c\cosh\frac{u}{c}\cos v,
-            c\cosh\frac{u}{c}\sin v,\sinh u\right)\)
+            \left(c\cosh\frac{v}{c}\cos u,
+            c\cosh\frac{v}{c}\sin u,v\right)\)
             \label{normal curvature-catenoid}
         \end{example}
 
@@ -1082,7 +1085,7 @@ Normal sections are the great circles of radius \(1\).
                 %point meta=u
                 ] ({cosh(u)*cos(v)},
                 {cosh(u)*sin(v)},
-                {sinh(u)});
+                {u});
                 \addplot3 [
                     green,
                     quiver={u=\thisrow{u},v=\thisrow{v},w=\thisrow{w}},
@@ -1112,7 +1115,7 @@ Normal sections are the great circles of radius \(1\).
                     variable=\t,
                     samples=40,
                     samples y=1
-                ]({cosh(t)*-0.96592582628},{cosh(t)*-0.2588190451},{sinh(t)});
+                ]({cosh(t)*-0.96592582628},{cosh(t)*-0.2588190451},{t});
                 \node[text=green] at (-0.96,-0.25,1.3) {\(v_1\)};
                 \node[text=green] at (-0.60,-1.15,0) {\(v_2\)};
                 \node[text=green] at (-0.4,-0.1,-0.2) {\(\vec{N}\)};
