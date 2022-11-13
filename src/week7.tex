@@ -1,4 +1,4 @@
-\begin{example}Helicoid and catenoid (from homework)
+\begin{example} Helicoid and catenoid (from homework)
 
 In your homework you have found local parametrizations of helicoid and 
 catenoid 
@@ -385,13 +385,13 @@ Let \(\varphi \colon U\to S\) be a local parametrization near
 \]
 Let's compute the differential of the Gauss map at \(p\).
 \[
-    d\vb{n}_p\colon T_p S\to T_{\vb{n}_p}\mathbb{S}^2    .
+    \dd\vb{n}_p\colon T_p S\to T_{\vb{n}_p}\mathbb{S}^2    .
 \]
 \(\forall v\in T_p S\), let \(\alpha(s)\) be the curve on \(S\)
 such that \(\alpha(0)=p\), \(\alpha'(0)=v\).
 \[
     \Rightarrow
-    d\vb{n}_p(v)=\left.\dv{s}\right|_{s=0}\vb{n}\left(\alpha(s)\right)
+    \dd\vb{n}_p(v)=\left.\dv{s}\right|_{s=0}\vb{n}\left(\alpha(s)\right)
     (\text{changing rate of the Gauss map at }p
     \text{ along direction }v).
 \]
@@ -404,7 +404,7 @@ Note \(\left\langle\vb{n}\left(\alpha(s)\right),
 \]
 \[
     \Rightarrow 
-    d\vb{n}_p(v)=\left.\dv{s}\right|_{s=0}\vb{n}\left(\alpha(s)\right)
+    \dd\vb{n}_p(v)=\left.\dv{s}\right|_{s=0}\vb{n}\left(\alpha(s)\right)
     \in T_p S.
 \]
 \begin{definition}[The \engordnumber{2} fundamental form]
@@ -413,7 +413,7 @@ Note \(\left\langle\vb{n}\left(\alpha(s)\right),
         \item \(\forall v\in T_p S\), the \engordnumber{2} fundamental
         form 
         \[\II_p(v,v)=
-        -\left\langle d\vb{n}_p(v),
+        -\left\langle \dd\vb{n}_p(v),
         v\right\rangle_{\mathbb{R}^3}\footnotemark.\]
         \footnotetext{Thus, \(\dd\vb{n}_p\colon T_p S\to T_p S\) 
         is a linear map, which is the directional derivation of 
@@ -423,7 +423,7 @@ Note \(\left\langle\vb{n}\left(\alpha(s)\right),
             \II_p\colon T_p S\times T_p S\to T_p \mathbb{R}
         \]
          \[   (v,w)\mapsto \II_p(v,w)=-\left\langle
-                d\vb{n}_p(v),w\right\rangle_{\mathbb{R}^3}.
+                \dd\vb{n}_p(v),w\right\rangle_{\mathbb{R}^3}.
         \]
 
     \end{itemize}
@@ -454,35 +454,35 @@ Any curve on \(S\) has parametrization
 \end{align*}
 On the other hand, by the linearity of \(\dd \vb{n}_p\), 
 \[
-    d \vb{n}_p\left(\alpha'(0)\right)=u'(0)\dd \vb{n}_p
-    \left(\varphi_u\right)+v'(0)\dd \vb{n}_p \left(\varphi_v\right).    
+    \dd\vb{n}_p\left(\alpha'(0)\right)=u'(0)\dd \vb{n}_p
+    \left(\varphi_u\right)+v'(0)\dd\vb{n}_p \left(\varphi_v\right).    
 \]
 \[
     \Rightarrow
     \begin{cases}
-        d \vb{n}_p\left(\vphi_u\right)=\vb{n}_u,\\
-        d \vb{n}_p\left(\vphi_v\right)=\vb{n}_v.
+        \dd\vb{n}_p\left(\vphi_u\right)=\vb{n}_u,\\
+        \dd\vb{n}_p\left(\vphi_v\right)=\vb{n}_v.
     \end{cases}
 \]
 \begin{align*}
-    \left\langle d \vb{n}_p\left(\vphi_u\right),\vphi_u
+    \left\langle \dd\vb{n}_p\left(\vphi_u\right),\vphi_u
     \right\rangle
     &=\left\langle\vb{n}_u,\vphi_u\right\rangle=
     \pdv{u}\underbrace{\left\langle\vb{n},\vphi_u\right\rangle}_{=0}
     -\left\langle\vb{n},\vphi_{uu}\right\rangle\\
-    \left\langle d \vb{n}_p\left(\vphi_u\right),\vphi_v
+    \left\langle \dd\vb{n}_p\left(\vphi_u\right),\vphi_v
     \right\rangle
     &=\left\langle\vb{n}_u,\vphi_v\right\rangle\\
     &=\pdv{u}\underbrace{\left\langle\vb{n},\vphi_v\right\rangle}_{=0}
     -\left\langle\vb{n},\vphi_{vu}\right\rangle\\
     &=-\left\langle\vb{n},\vphi_{vu}\right\rangle\\
-    \left\langle d \vb{n}_p\left(\vphi_v\right),\vphi_u
+    \left\langle \dd\vb{n}_p\left(\vphi_v\right),\vphi_u
     \right\rangle
     &=\left\langle\vb{n}_v,\vphi_u\right\rangle\\
     &=-\left\langle\vb{n},\vphi_{uv}\right\rangle
     (\text{Note that }\vphi_{uv}=\vphi_{vu}\text{ since }
     \vphi\text{ is smooth})\\
-    \left\langle d \vb{n}_p\left(\vphi_v\right),\vphi_v
+    \left\langle \dd\vb{n}_p\left(\vphi_v\right),\vphi_v
     \right\rangle
     &=\left\langle\vb{n}_v,\vphi_v\right\rangle
     =-\left\langle \vb{n}, \vphi_{vv}\right\rangle.
@@ -497,9 +497,9 @@ Hence, we conclude that:
     \hfill
     \begin{enumerate}[(1)]
         \item From the computation above, we see that 
-        \(d \vb{n}_p\) is self-adjoint, \ie\ 
-        \(\left\langle d \vb{n}_p(v),w\right\rangle=
-        \left\langle v, d \vb{n}_p(w)\right\rangle
+        \(\dd\vb{n}_p\) is self-adjoint, \ie\ 
+        \(\left\langle \dd\vb{n}_p(v),w\right\rangle=
+        \left\langle v, \dd\vb{n}_p(w)\right\rangle
         \).
         \item The \engordnumber{2} fundamental form can be also 
         defined as 
@@ -517,7 +517,7 @@ Hence, we conclude that:
     \begin{align*}
         0&=\dv{t}\left\langle\vb{n}\left(\alpha(t)\right),\alpha'(t)
         \right\rangle\\
-        &= \left\langle d\vb{n}_{\alpha(t)}\left(\alpha'(t)
+        &= \left\langle \dd\vb{n}_{\alpha(t)}\left(\alpha'(t)
         ,\alpha'(t)\right)\right\rangle+\left\langle
          \vb{n}\left(\alpha(t)\right),\alpha''(t)\right\rangle.
     \end{align*}
@@ -528,20 +528,20 @@ Just as the \engordnumber{1} fundamental form, we write \(\II\) as
 \]
 where 
 \begin{align*}
-    e&=-\left\langle d\vb{n}_p\left(\varphi_u\right),\varphi_u\right\rangle
+    e&=-\left\langle \dd\vb{n}_p\left(\varphi_u\right),\varphi_u\right\rangle
     =-\left\langle\vb{n}_u,\varphi_u\right\rangle=\left\langle
         \vb{n},\varphi_{uu}\right\rangle\\
-    f&=-\left\langle d\vb{n}_p\left(\varphi_u\right),\varphi_v\right\rangle
+    f&=-\left\langle \dd\vb{n}_p\left(\varphi_u\right),\varphi_v\right\rangle
     =-\left\langle\vb{n}_u,\varphi_v\right\rangle=\left\langle
         \vb{n},\varphi_{uv}\right\rangle\\
-        (&=-\left\langle d\vb{n}_p\left(\varphi_v\right),\varphi_u
+        (&=-\left\langle \dd\vb{n}_p\left(\varphi_v\right),\varphi_u
         \right\rangle=-\left\langle\vb{n}_v,\varphi_u\right\rangle
         =\left\langle\vb{n},\varphi_{vu}\right\rangle)\\
-        g&=-\left\langle d\vb{n}_p\left(\varphi_v\right),\varphi_v
+        g&=-\left\langle \dd\vb{n}_p\left(\varphi_v\right),\varphi_v
         \right\rangle=-\left\langle\vb{n}_v,\varphi_v
         \right\rangle=\left\langle\vb{n},\varphi_{vv}\right\rangle
 \end{align*}
-\(\bullet\) Weingarten equations (linear representation of \(d\vb{n}\)
+\(\bullet\) Weingarten equations (linear representation of \(\dd\vb{n}\)
 in \(\{\varphi_u,\varphi_v\}\))
 
 We have seen \(\dd{\vb{n}}_p\colon T_p S\to T_{\vb{n}_p}\mathbb{S}^2\)
@@ -549,8 +549,8 @@ has image actually lying in \(T_p S=\Span\left\{\varphi_u,
 \varphi_v\right\}\) in terms of a local parametrization \(\varphi(u,v)\).
 \[
     \Rightarrow \begin{cases}
-        d\vb{n}_p\left(\varphi_u\right)=a_{11}\varphi_u+a_{12}\varphi_v\\
-        d\vb{n}_p\left(\varphi_v\right)=a_{21}\varphi_u+a_{22}\varphi_v
+        \dd\vb{n}_p\left(\varphi_u\right)=a_{11}\varphi_u+a_{12}\varphi_v\\
+        \dd\vb{n}_p\left(\varphi_v\right)=a_{21}\varphi_u+a_{22}\varphi_v
     \end{cases}
     \ie\ \begin{cases}
         \vb{n}_u=a_{11}\varphi_u+a_{12}\varphi_v\\
@@ -667,7 +667,7 @@ On the other hand,
         gF-fG& fF-gE
     \end{pmatrix}\tag{\(\ast \)}.
 \end{align*}
-The Weingarten equation is \(d \vb{n}_p\sim \begin{pmatrix}
+The Weingarten equation is \(\dd\vb{n}_p\sim \begin{pmatrix}
     a_{11}&a_{12}\\
     a_{21}&a_{22}
 \end{pmatrix}\),
@@ -740,8 +740,8 @@ with \(\begin{pmatrix}
         \[\vb{n}=\frac{(A,B,C)}{\sqrt{A^2+B^2+C^2}}\]
         is a constant map. Thus, 
         \(
-            d\vb{n}=0    
-        \) and \(\II(v,v)=-\left\langle d\vb{n}(v),v\right\rangle=0\).
+            \dd\vb{n}=0    
+        \) and \(\II(v,v)=-\left\langle \dd\vb{n}(v),v\right\rangle=0\).
         \item \(\mathbb{S}^2(1)=\{x^2+y^2+z^2=1\}\).
         At point \((x,y,z)\), the unit normal vector field is 
         \(\vb{n}_{\pm}=\pm (x,y,z)\), where \(\vb{n}_+\) means 
@@ -751,14 +751,14 @@ with \(\begin{pmatrix}
         Let's consider \(\vb{n}_-=-(x,y,z)\), let \(\alpha(t)=\left(
         x(t),y(t),z(t)\right)\) be a curve on \(\mathbb{S}^2\), then 
         \[
-            d \vb{n}_-\left(\alpha'(t)\right)
+            \dd\vb{n}_-\left(\alpha'(t)\right)
             =\dv{t}\vb{n}_- \left(\alpha(t)\right)
             =-\dv{t}\left(x(t),y(t),z(t)\right)
             =-\alpha'(t)    
         .\]
         \[\Rightarrow
             \II\left(\alpha'(t),\alpha'(t)\right)
-            =-\left\langle d\vb{n}_-\left(\alpha'(t)\right)
+            =-\left\langle \dd\vb{n}_-\left(\alpha'(t)\right)
             \right\rangle=\left\langle\alpha'(t),\alpha'(t)
             \right\rangle=\left|\alpha'(t)\right|^2\ge 0.
         \]
@@ -766,7 +766,7 @@ with \(\begin{pmatrix}
         \[\II\left(\alpha'(t),\alpha(t)\right)=
         -\left|\alpha'(t)\right|^2\le 0.\]
         \underline{Hence}, sign of the \engordnumber{2} fundamental form
-    depends on the choice of orientation(\ie\ the unit normal).
+    depends on the choice of orientation (\ie\ the unit normal).
     \item Helicoid (in which every point looks like a saddle point).
     \[H(u,v)=(v\cos u,v\sin u,a u)\]
     \[H_u=(-v\sin u,v\cos u,a),\quad H_v=(\cos u,\sin u,0).\]
@@ -826,7 +826,7 @@ with \(\begin{pmatrix}
     \item Gauss map \[\vec{N}\colon S\to \mathbb{S}^2(1),\]
     \[p\mapsto \vec{N}_p.\]
     \item \(d \vec{N}_p\colon T_p S\to T_{\vec{N}(p)}\mathbb{S}^2(1)
-    \simeq T_pS.\)
+    \simeq T_p S\).
     \item \(\forall v \in T_p S\), \(\II(v,v)=-\left\langle d 
     \vec{N}_p(v),v
     \right\rangle=\left\langle \vec{N}_p,
@@ -849,7 +849,7 @@ form reflects the surface is curved locally near a point.
     \]
     \[
         \alpha''(s)=t'(s)=k(s)\vb{n}(s),\quad k(s):\text{curvature of
-        }\alpha(s),\quad \vb{n}:\text{unit normal vector of }\alpha(s)
+        }\alpha(s),\quad\vb{n}:\text{unit normal vector of }\alpha(s)
     \]
 \begin{align*}
     \left\langle\alpha''(s),\vec{N}\left(\alpha(s)\right)\right\rangle
@@ -863,7 +863,7 @@ form reflects the surface is curved locally near a point.
 \end{align*}
 On the other hand, 
 \[
-    \left\langle\alpha''(s),\vec{N}\left(\alpha(s)\right)\right\rangle    
+    \left\langle\alpha''(s),\vec{N}(\alpha(s))\right\rangle    
     =\left\langle k(s) \vb{n}(s),\vec{N}(s)\right\rangle
     =k(s)\cos \theta.
 \]
@@ -953,8 +953,8 @@ with \(S\)
     along direction \(v\) is \(\II(v,v)\) tells us that how the 
     surface is curved along direction \(v\) at \(p\).
 \end{itemize}
-\begin{example}Sphere: \(x^2+y^2+z^2=1\).
-    \label{normal curvature-sphere}
+\begin{example}\label{normal curvature-sphere}
+    Sphere: \(x^2+y^2+z^2=1\).
 \end{example}
 
 Normal sections are the great circles of radius \(1\).
@@ -1015,8 +1015,8 @@ Normal sections are the great circles of radius \(1\).
             }
             \end{tikzpicture}
         \end{center}
-     \begin{example}Cylinder: \(x^2+y^2=1\).
-        \label{normal curvature-cylinder}
+     \begin{example}\label{normal curvature-cylinder}
+         Cylinder: \(x^2+y^2=1\).
      \end{example}
         \[\vec{N}:\text{ inner normal.}\]
 
@@ -1056,10 +1056,10 @@ Normal sections are the great circles of radius \(1\).
             node[right]{\(v_2\)};
             \end{tikzpicture}
         \end{center}
-        \begin{example}Catenoid: \(\varphi(u,v)=
+        \begin{example}\label{normal curvature-catenoid}
+            Catenoid: \(\varphi(u,v)=
             \left(c\cosh\frac{v}{c}\cos u,
             c\cosh\frac{v}{c}\sin u,v\right)\)
-            \label{normal curvature-catenoid}
         \end{example}
 
         The normal section obtained by \(S\cap \Span\{v_1,\vec{N}\}\)
@@ -1130,10 +1130,10 @@ Normal sections are the great circles of radius \(1\).
     the maximum and the minimum. Let's discuss more on these two special 
     normal curvatures.
 \subsection{Principle curvature and principle direction}
-Since \(d N_p\colon T_p S\to T_p S\) is linear and 
-symmetric(self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
+Since \(\dd N_p\colon T_p S\to T_p S\) is linear and 
+symmetric (self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
 \[
-        d N_p\begin{pmatrix}
+        \dd N_p\begin{pmatrix}
             e_1\\
             e_2
         \end{pmatrix}
@@ -1149,7 +1149,7 @@ symmetric(self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
 \(\Rightarrow \exists\) an orthonormal basis {\(\tilde{e_1}
 ,\tilde{e_2}\)} of \(T_p S\) such that 
 \[
-        d N_p \begin{pmatrix}
+        \dd{N}_p \begin{pmatrix}
             \tilde{e_1}\\
             \tilde{e_2}
         \end{pmatrix}
@@ -1175,7 +1175,7 @@ symmetric(self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
 \begin{proof}
     \[
     \II\left(\tilde{e_1},\tilde{e_1}\right)=-\left\langle
-        d N_p\left(\tilde{e_1}\right),\tilde{e_1}\right\rangle
+        \dd N_p\left(\tilde{e_1}\right),\tilde{e_1}\right\rangle
         =\left\langle k_1 \tilde{e_1},\tilde{e_1}\right\rangle
         =k_1.
     \]
@@ -1184,9 +1184,9 @@ symmetric(self-adjoint), for any orthonormal basis {\(e_1,e_2\)},
     For any unit vector \(v\in T_p S\), \(v=
     v_1\tilde{e_1}+v_2\tilde{e_2}\), with \(|v|=1\).
     \begin{align*}
-        \II(v,v)&=-\left\langle dN_p(v),v\right\rangle\\
-        &=-\left\langle v_1 d N_p\left(\tilde{e_1}\right)
-        +v_2dN_p\left(\tilde{e_2}\right),v_1\tilde{e_1}+v_2
+        \II(v,v)&=-\left\langle \dd N_p(v),v\right\rangle\\
+        &=-\left\langle v_1 \dd N_p\left(\tilde{e_1}\right)
+        +v_2\dd N_p\left(\tilde{e_2}\right),v_1\tilde{e_1}+v_2
         \tilde{e_2}\right\rangle\\
         &=k_1 v_1^2 +k_2 v_2^2=
         \begin{cases}
