@@ -332,3 +332,388 @@ can be viewed as the \engordnumber{1} order approximation of the
 intersection curve. Renormalized it, then 
 \[k_1 \bar{x}^2+k_2\bar{y}^2=1.\]
 is just the Dupin indicatrix.
+\begin{exercise}
+    Surface of revolution.
+\end{exercise}
+Let \(\alpha(s)=\varphi(s),0,\psi(s)\) be a regular curve, with \(\varphi
+(s)>0\) and \(s\in(a,b)\) is the arclength parametrization.
+\(\Rightarrow \left(\varphi'(s)\right)^2+\left(\psi'(s)\right)^2=1\)
+\(\Rightarrow \vphi'\vphi'' +\psi'\psi''=0\).
+Rotate it about \(z\)-axis
+\[
+    \Rightarrow \alpha(\theta,s)=\left(\varphi(s)\cos\theta
+    ,\varphi(s)\sin \theta,\psi(s)\right),\, 0<\theta<2\pi.
+\]
+\begin{align*}
+    I=&\dd s^2+\varphi(s)^2\dd \theta^2\\
+    \II=&\left(\psi'\vphi''-\psi''\vphi'\right)\dd s^2
+    -\vphi\psi'\dd\theta^2.
+\end{align*}
+\(\because F=f=0\), \(\therefore\) \(s\)-curve and \(\theta\)-curve 
+are curvature lines.
+\[
+    K=\frac{e}{E}\frac{g}{G}=-\frac{\varphi''}{\varphi},\;
+    H=\frac{1}{2}\left(\frac{e}{E}+\frac{g}{G}\right)    .
+\]
+Since principal curvatures satisfy \(\lambda^2-2\lambda H+K=0\).
+\[
+    \Rightarrow \lambda_1    =\frac{e}{E}=-\frac{\vphi''}{\vphi},
+    \;\lambda_2=\frac{g}{G}=\psi'\vphi''-\psi''\vphi'.
+\]
+The mean curvature is 
+\[
+    H=\frac{1}{2}\frac{-\psi'+\vphi\left(\psi'\vphi''-
+    \psi''\vphi'\right)}{\vphi}.    
+\]
+\begin{question}[Homework]
+    \begin{enumerate}[(1)]
+        \item Assume \(K=1\), \(\lim_{s\to 0^+}\alpha(s)=(0,0,1)\),
+         \(\alpha(\frac{\pi}{2})=(1,0,0)\),\(s\in (0,\pi)\). 
+         Describe the surface and determine the \engordnumber{1}
+         fundamental form (\(\dd s^2+\sin^2 s\dd \theta^2\)).
+         \item Assume \(K=0\), \(\lim_{s\to 0^+}\alpha(s)=(0,0,1)\),
+          \(\alpha(1)=(\frac{\sqrt{2}}{2},0,\sqrt{2}{2})\), 
+          \(s\in (0,\infty)\), answer the same question as in (1)
+          (\(\dd s^2+\frac{1}{2}s^2\dd \theta^2\)).
+          \item Assume \(H=0\), \(\alpha(0)=(1,0,0)\), \(\alpha(1)
+          =(\sqrt{2},0,\arcsin(1))\), \(s>0\), answer the question in 
+          (1). (\(\alpha(s)=\left(\sqrt{1+s^2},0,\arcsin s\right)\),
+           \(I=\dd s^2+(1+s^2)^2\dd \theta^2\sim \text{Catenoid}\)).
+    \end{enumerate}
+\end{question}
+
+\begin{exercise}[Ruled surface]
+    A line passing through a point \(\alpha_0\in\mathbb{R}^3\) 
+    with direction \(v\in \mathbb{R}^3\) can be written as 
+    \[
+        \ell(t)=\alpha_0 + t v.    
+    \]
+    Now we let \(\alpha_0,v\) are two vector-valued functions,
+    \ie\ \(\alpha(s),v(s)\), then the collection of lines form 
+    a surface 
+    \[
+        R(s,t)=\alpha(s)+t v(s).    
+    \]
+Surfaces with such parametrization is called the ruled surfaces, 
+where \(\alpha(s)\) is called the base curve of \(S\) and 
+\(v(s)\) is called the director curve.
+\end{exercise}
+\begin{remark}
+    Ruled surface may contain singular points.
+\end{remark}
+\begin{example}
+    \(R(s,t)=\alpha(s)+t e_3\). \(\alpha(s)\) is the circle on \(x-y\)
+    plane, \(e_3=(0,0,1)\). (\(x^2+y^2=1\)) 
+    \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    %xticklabels={,,},%不显示x坐标轴数字
+                    %yticklabels={,,},
+                    %zticklabels={,,},
+                    %axis line style={draw=none},%不显示坐标轴
+                    tick style={draw=none},
+                    view={30}{30},
+                    xlabel=\(x\),
+                    ylabel=\(y\),
+                    zlabel=\(z\)
+                ]
+                \addplot3 [
+                    surf,
+                    fill=white,
+                    domain=0:1, domain y=0:360,
+                    samples=30, samples y=30,
+                ] ({cos(y)},{sin(y)},{x});
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+\end{example}
+\begin{example}\label{a ruled surface}
+    \(R(s,t)=\alpha(s)+t\left(\alpha'(s)+e_3\right)\), where \(\alpha(s)\)
+     and \(e_3\) are the same as before.
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                %xticklabels={,,},%不显示x坐标轴数字
+                %yticklabels={,,},
+                %zticklabels={,,},
+                %axis line style={draw=none},%不显示坐标轴
+                tick style={draw=none},
+               % colormap/cool,
+                view={30}{30},
+                xlabel=\(x\),
+                ylabel=\(y\),
+                zlabel=\(z\)
+            ]
+            \addplot3 [
+                surf,
+                fill=white,
+                domain=-1:1, domain y=0:360,
+                samples=30, samples y=30,
+            ] ({sqrt(x*x+1)*cos(y)},{sqrt(x*x+1)*sin(y)},{x});
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+\begin{example}
+    \(R(s,t)=0+t\left(u(s)+e_3\right)\), where \(u(s)=\left(
+        \cos\theta,\sin\theta,0
+    \right)\)
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                %xticklabels={,,},%不显示x坐标轴数字
+                %yticklabels={,,},
+                %zticklabels={,,},
+                %axis line style={draw=none},%不显示坐标轴
+                tick style={draw=none},
+                view={30}{30},
+                xlabel=\(x\),
+                ylabel=\(y\),
+                zlabel=\(z\)
+            ]
+            \addplot3 [
+                surf,
+                fill=white,
+                domain=-1:1, domain y=0:360,
+                samples=30, samples y=30,
+            ] ({x*cos(y)},{x*sin(y)},{x});
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+In the following discussion, we assume the ruled surface \(S\)
+\[
+    R(s,t)=\alpha(s)+t v(s),~|v(s)|=1,~v'(s)\neq 0\forall s.    
+\]
+Direct computation shows:
+\begin{align*}
+    I=&\left|\alpha_s+t v_s\right|^2\dd s^2+2\left\langle
+        \alpha_s,v
+    \right\rangle \dd s\dd t
+    +\dd t^2\\
+    N=&\frac{\alpha_s\wedge v+t v_s \wedge v}{
+        \left|\alpha_s\wedge v+t v_s \wedge v\right|
+    }\\
+    \II=&e\dd s^2+2f \dd s \dd t .
+\end{align*}
+Hence,
+\[
+    K=-\frac{f^2}{\det I}\le 0.    
+\]
+Note that 
+\begin{align*}
+    f&=\left\langle R_{st},N\right\rangle\\
+    &=v_s\vdot \frac{\alpha_s\wedge v+t v_s \wedge v}{
+        \left|\alpha_s\wedge v+t v_s \wedge v\right|
+    }\\
+    &=\frac{\left(v_s,\alpha_s,v\right)}{\left|R_s\wedge R_t\right|}.
+\end{align*}
+\begin{definition}
+    \(S\) is called developable on ``flat'' surface if \(\left(
+        v_s,v,\alpha_s
+    \right)\equiv 0\). In this case \(K=0\).
+\end{definition}
+\begin{remark}
+    Physically, a developable surface can be flattened onto a plane 
+    without ``stretching'' or ``compressing'', but allowing unfolding
+    or cutting along a line. Later, we'll see on page 414, section 5-8
+    in Do Carmo: If on a developable surface \(S\), all lines can be 
+    extended on both sides, the surface can only be a plane 
+    or a cylinder.
+\end{remark}
+\begin{remark}
+    On a noncylindrical ruled surface \(S\), \ie\ 
+    \[R(s,t)=\alpha(s)+t v(s),v'(s)\neq 0\forall s,\]
+    one can choose a spherical base curve \(\beta(s)\) such
+    that 
+    \[
+        R(s,t)=\beta(s)+t v(s),    
+    \]
+    where \(\left\langle\beta'(s)+v'(s)\right\rangle=0\),
+     such curve is called the line of striction. Points on the line
+      of striction is called the central points of the ruled surface.
+\end{remark}
+\begin{example}
+    In \cref{a ruled surface}, \(\alpha(s)\) is the line of striction.
+\end{example}
+\begin{exercise}
+    Find the line of restriction (\(\beta(s)-\alpha(s)
+    -\frac{\left\langle\alpha',v'\right\rangle}{|v'|^2}v\)).
+    Then \(R(s,u)=\beta(s)+u v(s)\).
+
+    Hence if we let \(\lambda=\frac{(\beta',v,v')}{|v'|^2}\), then 
+    \(K=-\frac{\lambda^2}{\left(\lambda^2+u^2\right)^2}\).
+\end{exercise}
+\begin{exercise}[Homework]
+    Prove that there are no closed smooth minimal surface in 
+    \(\mathbb{R}^2\).
+\end{exercise}
+\begin{proof}
+    On a closed surface, there must exist an elliptic point, at which 
+    \(k>0\), this contradicts to minimal surface.
+\end{proof}
+\begin{theorem}
+    \begin{enumerate}[(1)]
+        \item If a surface of revolution \(M\) is minimal, then 
+        \(M\) is contained in either a plane or a catenoid.
+        \item If a ruled surface \(M\) is minimal, then \(M\) is 
+        contained in either a plane or a helicoid.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    See homework.
+\end{proof}
+\section{Isometries between surfaces}
+From this lecture on, we'll study the intrinsic geometry of a regular 
+surface. More precisely, we'll see how the \engordnumber{1} fundamental
+form determines the geometry.
+\begin{itemize}
+    \item \(S_1,S_2\) are regular Surfaces, \(f\colon S_1\to S_2\).
+\end{itemize}
+\begin{enumerate}[(1)]
+    \item \(f\) is isomorphism (1-1 and onto) 
+    (of sets)\(\Leftrightarrow \)
+    \(S_1\) and \(S_2\) are identified as sets.
+    \item \(f\) is homeomorphism (\(f\) is an isomorphism + \(f\)
+    and \(f^{-1}\) continuous)\(Leftrightarrow\) \(S_1\) and \(S_2\)
+    are identified as topological spaces.
+    \item \(f\) is diffeomorphism (\(f\) is a homeomorphism+
+    \(f,f^{-1}\) are smooth) \(\Leftrightarrow\) \(S_1\) and \(S_2\)
+    are identified with considering smooth structures on them.
+    \item \(f\) is isometry 
+    
+    \(\Leftrightarrow\) \(f\)
+    is a diffeomorphism and \(f\) preserves the arclength, 
+    area, angles,\(\ldots\)(everything defined by the 
+    \engordnumber{1} fundamental form).
+\end{enumerate}
+\begin{definition}[Isometry]
+    \(\vphi\colon S_1\to S_2\) is a diffeomorphism between regular 
+    surfaces. If \(\forall p\in S_1\), \(v_1,v_2\in T_p S\)
+    \[
+        \left\langle v_1,v_2\right\rangle_p=
+        \left\langle d\vphi_p(v_1),d\vphi_p(v_2)\right\rangle,
+        \tag{1}\label{definition of isometry}
+    \]
+    which is equivalent to saying that \(\vphi\) preserves the 
+    \engordnumber{1} fundamental form, then we say \(\vphi\) is 
+    an isometry.
+\end{definition}
+\begin{definition}[Local isometry]
+    \(\vphi\colon S_1\to S_2\) is called a local isometry, if 
+    \(\forall p\in S_1\), \(\exists\) a neighborhood \(U\) of 
+    \(p\) such that \(\vphi|_U\) is an isometry.
+\end{definition}
+\begin{example}
+    Catenoid and helicoid are only locally isometric to each other but not 
+    global isometric. In fact the helicoid is simply connected, but 
+    the catenoid is not (since it comes from revolution).
+\end{example}
+\begin{remark}
+    Isometry implies local isometry, however the converse is false.
+\end{remark}
+\begin{example}
+    \(\left(\mathbb{R}^2,\dd x^2 +\dd y^2\right)\) and the cylinder 
+    \((\cos u,\sin u,v), \dd u^2+\dd v^2\) are only local isometric
+     to each other, but not ``globally'' isometric.
+
+    (The local isometry map is just the local parametrization
+    of cylinder:
+    \[
+        \vphi\colon (u,v,0)\to (\cos u,\sin u,v).    
+    \]
+    Clearly, \(\mathbb{R}^2\) and the cylinder are not diffeomorphic
+    to each other, since the cylinder has a non-shrinkable loop.)
+\end{example}
+\begin{exercise}
+    The condition in \cref{definition of isometry} is equivalent to 
+    \[
+        \forall w\in T_p S, \quad |w|_p=\left|d \vphi_p(w)
+        \right|_{\varphi(p)}.\tag{2}\label{second definition of isometry}
+    \]
+\end{exercise}
+\begin{proof}
+    \cref{definition of isometry} \(\Rightarrow\)
+     \cref{second definition of isometry}, obviously.
+
+     \cref{second definition of isometry}
+     \(\Rightarrow\) \cref{definition of isometry}, 
+     let  \(w=v_1+v_2\), then 
+     \[
+        |w|_p^2=\left|d \vphi_p(w)
+        \right|_{\varphi(p)}^2,~
+        |v_1|_p^2=\left|d \vphi_p(v_1)
+        \right|_{\varphi(p)}^2,~ 
+        |v_2|_p^2=\left|d \vphi_p(v_2)
+        \right|_{\varphi(p)}^2
+     \]
+     \[\Rightarrow
+        \left\langle v_1,v_2\right\rangle_p=
+        \left\langle d\vphi_p(v_1),d\vphi_p(v_2)\right\rangle.
+     \]
+\end{proof}
+\begin{remark}
+    If \(\vphi\colon S_1\to S_2\) is a local isometry.
+    \(\forall p\in S_1\), let \(U\) be a coordinate patch of 
+    \(p\) and \(\vphi|_U\colon U\to \vphi(U)\) is a diffeomorphism 
+    given by 
+    \[
+        \vphi(u,v)=\left(\tilde{u},\tilde{v}\right).    
+    \]
+    \[
+        I_1=\begin{pmatrix}
+            \dd u& \dd v
+        \end{pmatrix}
+        \begin{pmatrix}
+            E&F\\
+            F&G
+        \end{pmatrix}
+        \begin{pmatrix}
+            \dd u\\
+            \dd v
+        \end{pmatrix}
+    \]
+    \[
+        I_2=\begin{pmatrix}
+            \dd \tilde{u}& \dd \tilde{v}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \tilde{E}&\tilde{F}\\
+            \tilde{F}&\tilde{G}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \dd \tilde{u}\\
+            \dd \tilde{v}
+        \end{pmatrix}.
+    \]
+    Note 
+    \[
+        \begin{pmatrix}
+            \dd \tilde{u}\\
+            \dd \tilde{v}
+        \end{pmatrix}
+        =
+        \pdv{(\tilde{u},\tilde{v})}{(u,v)}
+        \begin{pmatrix}
+            \dd u\\
+            \dd v
+        \end{pmatrix}
+        =
+        J_\vphi 
+        \begin{pmatrix}
+            \dd u\\
+            \dd v
+        \end{pmatrix}    
+    \]
+    \[
+        \Rightarrow 
+        \begin{pmatrix}
+            E&F\\
+            F&G
+        \end{pmatrix}=
+        J_\vphi^\top \begin{pmatrix}
+            \tilde{E}&\tilde{F}\\
+            \tilde{F}&\tilde{G}
+        \end{pmatrix} J_\vphi. 
+    \]
+\end{remark}
