@@ -1029,6 +1029,8 @@ Normal sections are the great circles of radius \(1\).
         (\ie\ \(v_2\to v_1\)), the normal curvature is decreasing.
         
         \begin{center}
+            \includegraphics[scale=2]{picture/week7/cylinder7.pdf}
+            \begin{comment}
             \tdplotsetmaincoords{30}{0}
             \begin{tikzpicture}[scale=3,tdplot_main_coords]
                 \pgfmathsetmacro{\a}{0};
@@ -1055,6 +1057,7 @@ Normal sections are the great circles of radius \(1\).
             (-0.75,0,-1.8)
             node[right]{\(v_2\)};
             \end{tikzpicture}
+        \end{comment}
         \end{center}
         \begin{example}\label{normal curvature-catenoid}
             Catenoid: \(\varphi(u,v)=
@@ -1066,7 +1069,8 @@ Normal sections are the great circles of radius \(1\).
         is a catenary, with \(k_1<0\). The normal section obtained by 
         \(S\cap \Span\{v_2,\vec{N}\}\) is a circle, with \(k_2>0\).
         \begin{center}
-        \begin{tikzpicture}
+        \begin{comment}
+            \begin{tikzpicture}
             \begin{axis}[xticklabels={,,},%不显示x坐标轴数字
                     yticklabels={,,},
                     zticklabels={,,},
@@ -1121,6 +1125,8 @@ Normal sections are the great circles of radius \(1\).
                 \node[text=green] at (-0.4,-0.1,-0.2) {\(\vec{N}\)};
             \end{axis}
         \end{tikzpicture}
+    \end{comment}
+    \includegraphics{picture/week7/catenoid-cool.pdf}
         \end{center}
     As you may notice, in \cref{normal curvature-sphere}, all 
     normal curvatures are the same at all points and along any 

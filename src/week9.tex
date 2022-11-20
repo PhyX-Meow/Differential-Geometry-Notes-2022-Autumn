@@ -79,6 +79,8 @@ Assume \(K_p\neq 0\).
           Consider a circle of radius \(r\) in \(T_p S\) and a ``circle''
           of radius \(r\) on \(S\).
           \begin{center}
+            \includegraphics{picture/week9/curvature geo meaning.pdf}
+            \begin{comment}
             \begin{tikzpicture}
                 \begin{axis}[xticklabels={,,},%不显示x坐标轴数字
                     yticklabels={,,},
@@ -135,6 +137,7 @@ Assume \(K_p\neq 0\).
                 ]({0.4*cos(x)},{0.4*sin(x)},{0.16});
                 \end{axis} 
             \end{tikzpicture}
+        \end{comment}
           \end{center}
           Then
           \[\label{geometric meaning curvature 2}
@@ -330,7 +333,7 @@ then at \(p\) one has
 using \(k_i=H\pm\sqrt{H^2-K}\). Then, \(k_1x^2+k_2y^2=2\epsilon\)
 can be viewed as the \engordnumber{1} order approximation of the 
 intersection curve. Renormalized it, then 
-\[k_1 \bar{x}^2+k_2\bar{y}^2=1.\]
+\[k_1 \bar{x}^2+k_2\bar{y}^2=1,\]
 is just the Dupin indicatrix.
 \begin{exercise}
     Surface of revolution.
@@ -522,7 +525,7 @@ Note that
     or a cylinder.
 \end{remark}
 \begin{remark}
-    On a noncylindrical ruled surface \(S\), \ie\ 
+    On a non-cylindrical ruled surface \(S\), \ie\ 
     \[R(s,t)=\alpha(s)+t v(s),v'(s)\neq 0\forall s,\]
     one can choose a spherical base curve \(\beta(s)\) such
     that 
@@ -541,7 +544,7 @@ Note that
     -\frac{\left\langle\alpha',v'\right\rangle}{|v'|^2}v\)).
     Then \(R(s,u)=\beta(s)+u v(s)\).
 
-    Hence if we let \(\lambda=\frac{(\beta',v,v')}{|v'|^2}\), then 
+    Hence, if we let \(\lambda=\frac{(\beta',v,v')}{|v'|^2}\), then 
     \(K=-\frac{\lambda^2}{\left(\lambda^2+u^2\right)^2}\).
 \end{exercise}
 \begin{exercise}[Homework]
@@ -717,3 +720,78 @@ form determines the geometry.
         \end{pmatrix} J_\vphi. 
     \]
 \end{remark}
+\begin{proposition}
+    \(U\subset \mathbb{R}^2\), assume \(\gamma_1(U)\subset S_1\), 
+    \(\gamma_2(U)\subset S_2\) are two local parametrizations 
+    of \(S_1\) and \(S_2\) such that 
+    \[
+        E_1=E_2,~F_1=F_2,~G_1=G_2,    
+    \]
+    then \(\vphi=\gamma_2\circ \gamma_1^{-1}\) is a local isometry.
+\end{proposition}
+\begin{proof}
+    \(\gamma_1,\gamma_2\) are local parametrizations \(\Rightarrow\)
+    \(\vphi=\gamma_2\circ\gamma_1^{-1}\) is a local diffeomorphism. 
+    It suffices to show \(\forall p\in U\), \(w\in T_p U\)
+    \[
+        I_p(w,w)=I_{\vphi(p)}(d\vphi_p(w),d\vphi_p(w)).    
+    \]
+    Let \(w=\alpha'(0)\in T_p S\) for a curve \(\alpha(t)\in S_1\),
+     \(\alpha(t)=\gamma_1\left(u(t),v(t)\right)\) 
+     \[\Rightarrow
+     w=\pdv{\gamma_1}{u}u'(0)+\pdv{\gamma_1}{v}v'(0)\]
+     \[
+        I_p(w,w)=E_1u'(0)^2+2 F_1u'(0)v'(0)+G_1 v'(0)^2.   
+     \]
+     Since
+     \[
+        d\vphi_p(w)=\left.\dv{t}\right|_{t=0}\vphi\circ \alpha(t)
+        =\pdv{\gamma_2}{u}u'(0)+\pdv{\gamma_2}{v}v'(0) ,
+     \]
+     \[
+        \therefore I_{\vphi(p)}(d\vphi_p(w),d\vphi_p(w))=
+        E_2 u'(0)^2+2 F_2 u'(0)v'(0)+G_2 v'(0)^2  .
+     \]
+    By assumption, \(I_p(w,w)=I_{\vphi(p)}(d\vphi_p(w),d\vphi_p(w))\).
+\end{proof}
+\begin{remark}
+    For two (local) isometric surfaces \(S_1\) and \(S_2\), the 
+    \engordnumber{1} fundamental forms might look quite different 
+    in the given parametrization. But we can always find a coordinate 
+    change on one of then to get the desired isometry between them.
+    (Such coordinate change gives the isometry on the surface to itself)
+\end{remark}
+\begin{exercise}
+    In your homework 6, you have checked the catenoid and the with 
+    \[
+        C(u,v)=\left(a\cosh v\cos u,a\cosh v\sin u,a v\right),~
+        0<u<2\pi,~-\infty<v<+\infty
+    \]
+    and the helicoid with 
+    \[
+        H(\bar{u},\bar{v})=\left(\bar{v}\cos\bar{u},
+        \bar{v}\sin\bar{u},a \bar{u}\right),~0<\bar{u}<2\pi,-\infty<
+        \bar{v}<+\infty
+    \]
+    are local isometric, and the local isometry is 
+    \[
+        \vphi(u,v)=(\bar{u},\bar{v}),~\bar{u}=u,~\bar{v}=a\sinh v.    
+    \]
+\end{exercise}
+\begin{remark}
+    If \(\varphi\colon S_1\to S_2\) is an isometry, \(\vphi\) preserves distance, 
+    length, angle, area et.c.
+\end{remark}
+We often use another weaker equivalent condition, \ie\ a diffeomorphism 
+only preserving angle.
+\begin{definition}
+    A diffeomorphism \(\varphi\colon S_1\to S_2\) is called a conformal
+    map if \(\forall p \in S_1\), \(v_1, v_2, \in T_p S_1\), we 
+    have 
+    \[
+        \left\langle d\vphi_p(v_1),d\vphi_p(v_2)\right\rangle=
+        \lambda^2(p)\left\langle v_1,v_2\right\rangle_p,
+    \]
+    where \(\lambda^2\) is a nowhere vanishing smooth function on \(S_1\)
+    and \(S_1\) is said to be conformal to \(S_2\).
+\end{definition}
