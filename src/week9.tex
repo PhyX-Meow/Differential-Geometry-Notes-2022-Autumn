@@ -408,53 +408,72 @@ where \(\alpha(s)\) is called the base curve of \(S\) and
     \(R(s,t)=\alpha(s)+t e_3\). \(\alpha(s)\) is the circle on \(x-y\)
     plane, \(e_3=(0,0,1)\). (\(x^2+y^2=1\)) 
     \begin{center}
+        \includegraphics{picture/week9/ruled surface-cylinder.pdf}
+        \begin{comment}
             \begin{tikzpicture}
-                \begin{axis}[
-                    %xticklabels={,,},%不显示x坐标轴数字
-                    %yticklabels={,,},
-                    %zticklabels={,,},
-                    %axis line style={draw=none},%不显示坐标轴
-                    tick style={draw=none},
-                    view={30}{30},
-                    xlabel=\(x\),
-                    ylabel=\(y\),
-                    zlabel=\(z\)
-                ]
-                \addplot3 [
-                    surf,
-                    fill=white,
-                    domain=0:1, domain y=0:360,
-                    samples=30, samples y=30,
-                ] ({cos(y)},{sin(y)},{x});
-                \end{axis}
-            \end{tikzpicture}
+    \begin{axis}[
+        %xticklabels={,,},%不显示x坐标轴数字
+        %yticklabels={,,},
+        %zticklabels={,,},
+        %axis line style={draw=none},%不显示坐标轴
+        tick style={draw=none},
+        view={30}{30},
+        xlabel=\(x\),
+        ylabel=\(y\),
+        zlabel=\(z\)
+    ]
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=0:1, domain y=0:180,
+        samples=30, samples y=30,
+    ] ({cos(y)},{sin(y)},{x});
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=0:1, domain y=180:360,
+        samples=30, samples y=30,
+    ] ({cos(y)},{sin(y)},{x});
+    \end{axis}
+\end{tikzpicture}
+        \end{comment}
         \end{center}
 \end{example}
 \begin{example}\label{a ruled surface}
     \(R(s,t)=\alpha(s)+t\left(\alpha'(s)+e_3\right)\), where \(\alpha(s)\)
      and \(e_3\) are the same as before.
     \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                %xticklabels={,,},%不显示x坐标轴数字
-                %yticklabels={,,},
-                %zticklabels={,,},
-                %axis line style={draw=none},%不显示坐标轴
-                tick style={draw=none},
-               % colormap/cool,
-                view={30}{30},
-                xlabel=\(x\),
-                ylabel=\(y\),
-                zlabel=\(z\)
-            ]
-            \addplot3 [
-                surf,
-                fill=white,
-                domain=-1:1, domain y=0:360,
-                samples=30, samples y=30,
-            ] ({sqrt(x*x+1)*cos(y)},{sqrt(x*x+1)*sin(y)},{x});
-            \end{axis}
-        \end{tikzpicture}
+        \includegraphics{picture/week9/ruled surface-catenoid.pdf}
+        \begin{comment}
+            \begin{tikzpicture}
+    \begin{axis}[
+        %xticklabels={,,},%不显示x坐标轴数字
+        %yticklabels={,,},
+        %zticklabels={,,},
+        %axis line style={draw=none},%不显示坐标轴
+        tick style={draw=none},
+       % colormap/cool,
+        view={30}{30},
+        xlabel=\(x\),
+        ylabel=\(y\),
+        zlabel=\(z\)
+    ]
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=-1:1, domain y=0:180,
+        samples=30, samples y=30,
+    ] ({sqrt(x*x+1)*cos(y)},{sqrt(x*x+1)*sin(y)},{x});
+    
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=-1:1, domain y=180:360,
+        samples=30, samples y=30,
+    ] ({sqrt(x*x+1)*cos(y)},{sqrt(x*x+1)*sin(y)},{x});
+\end{axis}
+\end{tikzpicture}
+        \end{comment}
     \end{center}
 \end{example}
 \begin{example}
@@ -462,26 +481,42 @@ where \(\alpha(s)\) is called the base curve of \(S\) and
         \cos\theta,\sin\theta,0
     \right)\)
     \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                %xticklabels={,,},%不显示x坐标轴数字
-                %yticklabels={,,},
-                %zticklabels={,,},
-                %axis line style={draw=none},%不显示坐标轴
-                tick style={draw=none},
-                view={30}{30},
-                xlabel=\(x\),
-                ylabel=\(y\),
-                zlabel=\(z\)
-            ]
-            \addplot3 [
-                surf,
-                fill=white,
-                domain=-1:1, domain y=0:360,
-                samples=30, samples y=30,
-            ] ({x*cos(y)},{x*sin(y)},{x});
-            \end{axis}
-        \end{tikzpicture}
+        \includegraphics{picture/week9/ruled surface-cone.pdf}
+        \begin{comment}
+            \begin{tikzpicture}
+    \begin{axis}[
+        %xticklabels={,,},%不显示x坐标轴数字
+        %yticklabels={,,},
+        %zticklabels={,,},
+        %axis line style={draw=none},%不显示坐标轴
+        tick style={draw=none},
+        view={30}{30},
+        xlabel=\(x\),
+        ylabel=\(y\),
+        zlabel=\(z\)
+    ]
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=0:1, domain y=0:360,
+        samples=30, samples y=30,
+    ] ({x*cos(y)},{x*sin(y)},{x});
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=-1:0, domain y=300:340,
+        samples=30, samples y=30,
+    ] ({x*cos(y)},{x*sin(y)},{x});
+    \addplot3 [
+        surf,
+        fill=white,
+        domain=-1:0, domain y=-30:180,
+        samples=30, samples y=30,
+    ] ({x*cos(y)},{x*sin(y)},{x});
+    
+    \end{axis}
+\end{tikzpicture}
+        \end{comment}
     \end{center}
 \end{example}
 In the following discussion, we assume the ruled surface \(S\)
@@ -795,3 +830,102 @@ only preserving angle.
     where \(\lambda^2\) is a nowhere vanishing smooth function on \(S_1\)
     and \(S_1\) is said to be conformal to \(S_2\).
 \end{definition}
+\begin{definition}[Locally conformal]
+    \(\vphi\colon S_1\to S_2\) is called a locally conformal map,
+    if \(\forall\), \(\exists\) a neighborhood \(U\) of \(p\) such
+    that  \(\vphi|)U\) is a conformal map.
+\end{definition}
+\begin{proposition}
+    \(\vphi \colon S_1\to S_2\) is a locally conformal map if and only 
+    if \(\vphi\) is an angle preserving smooth map.
+\end{proposition}
+\begin{proof}
+    See homework.
+\end{proof}
+\begin{remark}
+    \begin{enumerate}[(1)]
+        \item Angle-preserving is a geometric description
+        of (locally) conformal condition. In reality, it's more convenient
+        to use definition.
+        \item Conformal is also an equivalent relation on regular surfaces.
+    \end{enumerate}
+\end{remark}
+\begin{example}
+    In HW 6, you have checked that stereographic map
+    \[
+        \pi_N\colon \mathbb{S}^2-{N}\to \mathbb{R}^2   
+    \]
+    \[
+        (x,y,z)\mapsto (\frac{x}{1-z},\frac{y}{1-z})    ,
+    \]
+    is a locally conformal map.
+    Recall 
+    \begin{align*}
+        \dd s_{\mathbb{S}^2}^2&=\frac{4}{(1+u^2+v^2)^2}\left(
+            \dd u^2+\dd v^2
+        \right)\\
+        &=\frac{4}{(1+u^2+v^2)^2}\dd s_{\mathbb{R}^2}^2
+    \end{align*}
+\end{example}
+\begin{definition}[Locally conformal flat]
+    A regular surface is called locally conformally flat, if 
+    \(\forall p\in S\) \(\exists\) neighborhood \(U\) of \(f\)
+    such that \(U\) is conformally equivalent to an open subset
+    of \(\mathbb{R}^2\), \ie\ on \(U\) the first fundamental form of 
+    \(S\) is 
+    \[
+        I_U=\lambda^2I_{\mathbb{R}^2}    
+    \]
+    for a non-vanishing smooth function.
+\end{definition}
+A remarkable result in surface theory is: 
+\begin{theorem}
+    Any regular surface is locally conformally flat.
+\end{theorem}
+In practice, this is very useful. The theorem tells that 
+\(\forall p \in S\), we can choose a local parametrization
+near \(p\) such that 
+\[
+    \dd s^2=\lambda^2\dd s_{\mathbb{R}^2}^2=\lambda^2\left(
+        \dd x^2+\dd y^2
+    \right).
+\]
+Such parametrization is called Isothermal parametrization.
+Hence, the study of geometry on \(S\) (which is determined by the
+\engordnumber{1} fundamental form) becomes the study of function
+\(\lambda\).
+\begin{proof}
+    (Skip) (Reference: S.S. Chern, 1955, proceedings, An elementary 
+    proof of the existence of isothermal parameters on a surface). 
+    The proof is reduced to solving some complex valued differential
+    equations
+\end{proof}
+\begin{remark}
+    Later, in Riemannian Geometry course, you'll see there is a
+    ``mysterious'' curvature  (Weyl) tensor to characterize the 
+    ``locally conformally flat'' condition, \ie\ 
+    \[\text{Weyl tensor}\equiv 0\Leftrightarrow \text{Locally 
+    conformally flat}.\]
+    However, Weyl tensor is always zero on a manifold of dimension
+    2 and 3.
+\end{remark}
+\begin{remark}
+    \begin{enumerate}[(1)]
+        \item In surface theory, conformal map is closely related to
+         the complex analysis.
+        \item In higher dimensional Riemannian Geometry, there is a
+        branch called conformal geometry.
+    \end{enumerate}
+\end{remark}
+
+\underline{Yamabe Problem}:
+\begin{enumerate}[(1)]
+    \item Let \((M,g)\) be a close Riemannian manifold with 
+    \(\dim M\ge 3\). Does there exist a Riemannian metric
+    \(\tilde{g}\) such that \(\tilde{g}=\lambda^2 g\) and the 
+    ``scalar curvature'' of \(\tilde{g}\) is a constant c?(\(c<0\)
+    and \(c=0\) are solved. \(c>0\) remains open)
+    \item In \(\dim =2\), this question is equivalent to 
+    finding a metric with constant Gaussian curvature on a closed
+    surface under the conformal change.
+\end{enumerate}

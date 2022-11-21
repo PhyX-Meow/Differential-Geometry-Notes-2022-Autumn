@@ -138,10 +138,8 @@ For simplicity, we write
 \begin{definition}[Convex curves]
     $\alpha(s)$ is a convex curve, if at each point $\alpha(s_0)$, the whole curve lies on the same side of the tangent line.
 \end{definition}
-
-
-
-
+\includegraphics{picture/week3/def convex curves.pdf}
+\begin{comment}
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
@@ -175,6 +173,8 @@ For simplicity, we write
     \draw    (544,60) -- (644,160) ;
 
 \end{tikzpicture}
+\end{comment}
+
 The convex curve has the following useful characterization.
 \begin{proposition}
     $\alpha(s)$ is a convex curve $\Leftrightarrow $ at each point $\alpha(s_0)$, only one of the following holds:
@@ -184,9 +184,11 @@ The convex curve has the following useful characterization.
     Geometrically, this means at a convex point, the angle between vector $\alpha(s)-\alpha(s_0)$ and $\vec{n}(s_0)$ should be either $[0,\frac{\pi}{2}]$ or $[\pi,\frac{3\pi}{2}]$.
 \end{proposition}
 \begin{example}\hfill
-
+    \begin{center}
+        \includegraphics{picture/week3/example convex curves.pdf}
+    \end{center}
+\begin{comment}
     \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
     \begin{center}
         \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
             %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
@@ -274,9 +276,12 @@ The convex curve has the following useful characterization.
 
         \end{tikzpicture}
     \end{center}
+\end{comment}
+    
 \end{example}
 \begin{example}
-    $\alpha(t)=\left((1+2\cos t)\cos t,(1+2\cos t)\sin t\right),~ t\in \mathbb{R}.$
+    $\alpha(t)=\left((1+2\cos t)\cos t,(1+2\cos t)\sin t\right),
+    ~ t\in \mathbb{R}.$
 
     \begin{center}
         \begin{tikzpicture}
@@ -286,6 +291,7 @@ The convex curve has the following useful characterization.
             plot ({(1+2*cos(\t))*cos(\t)},{(1+2*cos(\t))*sin(\t)});
         \end{tikzpicture}
     \end{center}
+
 \end{example}
 \begin{proposition}
     \label{week3_prop2}
@@ -299,9 +305,8 @@ of the angle between tangent vectors. Let's see another similar application.
 Let $\alpha(s)$ be parametrized by arclength, then $t(s)\equiv\alpha'(s)$
 is a unit tangent vector, \ie\ $|t(s)|=1$.
 \begin{center}
-
-
-
+    \includegraphics{picture/week3/nonconvex curve& angle.pdf}
+\begin{comment}
     \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
     \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
@@ -368,6 +373,7 @@ is a unit tangent vector, \ie\ $|t(s)|=1$.
 
 
     \end{tikzpicture}
+\end{comment}
 \end{center}
 Let $\theta$ be the angle between $t(s)$ and the $x$-axis, \ie\ $t(s)=(\cos \theta,\sin \theta)$
 \[
