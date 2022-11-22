@@ -25,7 +25,110 @@
 \end{enumerate}
 \end{remark}
 
+\begin{exercise}
+    Find the expression of \(K\) and \(H\) in arbitrary parametrization.
+    The answer is \[
+        K=\frac{\det\II}{\det I}=\frac{eg-f^2}{EG-F^2},\quad
+        H=\frac{1}{2}\tr_I\II=\frac{1}{2}\frac{eG-2fF+gE}{EG-F^2}
+    .\] 
+\end{exercise}
 
+Once we know the Gaussian curvature \(K\) and mean curvature \(H\), by
+the fact that \(K=\det A,H=-\frac{1}{2}\tr A\), we can write the 
+characteristic polynomial of \(A\): \[
+    \det(\lambda I-A)=\lambda^2-\tr A \lambda+\det A
+    =\lambda^2+2H\lambda+K
+.\] Since the principal curvature \(k=-\lambda\), we have \[
+    k^2-2Hk+K=0
+.\] And principal curvatures are: \[
+    k=H\pm \sqrt{H^2-K}
+.\] 
+
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item 
+    The Gaussian curvature is an ``intrinsic'' curvature, it's only determined
+    by the surface itself. The Gaussian elegant theorem tell us that the Gaussian
+    curvature is only determined by 1st fundamental form. This already sheds light
+    on the Riemannian Geometry. (We'll see the theorem later). The most beautiful
+    result in surface theory is the Gauss-Bonnet's theorem: If \(S\) is an oriented
+    compact surface without boundary, then \[
+        \int_{S}K = 2\pi\chi(S)=2\pi(2-2g)
+    .\]
+    \item 
+    The mean curvature is an ``extrinsic curvature''. It depends on the ambient
+    space. (Here, our ambient space is \(\mathbb{R}^3\)). One of important problems
+    in Differential Geometry is studying the surfaces with vanishing mean curvature.
+    Such surface is called ``minimal surface''. (We will explain ``minimal'' later).
+    This problem heavily depends on PDE theory (of 2nd order elliptic type).
+\end{enumerate}
+\end{remark}
+
+Here, let's have a further understanding of principal curvature \& principal
+direction from analysis point of view. We have seen:
+\begin{enumerate}[(1)]
+    \item Normal curvature at \(p\in S\): 
+        \begin{align*}
+            k_n\colon \mathbb{S}^1(T_p S) &\longrightarrow \mathbb{R} \\
+            v &\longmapsto k_n(v)
+        .\end{align*}
+    \item Principal direction is at which \(k_n\) attains maximum / minimum.
+    \item \(\forall\,v\) not necessary a unit vector, then \[
+            k_n(v)=\frac{\II_p(v,v)}{I_p(v,v)}
+        .\] 
+        Let \(v=v_1\vphi_1+v^2\vphi_2\), where \(\vphi(u^1,u^2)\) is a local
+        parametrization. Then \[
+            k_n(v)=\frac{(v^1)e^2+2v^1v^2f+(v^2)^2g}{(v^1)^2E+2v^1v^2F+(v^2)^2G}
+        .\] WLOG assume \(v^1\neq 0\), \(\lambda=\frac{v^2}{v^1}\), then \[
+            k_n(\lambda)=\frac{e+2f\lambda+g\lambda^2}{E+2F\lambda+G\lambda^2}
+        .\] 
+    \item Since principal curvatures are critical values of \(k_n\), \(k_n'(\lambda)
+        =0\), 
+        \begin{equation}\label{analysis-kn-1}
+            \iff (2f+2g\lambda)(E+2F\lambda+G\lambda^2)-(2F+2G\lambda)
+            (e+2f\lambda+g\lambda^2)=0
+        .\end{equation}
+        \ie\ \[
+            \frac{e+2f\lambda+g\lambda^2}{E+2F\lambda+G\lambda^2}
+            =\frac{f+g\lambda}{F+G\lambda}
+        .\] Hence \[
+            k_n=\frac{f+g\lambda}{F+G\lambda}
+        .\] On the other hand, \cref{analysis-kn-1} also implies
+        \begin{equation}\label{analysis-kn-2}
+        \begin{split}
+            &(f+g\lambda)(E+F\lambda)+\lambda(f+g\lambda)(F+G\lambda) \\
+            =&(F+G\lambda)(e+f\lambda)+\lambda(F+G\lambda)(f+g\lambda)
+        .\end{split}\end{equation}
+        \ie\ \[
+            \frac{f+g\lambda}{F+G\lambda}=\frac{e+f\lambda}{E+F\lambda}
+        .\] Hence \[
+            k_n=\frac{f+g\lambda}{F+G\lambda}=\frac{e+f\lambda}{E+F\lambda}
+            \iff \text{principal curvature}
+        .\] Then \[
+            \begin{cases}
+                f+g\lambda=k_n(F+G\lambda) \\
+                e+f\lambda=k_n(E+F\lambda)
+            \end{cases}\implies \begin{cases}
+            f-Fk_n=(Gk_n-g)\lambda \\
+            e-Ek_n=(Fk_n-f)\lambda
+            \end{cases}
+        .\] This linear system has solution \(\lambda\iff \) \[
+            \det\begin{bmatrix}
+                e-k_n E & f-k_n F \\
+                f-k_n F & g-k_n G
+            \end{bmatrix}=0
+        .\] This gives an equation to solve \(k_n\).
+        To see the principal direction, \ie\ solving \(\lambda\),
+        \begin{align*}
+            \text{\cref{analysis-kn-2}}
+            &\implies (gF-fG)\lambda^2+(gE-eG)\lambda+(fE-eF)=0 \\
+            &\iff \det\begin{bmatrix}
+                \lambda^2 & -\lambda & 1 \\
+                E & F & G \\
+                e & f & g
+            \end{bmatrix}=0
+        .\end{align*}
+\end{enumerate}
 
 
 \newpage
