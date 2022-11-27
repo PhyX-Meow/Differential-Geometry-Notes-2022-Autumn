@@ -130,5 +130,207 @@ direction from analysis point of view. We have seen:
         .\end{align*}
 \end{enumerate}
 
+Next, we would like to introduce several special points on a surface by using
+curvatures introduced previously.
+
+\begin{definition}[Classification of points on surface]\hfill\\
+    A point \(p\) on a regular surface \(S\) is called a
+\begin{enumerate}[(1)]
+    \item Elliptic point, if \(K_p>0\).
+        (All normal section have the same normal vectors)
+    \item Hyperbolic point, if \(K_p<0\).
+        (There exist two normal sections with opposite normal vectors)
+    \item Parabolic point if \(K_p=0\) but \(\dd{N}_p\neq 0\).
+        (One of principal directions is ``flat'')
+    \item Planar point, if \(\dd{N}_p=0\), \ie\ \(k_1=k_2=0\).
+    \item Umbilical point, if \(k_1=k_2\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}\hfill
+\begin{enumerate}[(1)]
+    \item Apparently, umbilical points can only occur at elliptic point or
+        planar point.
+    \item At umbilical points, \(\II=kI\).
+    \item On a minimal surface, \(H=0\implies k_1=-k_2\), so \(K\le 0\), and there
+        is no elliptic point.
+\end{enumerate}
+\end{remark}
+
+\begin{definition}
+    \(S\) is called totally umbilical, if all points are umbilical. For example,
+    both plane and sphere are totally umbilical.
+\end{definition}
+
+\begin{theorem}
+    If \(S\hookrightarrow\mathbb{R}^3\) is totally umbilical and connected. Then
+    \(S\) is either contained in a plane or a sphere.
+\end{theorem}
+\begin{proof}
+    Umbilical \(\implies \) at each point, \(k_1=k_2=k\), then \(\II_p=kI_p\).
+
+    Let  \(\vphi(u,v)\) be a local parametrization near \(p\). By Weingarten
+    equation, \[
+        \begin{bmatrix}
+            \vb{n}_u \\ \vb{n}_v
+        \end{bmatrix}=A\begin{bmatrix}
+            \vphi_U \\ \vphi_v
+        \end{bmatrix}=\begin{bmatrix}
+            -k & 0 \\
+            0 & -k
+        \end{bmatrix}\begin{bmatrix}
+            \vphi_u \\ \vphi_v
+        \end{bmatrix},\quad A=\II\cdot I^{-1}
+    .\] Hence \[
+        \begin{cases}
+            \vb{n}_u=-k\vphi_u \\
+            \vb{n}_v=-k\vphi_v
+        \end{cases}
+        \implies\ \ \begin{cases}
+            \vb{n}_{uv}=-k_v\vphi_u-k\vphi_{uv} \\
+            \vb{n}_{vu}=-k_u\vphi_v-k\vphi_{vu}
+        \end{cases}
+    .\] So we must have \[
+        k_v\vphi_u=k_u\vphi_v
+    .\] \(\vphi_u,\vphi_v\) linearly independent \(\implies k_u=k_v=0\). So \(k\)
+    is constant on the chart.
+
+    Case 1: \(k=0\), then \(\vb{n}_u=\vb{n}_v=0\). Hence \(\vb{n}\) is a constant
+    vector field. Then \[
+        \left<\vphi(u,v),\vb{n}\right> 
+    \] is constant since it has zero differentials. This shows \(S\) lie in a plane
+    locally.
+
+    Case 2: \(k\neq 0\), wlog assume \(k>0\), otherwise we can reverse the
+    orientation. Then \[
+        \begin{cases}
+            \vphi_u=-\frac{1}{k}\vb{n}_u \\
+             \vphi_v=-\frac{1}{k}\vb{n}_v
+        \end{cases}
+    .\] So \(\vphi+\frac{1}{k}\vb{n}\) is constant. (Note \(\vphi\) is the position
+    vector). Let \(c=\vphi+\frac{1}{k}\vb{n}\). Then \[
+        |\vphi-c|=\frac{1}{k}
+    .\] This shows \(S\) lie in a sphere locally.
+
+    So far we proved the result only in a local coordinate chart. Since the surface
+    is connected and smooth, one can easily use a topology (covering) arguement
+    to extend above result globally.
+\end{proof}
+
+\begin{remark}
+    So far, we can characterize \(\mathbb{S}^2(R)\) in \(\mathbb{R}^3\) in the
+    following two ways geometrically:
+    \begin{enumerate}[(1)]
+        \item \(\mathbb{S}^2(R)=\) the set of points having the same distance
+            \(R\) to a fixed point \(c\). \ie\ \[
+                |x-c|=R
+            .\] 
+        \item \(\mathbb{S}^2(R)=\) all points are umbilical. \ie\ \(\II=kI,k\neq 0\).
+    \end{enumerate}
+    Both of them are very useful in proving some surface is sphere.
+\end{remark}
+\begin{remark}
+    \(H^2-K=\frac{1}{4}(k_1-k_2)^2\ge 0\). It vanishes at \(p\) when \(k_1=k_2\),
+    \ie\ \(p\) umbilical. Together with Gauss-Bonnet thm, we have \[
+        \int_{S}H^2\ge \int_{S}K=2\pi(2-2g)
+    \] on a closed oriented surface, with equality holds iff \(S\) is sphere.
+    In fact, we can get a stronger integral inequality.
+\end{remark}
+\begin{theorem}[Yau contest 2014]
+    For a closed (oriented) surface \(S\subset \mathbb{R}^3\), \[
+        \int_{S}H^2\ge 4\pi
+    .\] Equality holds \(\iff S\) is a sphere.
+\end{theorem}
+\begin{proof}
+    Recall the Gauss map \(\vb{n}\colon S\to \mathbb{S}^2(1)\), \[
+        \dd{\vb{n}}\begin{bmatrix}
+            \vphi_u \\ \vphi_v
+        \end{bmatrix}=A\begin{bmatrix}
+            \vphi_u \\ \vphi_v
+        \end{bmatrix}
+    .\] \[
+        A=\II\cdot I^{-1}\implies K=\det A
+    .\] For \(S\) closed surface, \(\vb{n}\) is surjective to \(\mathbb{S}^2(1)\).
+    Hence \[
+        \int_{S}H^2\ge \int_{S}|K|\ge \int_{\mathbb{S}^2}1=4\pi
+    .\]
+
+    (To see why \(\vb{n}\) is surjective, notice for any direction vector \(v_0\),
+    there is a point \(p\in S\) \st\ \(\left<p,v_0\right> \) maximal. For this point
+    one can prove the normal vector coincident with \(v_0\)).
+\end{proof}
+
+\begin{definition}
+    \(W(S)=\int_{S}H^2\dd{\sigma}\) is called the Willmore energy of surface \(S\).
+\end{definition}
+
+Now we know \(W(S)\ge 4\pi\), it's natural to ask what's the exact lower bounded
+of \(W(S)\) for given topology.
+
+\begin{conjecture}[Willmore]
+    Given any smooth ``immersed'' torus \(T\) in \(\mathbb{R}^3\), \[
+        W(T)\ge 2\pi.
+    \]
+\end{conjecture}
+
+This conjecture is settled in the case of ``embedded'' by Marques \& Neves (2014
+Annals). They also showed the equality holds iff the torus is obtained by the
+stereographic projection of the Clifford torus which is an ``embedded'' torus in
+\(\mathbb{R}^4\). \[
+    \frac{1}{\sqrt{2}}\mathbb{S}^1\times \frac{1}{\sqrt{2}}\mathbb{S}^1
+    =\{\frac{1}{\sqrt{2}}(\cos\theta,\sin\theta,\cos\vphi,\sin\vphi):
+    0\le \theta\le 2\pi,0\le \vphi\le 2\pi\}
+.\] 
+
+\begin{conjecture}[Lawson, proved by Brendle]
+    Clifford torus is only minimally embedded torus in \(\mathbb{S}^3\).
+    (\ie\ as a minimal surface in metric of \(\mathbb{S}^3\)).
+\end{conjecture}
+
+Finally, we introduce some other geometric concepts in term of the 2nd fundamental 
+form.
+
+\begin{definition}[Curvature lines]
+    The curvature lines are integral curves of principal directions:
+    \(\gamma(s)\subset S\) \st{} \(\gamma'(s)\) is principal direction. \ie\ \[
+        \vb{n}'(s)=\dv{s}\vb{n}(\gamma(s))=-\lambda(s)\gamma'(s)
+    .\] 
+\end{definition}
+
+\begin{remark}
+    At an umbilical point, any normal section provides a principal direction, there
+    are infinity many of them. However, if a point is not umbilical, \ie\ \(k_1\neq 
+    k_2\), then we can find a local parametrization near \(p\), \st\ coordinate
+    curves are curvature lines which are orthogonal to each other.
+\end{remark}
+
+\begin{exercise}
+    Let \(\vphi(u,v)\) be a local parametrization, show that coordinate curves are
+    curvature lines \(\iff F=f=0\).
+\end{exercise}
+\begin{comment}
+\begin{proof}
+    1. If \(\vphi(u,v_0)\) and \(\vphi(u_0,v)\) are curvature lines, \[
+        \begin{cases}
+            \dd{\vb{n}}(\vphi_u)=-\lambda\vphi_u \\
+            \dd{\vb{n}}(\vphi_v)=-\mu\vphi_v
+        \end{cases}
+        \text{\ie}\quad\begin{cases}
+            \vb{n}_u=-\lambda\vphi_u \\
+            \vb{n}_v=-\mu\vphi_v
+        \end{cases}
+    .\] 
+    So \(f=-\lambda F=-\mu F\). \ie\ \((\lambda-\mu)F=0\). If \(\lambda=\mu\),
+    then the point is umbilical, it's enough to imply \(F=0\).
+    If \(\lambda\neq \mu\), then \(F=0\implies f=0\).
+\end{proof}
+\end{comment}
+
+Let's derive an equation of curvature lines.
+If \(\alpha(t)=\vphi(u(t),v(t))\) is a curvature line, then \[
+    \dd{\vb{n}}(\alpha'(t))=-\lambda(t)\alpha'(t)
+.\] 
+
+
 
 \newpage
