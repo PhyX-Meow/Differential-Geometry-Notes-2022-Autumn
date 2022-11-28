@@ -327,10 +327,116 @@ form.
 \end{comment}
 
 Let's derive an equation of curvature lines.
+
 If \(\alpha(t)=\vphi(u(t),v(t))\) is a curvature line, then \[
-    \dd{\vb{n}}(\alpha'(t))=-\lambda(t)\alpha'(t)
+    \dd{\vb{n}}(\alpha'(t))=-\lambda(t)\alpha'(t),
+    \quad \text{while }\alpha'(t)=\vphi_u u'(t)+\vphi_v v'(t)
+.\] Then \[
+    \vb{n}_u u'+\vb{n}_v v'=-(\lambda \vphi_u u'+\lambda\vphi_v v')
+.\] Product with \(\vphi_u\) and \(\vphi_v\), we get \[
+    \begin{cases}
+        eu'+fv'=\lambda Eu'+\lambda Fv' \\
+        fu' +gv'=\lambda Fu'+\lambda Gv'
+    \end{cases}
+.\] Hence \[
+    \begin{cases}
+        \dfrac{fF-eG}{EG-F^2}u'+\dfrac{gF-fG}{EG-F^2}v'=\lambda u' \\
+        \dfrac{eF-fE}{EG-F^2}u'+\dfrac{fF-gE}{EG-F^2}v'=\lambda v'
+    \end{cases}
+    \quad \bigl(\iff \begin{bmatrix}
+        E & F \\ F & G
+    \end{bmatrix}^{-1}\begin{bmatrix}
+        e & f \\ f & g
+    \end{bmatrix}=\lambda \mathrm{Id}\bigr)
+.\] Eliminating \(\lambda\), then \[
+    (fE-eF)(u')^2+(gE-eG)u'v'+(gF-fG)(v')^2=0
+.\] So \(\alpha(t)\) is curvature line \(\iff \) \[
+    \det\begin{bmatrix}
+        (v')^2 & -u'v' & (u')^2 \\
+        E & F & G \\
+        e & f & g
+    \end{bmatrix}=0
 .\] 
 
+\begin{example}[Catenoid]
+    Parametrization: \((a\cosh\theta\cos\vphi,a\cosh\theta\sin\vphi,a\theta)\).\\
+    \begin{align*}
+        I&=(a^2\cosh^2\theta)\dd{\vphi}^2+(a^2\cosh^2\theta)\dd{\theta}^2 \\
+        \II&=-\dd{\vphi}^2+\dd{\theta}^2
+    .\end{align*}
+    \(\vphi(u,v_0)\) is curvature line \(\iff Ef-eF=0\), \\
+    \(\vphi(u_0,v)\) is curvature line \(\iff Fg-fG=0\). \\
+    \(u\) curve \(\perp v\) curve \(\implies F=0\). Also \(EG>F^2\), so \(E,G\neq 
+    0\), then \(f=0\).
 
+    Conversely if \(F=f=0\), then for \(u\) curve, \ie\ \(v'= 0\),
+    clearly we have \[
+        \det\begin{bmatrix}
+            0 & 0 & (u')^2 \\
+            E & 0 & G \\
+            e & 0 & g
+        \end{bmatrix}=0
+    .\] Similarly for \(v\) curve. \ie\ \(u,v\) curves are curvature lines.
+\end{example}
+
+\begin{definition}[Conjugate directions]
+    Direction vectors \(v,w\in T_p S\) are called conjugate if \[
+        \II(v,w)=0 \quad (\iff \left<\dd{\vb{n}}_p,w\right> =0)
+    .\] 
+\end{definition}
+\begin{example}
+    Tow principal directions at a non-umbilical point are always conjugate,
+    since for a real symmetric matrix, eigenvector assigned to different
+    eigenvalues are perpendicular.
+\end{example}
+\begin{example}
+    \(p\in S\) is a non-planar umbilical point, then any two orthogonal directions
+    are conjugate.
+\end{example}
+\begin{example}
+    \(p\in S\) is a planar umbilical point, since \(\dd{\vb{n}}=0\), each direction
+    is conjugate to other directions.
+\end{example}
+
+\begin{exercise}
+    Find a necessary and sufficient condition for two unit vectors are conjugate
+    to each other.
+\end{exercise}
+
+\begin{definition}[Asymptotic direction and asymptotic curve]\hfill\\
+    If \(v\in T_p S\) \st\ \(\II(v,v)=0\), then \(v\) is called asymptotic
+    direction. The integral curve of asymptotic direction is called asymptotic
+    curve.
+\end{definition}
+\begin{remark}
+\begin{enumerate}[(1)]
+    \item Asymptotic direction is conjugate to itself.
+    \item \(\II(v,v)=0\implies k_1\cos^2\alpha+k_2\sin^2\alpha=0\). So either
+        \(\tan^2\alpha=-\frac{k_1}{k_2}\) or \(\cot^2\alpha=-\frac{k_2}{k_1}\).
+        \(\implies \) two values of \(\alpha\).
+\end{enumerate}
+\end{remark}
+
+\begin{exercise}
+    Let \(p\) be a hyperbolic point, \(\vphi(u,v)\) is a local parametrization,
+    then \(\vphi(u,v_0)\) and \(\vphi(u_0,v)\) are asymptotic curves 
+    \(\iff e=g=0\).
+\end{exercise}
+
+\begin{definition}[Dupin indicatrix]
+    \[
+        D_p=\{v\in T_p S:\II(v,v)=\pm 1\}\subset T_p S
+    .\] 
+\end{definition}
+\begin{remark}
+    Write \(v=v_1e_1+v_2e_2\in T_p S\), \(\dd{\vb{n}}_p(e_i)=-k_ie_i\), then \[
+        \II(v,v)=\pm 1\iff k_1v_1^2+k_2v_2^2=\pm 1
+    .\] 
+    \begin{enumerate}[(1)]
+        \item \(K_p>0\) ellipse in \(T_p S\).
+        \item \(K_p<0\implies \) hyperbolas in \(T_p S\).
+        \item \(K_p=0\implies \) cross lines.
+    \end{enumerate}
+\end{remark}
 
 \newpage
