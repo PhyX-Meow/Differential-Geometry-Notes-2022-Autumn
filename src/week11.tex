@@ -1,0 +1,310 @@
+\begin{definition}
+    \[\nabla\colon \Gamma(TM)\times \Gamma (TM)\to \Gamma(TM)\]
+    \[(X,Y)\mapsto \nabla_X Y\]
+    is called the affine connection on \(M\).
+\end{definition}
+\underline{Fact}: There are many such affine connections!
+
+In practice, we need local expressions of \(\nabla_V W\). Let 
+\((x^1,\ldots,x^n)\) be a local coordinate on \(U\subset M\), 
+\(V=V^i\pdv{x^i},W=W^i\pdv{x^i}\), then
+\begin{align*}
+    \nabla_V W &=\nabla_{V^i\pdv{x^i}}\left(W^j\pdv{x^j}\right)\\
+    &= V^i\nabla_{\pdv{x^i}}\left(W^j \pdv{x^j}\right)\\
+    &=V^i\left(\left(\nabla_{\pdv{x^i}} W^j\right)\pdv{x^j}
+    + W^j \nabla_{\pdv{x^i}} \pdv{x^j}\right)\\
+    &=V^i\left(\pdv{W^j}{x^i}\pdv{x^j}+W^j
+    \boxed{\nabla_{\pdv{x^i}}\pdv{x^j}}\right).
+\end{align*}
+\begin{definition}
+    On \(U\), we define the Christoffel symbol by 
+    \[
+        \nabla_{\pdv{x^i}}\pdv{x^j}=\Gamma\indices*{_{ij}^k}\pdv{x^k}.
+    \]
+    (Here, one should compare this definition with the Christoffel
+    symbol introduced in the study of equation of motion 
+    in previous lectures).
+\end{definition}
+\[
+    \Rightarrow \nabla_V W= V^i\left(\pdv{W^j}{x^i}+W^k\Gamma
+    \indices*{_{ki}^j}\right)\pdv{x^j}   .
+\]
+Conventionally, we define
+\[
+    \nabla_i W^j=\pdv{W^j}{x^i}+\Gamma\indices*{_{ik}^j}W^k    
+\]
+\begin{itemize}
+    \item \(\nabla_i W^j\): Taking covariant derivative 
+    of \(j\)-th component of \(W\) along the \(i\)-th coordinate
+    direction.
+    \item \(\pdv{W^j}{x^i}\): Euclidean derivative.
+    \item \(\Gamma\indices*{_{ik}^j}W^k\): Correction term.
+\end{itemize}
+This notion is frequently used in geometry references.
+
+Again, because there are tons of selection of affine connections,
+this yields many choices of \(\Gamma\indices*{_{ij}^k}\)!
+After we introduce the Riemannian metric, we shall see there is a unique
+affine connection compatible with the Riemannian metric.
+\begin{definition}[Riemannian metric]
+    Let \(M\) be a smooth manifold. A Riemannian metric on \(M\)
+    is a smooth map 
+    \[
+     g\colon \Gamma(TM)\times \Gamma(TM)\to C^\infty(M),
+    \]
+    such that 
+    \(\forall X,Y,Z\in \Gamma(TM), f\in C^\infty(M)\)
+    there is the following 
+    \begin{enumerate}[(1)]
+        \item \(g(X,Y)=g(Y,X)\).(symmetry)
+        \item \(g(X,X)\ge 0\), and equality achieves iff \(X=0\).
+        (positive definite)
+        \item \(g(f X+Y,Z)=f\cdot g(X,Z)+g(Y,Z)\).(\(C^\infty\) linearity) 
+    \end{enumerate}
+    \((M,g)\) is called a Riemannian manifold.
+\end{definition}
+\begin{remark}
+    At each \(p\in M\), \(g\) defines an inner product \(g_p\)
+    on \(T_p M\). If we choose a coordinate chart near \(p\)
+    with local coordinate \((x^1,\ldots,x^n)\),
+    the local expression of \(g\) is written as 
+    \[
+        g=g_{ij}dx^i dx^j    ,
+    \]
+    where \(g_{ij}=g\left(\pdv{x^i},\pdv{x^j}\right)\).
+\end{remark}
+\begin{example}
+    The \engordnumber{1} fundamental form on \(M\) is a Riemannian metric.
+\end{example}
+Using the Riemannian metric \(g\), we can define 
+the length, area, angle, et.c.
+\begin{definition}
+    \begin{enumerate}[(1)]
+        \item \(X\in \Gamma(TM)\), \(|X|=\sqrt{g(X,X)}\).
+        \item The volume density on \((M,g)\) is defined as 
+        \[
+            \dd V=\sqrt{\det(g_{ij})} dx^1\wedge\ldots \wedge dx^n .
+        \]
+        \item The volume of a bounded region \(B\) is 
+        \[
+            V(B)=\int_B 1 \dd V
+        \]
+    \end{enumerate}
+\end{definition}
+With the Riemannian metric introduced, we can uniquely determine
+an affine connection compatible with the Riemannian metric.
+\begin{theorem}
+    Let \((M,g)\) be a Riemannian manifold, then there is a unique
+    affine connection 
+    \(\nabla\colon \Gamma(TM)\times \Gamma (TM)\to \Gamma(TM)\)
+    satisfying following conditions: \(\forall X,Y,Z\)
+    \begin{enumerate}[(1)]
+        \item \(\nabla_Z \left(g(X,Y)\right)=g\left(
+            \nabla_Z X,Y\right)+g(X,\nabla_Z Y)\).(Compatible with metric 
+            \(g\))\footnotemark
+        \item \(\nabla_X Y-\nabla_Y X=[X,Y]\).(Torsion free)
+    \end{enumerate}
+    \footnotetext{(1) is also equivalent to \(\nabla g=0\). 
+    (We shall talk about this later)}
+    The connection \(\nabla\) is called Levi-Civita connection.
+\end{theorem}
+Locally, take \(X=\pdv{x^i},Y=\pdv{x^j},Z=\pdv{x^k}\)
+\begin{align*}
+    (1)&\Rightarrow \pdv{g_{ij}}{x^k}=\Gamma\indices*{_{ki}^l}g_{lj}
+    +\Gamma\indices*{_{kj}^l}g_{l i}    \\
+    (2)&\Rightarrow \Gamma\indices*{_{ij}^k}=\Gamma\indices*{_{ji}^k}.
+\end{align*}
+\begin{exercise}
+    Show that 
+    \[
+        \Gamma\indices*{_{ij}^k}=\frac{1}{2}g^{kl}\left(
+            \pdv{g_{jl}}{x^i}+\pdv{g_{il}}{x^j}-\pdv{g_{ij}}{x^l}
+        \right)    
+    \]
+    This is just the same expression as we see on.
+    %打到这里的时候page142还不存在，到时候再做引用。
+\end{exercise}
+So far, we have defined \engordnumber{1} order derivatives (Lie derivative,
+covariant derivative) on functions and vector fields. Next we shall consider
+\engordnumber{2} order derivatives of a function and vector fields.
+In particular, non-commutative nature of \engordnumber{2} order derivative
+on vector fields will be captured by the ``curvature''.
+    
+Let's assume \(\nabla\) to be the Levi-Civita connection from now on.
+\begin{itemize}
+    \item Recall we have defined tangent bundle. 
+    \(TM=\bigcup_{p\in M} T_p M\) is the collection of all 
+    tangent vector spaces. As a vector space, \(T_p M\) is isomorphic 
+    to \(\mathbb{R}^n\). Let \(T^*_p M=\)\{all covectors at \(p\)\}.
+    We also let \(T^*M=\bigcup_{p\in M}T^*_p M=\bigcup_p 
+    \left\{(p,\alpha)| \alpha\in T^*_p M\right\}\). Similar to the 
+    \(TM\), one can endow a smooth structure on \(T^*M\) such that 
+    it's a smooth manifold of dimension \(2\dim M\). We shall also 
+    call an element of \(\Gamma(T^* M)\) a differential 1-form, 
+    where \(\Gamma(T^*M)\) is the collection of all global covectors.
+    \item We have introduced 
+    \[
+        \nabla \colon \Gamma(TM)\times C^\infty(M)\to C^\infty(M)
+    \]
+    \[
+        (X,f)\mapsto \nabla_X f.    
+    \]
+    This map induces 
+    \[
+        \nabla f\colon \Gamma(TM)\to C^\infty(M).
+    \]
+    At each point \(p\in M\) this map is 
+    \[
+        X\mapsto \nabla_X f=\nabla f(X).    
+    \]
+    \(
+        \nabla f(p)\colon T_p M\to \mathbb{R}\Rightarrow 
+        \nabla f(p)\in T^*_p M\Rightarrow
+        \nabla f\in \Gamma(T^* M)
+    \).
+\end{itemize}
+\begin{remark}
+    If \((x^1,\ldots, x^n)\) is local coordinate at \(p\). \(T_p M
+    =\Span\{\pdv{x^1},\ldots,\pdv{x^n}\}\), then \(T^*_p M=\Span 
+    \{d x^1,\ldots , d x^n\}\), \(dx^i\left(\pdv{x^j}\right)=\delta^i_j\)
+    \[
+        \Rightarrow \nabla f(p)=\pdv{f}{x^i} (p)dx^i=\nabla_i f\cdot 
+        d x^i. \quad (\nabla_i f=\pdv{f}{x^i})    
+    \]
+\end{remark}
+\begin{definition}
+    The gradient vector field of \(f\), written as \(\mathrm{grad} f=
+    \mathrm{grad}_g f \) is defined as \(\forall X\in \Gamma(TM)\)
+    \[
+        g(\mathrm{grad} f,X)=\nabla_X f=\nabla f(X).    
+    \]
+\end{definition}
+Locally, 
+\[
+    \mathrm{grad} f=g^{ij}\pdv{f}{x^j}\pdv{x^i}=\nabla^i f\pdv{x^i}.
+\]
+\begin{definition}[Hessian of \(f\)]
+    \[
+        \nabla\nabla f\colon \Gamma(TM)\times \Gamma(TM)\to C^\infty(M)
+    \]
+    \[
+        (X,Y)\mapsto \nabla\nabla f(X,Y).    
+    \]
+    Where \(\nabla\nabla f(X,Y)=\left(\nabla_X \nabla f\right)(Y)
+    \footnotemark
+    =\nabla_X
+    \left(\nabla f(Y)\right)-\nabla f\left(\nabla_X Y\right)=
+    X\left(Y f\right)-()\nabla_X Y) f\).
+\end{definition}
+\footnotetext{Note that here we haven't defined the covariant derivative of
+ a 1-form}
+ Locally: 
+ \begin{align*}
+    \nabla\nabla f\left(\pdv{x^i},\pdv{x^j}\right)&=
+    \pdv{x^i}\left(\pdv{f}{x^j}\right)-\nabla_{\pdv{x^i}}\pdv{x^j} f\\
+    &=\pdv{f}{x^i}{x^j}-\Gamma\indices*{_{ij}^k}\pdv{f}{x^k}.
+ \end{align*}
+ \begin{remark}
+    \begin{enumerate}[(1)]
+        \item We conventionally write \(\nabla\nabla f(\pdv{x^i}
+        \pdv{x^j})=\nabla_i\nabla_j f\), \ie\ 
+        \[
+            \nabla_i\nabla_j f=
+            \pdv{f}{x^i}{x^j}-\Gamma\indices*{_{ij}^k}\pdv{f}{x^k}.   
+        \]
+        \begin{itemize}
+            \item \(\nabla_i\nabla_j f\): tensor component.
+            \item \(\pdv{f}{x^i}{x^j}\): Euclidean Hessian.
+            \item \(\Gamma\indices*{_{ij}^k}\pdv{f}{x^k}\)
+            Correction.
+        \end{itemize}
+        \item \(\nabla_i\nabla_j f=\nabla_j\nabla_i f\).(Symmetric in 
+        \(i\) and \(j\))
+        \item In tensor notation we write this as 
+        \[
+            \nabla\nabla f=\left(\nabla_i\nabla_j f\right)d x^i d x^j.    
+        \]
+    \end{enumerate}
+ \end{remark}
+ \begin{definition}[Laplacian of \(f\)]
+    \(\Delta f=\mathrm{trace}\left(\nabla\left(\mathrm{grad}
+    f\right)\right)\).
+ \end{definition}
+ Locally, \(\mathrm{grad} f=\nabla^i f\pdv{x^i}\Rightarrow
+ \nabla\left(\mathrm{grad}f\right)=\nabla_j\nabla^i f dx^j\otimes
+  \pdv{x^i}\).
+  \begin{align*}
+    \Delta f & =\nabla_i \nabla^i f=g^{ij}\nabla_i\nabla_j f\\
+    &=g^{ij}\left(
+        \pdv{f}{x^i}{x^j}-\Gamma\indices*{_{ij}^k}\pdv{f}{x^k}
+    \right).
+  \end{align*}
+  \begin{exercise}
+    Show that 
+    \[
+        \Delta f=\frac{1}{\sqrt{\det g}}\pdv{x^i}\left(
+            \sqrt{\det g}\cdot g^{ij}\pdv{f}{x^j}
+        \right)    .
+    \]
+  \end{exercise}
+  Note that the expression of R.H.S follows from
+  ``integration by parts'', \ie\ \(\forall h\in C^\infty_c(M)\),
+  \[
+    \int_M  h\Delta f \sqrt{g}\dd x =-\int_M \left\langle
+        \nabla h,\nabla f
+    \right\rangle\sqrt{g}\dd x.
+  \]
+  Next, we consider taking \engordnumber{2} order derivative
+  of a vector field \(Z\) along two different vector fields \(X\) and 
+  \(Y\). Let's do a general local computation.(The following 
+  computation should be very familiar with you)
+
+  Let \(X=X^i\pdv{x^i},Y=Y^j\pdv{x^j},Z=Z^k\pdv{x^k}\)
+  \begin{align*}
+    \Rightarrow \nabla_X\nabla_Y Z&=
+    \nabla_X\left(\nabla_Y Z\right)\\
+    &=\nabla_X\left(\left(Y^j \nabla_j Z^k\right)\pdv{x^k}\right)\\
+    &=\left(X^i\nabla_i Y^j\nabla_j Z^k+X^i Y^j\nabla_j\nabla_i Z^k
+    \right)\pdv{x^k}\\
+    \nabla_Y\nabla_X Z&=\left(Y^j\nabla_j X^i \nabla_i Z^k
+    +X^iY^j \nabla_j\nabla_i Z^k\right)\pdv{x^k}
+  \end{align*}
+  \begin{align*}
+    &\Rightarrow \nabla_X\nabla_Y Z-\nabla_Y\nabla_X Z\\
+    &=
+    X^i Y^j\left(\nabla_i\nabla_j Z^k-\nabla_j\nabla_i Z^k\right)
+    \pdv{x^k}+\left(\nabla_{\nabla_X Y}Z^k-\nabla_{\nabla
+    _Y X }Z^k\right)\pdv{x^k}\\
+    &=X^i Y^j\left(\nabla_i\nabla_j Z^k-\nabla_j\nabla_i Z^k\right)
+    \pdv{x^k}
+    +\left(\nabla_{[X,Y]}Z^k\right)\pdv{x^k}.
+  \end{align*}
+  \(\therefore \nabla_X\nabla_Y Z-\nabla_Y\nabla_X Z -\nabla_{[X,Y]}Z=
+  X^i Y^j\left(\nabla_i\nabla_j Z^k-\nabla_j\nabla_i Z^k\right)
+    \pdv{x^k}
+  \).
+\begin{definition}
+    The (1,3) Riemannian curvature tensor is defined by a map 
+    \[
+        R\colon \Gamma(TM)\times \Gamma(TM)\times \Gamma(TM)
+        \to \Gamma(TM)    
+    \]
+    \[
+        \left(X,Y,Z\right)\mapsto R(X,Y)Z    
+    \]
+    \[
+        R(X,Y)Z=\nabla_X\nabla_Y Z-\nabla_Y\nabla_X Z -\nabla_{[X,Y]}Z    
+    \]
+    Locally, 
+    \[
+        R\left(\pdv{x^i},\pdv{x^j}\right)\pdv{x^k}=R\indices{_{ij}^l_k}
+        \pdv{x^l}    
+    \]
+\end{definition}
+\begin{exercise}
+    \begin{enumerate}[(1)]
+        \item Check \(R\) is \(C^\infty\) in \(X,Y,Z\).
+        \item Find a local expression for \(R\indices{_{ij}^l_k}\)
+        in terms of Christoffel symbols.
+    \end{enumerate}
+\end{exercise}
