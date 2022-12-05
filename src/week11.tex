@@ -538,7 +538,12 @@ Note: \(R_{1212}=R\left(\pdv{1},\pdv{2},\pdv{1},\pdv{2}\right)\),
 Let \((M,g)\) be an n-dimensional Riemannian manifold, \(v\in 
 \Gamma(TM)\) is a smooth vector field. \(\alpha(t)\subset M\) is a 
 regular curve on \(M\). Let \(v(t)=v|_{\alpha(t)}\) be the restriction of 
-\(V\) on the curve. We can take ``derivatives'' of \(V(t)\) along 
+\(V\) on the curve.
+\begin{center}
+    \includegraphics[scale=0.3]{picture/week11/vector field 
+    along a curve.png}
+\end{center}
+We can take ``derivatives'' of \(V(t)\) along 
 \(\alpha(t)\), denoted as \(\frac{D V(t)}{dt}\). To understand this,
 we shall compute this locally. Let \((x^1,\ldots, x^n)\) be a local
 coordinate, write \(\alpha(t)=\left((x^1(t),\ldots,x^n)\right)\), 
@@ -586,6 +591,10 @@ coordinate, write \(\alpha(t)=\left((x^1(t),\ldots,x^n)\right)\),
             \[
                 \frac{DV(t)}{dt}=0   . 
             \]
+            \begin{center}
+                \includegraphics[scale=0.3]{picture/week11/parallel 
+                vector field.png}
+            \end{center}
             \item In general, we call a vector field \(V\) to be parallel, 
             if \(\nabla V=0\). Equivalently, along any curve \(\alpha(t)\)
             in \(M\), \(\frac{DV(t)}{dt}=0\).
@@ -596,9 +605,18 @@ coordinate, write \(\alpha(t)=\left((x^1(t),\ldots,x^n)\right)\),
     \begin{enumerate}[(1)]
         \item In \(\mathbb{R}^n\), \(\frac{DV(t)}{dt}=0\Rightarrow\) \(V\)
         is a constant vector field along the curve.
+        \begin{center}
+            \includegraphics[scale=.3]{picture/week11/parallel 
+            v-f in Rn.png}
+        \end{center}
         \item \(\mathbb{S}^2\), the tangent vector field of a 
         great circle is a parallel vector field along this circle
-        (Green arrows). Let \(\alpha(\theta)\) be the great circle, after a
+        (Green arrows).
+        \begin{center}
+            \includegraphics[scale=.3]{picture/week11/parallel 
+            v-f on S2.png}
+        \end{center}
+        Let \(\alpha(\theta)\) be the great circle, after a
         rotation we assume
         \[
             \alpha(\theta)=\left(\cos\theta,\sin\theta,0\right)
@@ -621,8 +639,11 @@ coordinate, write \(\alpha(t)=\left((x^1(t),\ldots,x^n)\right)\),
     \[
         ds^2=dr^2+\sin^2r d \theta^2    .
     \]
-    At each point \(p\), \(T_p\S=\Span\{\pdv{r},\pdv{\theta}\}\).
-    Fixing \(theta\), then \(pdv{r}\) is the tangent vector field
+    At each point \(p\), \(T_p S=\Span\{\pdv{r},\pdv{\theta}\}\).
+    \begin{center}
+        \includegraphics[scale=.2]{picture/week11/coordinate on S2.png}
+    \end{center}
+    Fixing \(\theta\), then \(\pdv{r}\) is the tangent vector field
     of the great circle, then 
     \[
         \frac{D}{dr}\left(\pdv{r}\right)=\nabla_{\pdv{r}}\pdv{r}
@@ -672,7 +693,9 @@ This is the \engordnumber{1} order linear O.D.E. system of
 \(v_0\in T_p M\), then by the Solution to the Cauchy problem, there is 
 a unique parallel vector field \(V(t)\) along \(\alpha(t)\) such that 
 \(V(0)=v_0\). 
-
+\begin{center}
+    \includegraphics[scale=0.25]{picture/week11/parallel transport.png}
+\end{center}
 Consider \(p,q\in M\), let \(\alpha(t)\colon[0,1]\to M\) such that 
 \(\alpha(0)=p,\alpha(1)=q,v_0\in T_p M\), and \(V(t)\) is the parallel 
 vector field along \(\alpha(t)\) with \(V(0)=v_0\), then 
@@ -697,11 +720,15 @@ vector field along \(\alpha(t)\) with \(V(0)=v_0\), then
     \begin{corollary}
         The parallel transport along a curve does not
         change the length or angle of original vectors.
+        \begin{center}
+            \includegraphics[scale=0.2]{picture/week11/p. transport 
+            isometry.png}
+        \end{center}
         In particular, the map 
         \[  
             P_{\alpha(1)}\colon T_p M\to T_q M
-            \]
-            is a linear isometry.
+        \]
+        is a linear isometry.
     \end{corollary}
 }
 \begin{remark}
@@ -710,7 +737,11 @@ vector field along \(\alpha(t)\) with \(V(0)=v_0\), then
     choose orthonormal basis \{\(E_1,\ldots,E_n\)\} and parallel
     transport \(E_i\) along \(\alpha\), then at each point 
     of the curve \(\{E_1(t),\ldots,E_n(t)\}\)is an orthonormal basis
-    of \(T_{\alpha(t)}M\). For any vector field \(V(t)\) along
+    of \(T_{\alpha(t)}M\).
+    \begin{center}
+        \includegraphics[scale=0.15]{picture/week11/orthonormal basis.png}
+    \end{center}
+    For any vector field \(V(t)\) along
     \(\alpha(t)\), \textcolor{blue}{\(V(t)=V^i(t)E_i(t)\)},
     \[
         \frac{DV(t)}{dt}=\frac{D}{dt}\left(
@@ -735,6 +766,9 @@ vector field along \(\alpha(t)\) with \(V(0)=v_0\), then
         \[\mathrm{Hol}_p(M,g)=\{P_\alpha\colon T_p M\to T_p M,
         \alpha\text{: closed curve passing
         through }p\}.\]
+        \begin{center}
+            \includegraphics[scale=0.3]{picture/week11/holonomy groups.png}
+        \end{center}
     \end{definition}
 }
 This set has a group structure given by composition of parallel transport.
@@ -786,8 +820,16 @@ normal \(\va{n}(s)\) is parallel to the normal of surface \(\va*{N}\).
 Note normal section is a geodesic, but geodesic may not be a normal
 section.
 \begin{enumerate}[(1)]
-    \item \(\mathbb{S}^2\)
-    \item On Cylinder, \(x^2+y^2=1\), consider the local parametrization
+    \item \(\mathbb{S}^2\). Great circles are geodesics.
+    \begin{center}
+            \includegraphics[scale=0.7]{picture/week11/geodesics on S2.png}
+    \end{center}
+    \item On Cylinder, \(x^2+y^2=1\), 
+    \begin{center}
+        \includegraphics[scale=0.5]{picture/week11/geodesics on 
+        cylinder.png}
+    \end{center}
+    consider the local parametrization
     \[\gamma(u,v)=\left(\cos u ,\sin u,v\right)\]
     \(\Rightarrow\) lines, horizontal circles, and helix curve
     \(\left(\cos as,\sin as, bs\right)\) are all geodesics.
