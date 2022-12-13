@@ -1,0 +1,115 @@
+\section{Einstein convention}
+
+Recall \(v\in \mathbb{R}^n\), \(v=(v^1,\ldots,v^n)\implies v=\sum_{i=1}^n v^i e_i\).
+\begin{enumerate}[(1)]
+    \item The summation is taken over \(i=1,2,\ldots,n\);
+    \item \(v=\sum_{i=1}^n v^ie_i=\sum_{j=1}^nv^je_j\), expression of \(v\) is
+        independent of choice of summation indices \(i\) or \(j\).
+    \item One ``\(i\)'' appears as upper index, another ``\(i\)'' appears as lower
+        index.
+\end{enumerate}
+
+Einstein convention: Whenever there is pair of same letter as upper and a lower
+index, then the expression is summation of the index letter from 1 to \(n\),
+\(n\) is usually the dimension of vector space / manifold / etc.
+
+\begin{example}
+\begin{itemize}
+    \item \(W=V\cdot A\), \(A=(A_i^j)_{n\times n}\) matrix, \(v,w\in \mathbb{R}^n\),
+        then \[
+            W^j=v^i A_i^j=\sum_{i}v^iA_i^j
+        .\] 
+    \item \[
+        g^{ij}\omega_{jk}=\sum_{j=1}^n g^{ij}\omega_{jk}.
+    .\] Where \(g^{ij}\) is the \((i,j)\)-entry of inverse matrix \(g^{-1}\) of
+    \(g\). \ie\ \[
+        g^{ij}g_{jk}=\delta^i_k,
+        \quad g^{ij}g_{ij}=\sum_{i=1}^n \sum_{j=1}^{n}g^{ij}g_{ij}
+        =\sum_{i=1}^{n}\delta^i_i=n
+    .\] 
+
+    We will use Einstein convention from now on.
+\end{itemize}
+\end{example}
+
+\section{Therema Egregium (Gauss)}
+
+\underline{Goal:} The Gaussian curvature \(K\) depends only on the 1st fundamental
+form.
+
+Previously, we have seen once we know local parametrization \(\vphi(x^1,x^2)\) of
+a surface \(S\), then \(I,\II\) can be computed and the Gaussian curvature is \[
+    K=\frac{\det \II}{\det I}=\frac{eg-f^2}{EG-F^2}
+.\] Now, we want to follow the same procedure as we study the Frenet formula of a
+curve and try to understand the motion of equation of frame \(\vphi_1,\vphi_2,N\),
+where \(\vphi_i=\pdv{\vphi}{x^i}, N=\frac{\vphi_1\times \vphi_2}{|\vphi_1\times 
+\vphi_2|}\).
+
+Fix a local parametrization \[
+    \vphi\colon U \longrightarrow S\subset \mathbb{R}^3,
+    \ (x^1,x^2)\longmapsto \vphi(x^1,x^2)
+.\] Then
+\begin{align*}
+    I&=g_{ij}\dd{x^i}\dd{x^j},\quad g_{ij}=\left<\vphi_i,\vphi_j\right> \\
+    \II&=h_{ij}\dd{x^i}\dd{x^j},\quad h_{ij}
+.\end{align*}
+We shall study the differential equation of \(\{\vphi_i,N\}\) up to 2nd order.
+\begin{align*}
+    \vphi_{11}&=\Gamma_{11}^1\vphi_1+\Gamma_{11}^1\vphi_2+h_{11}N\\
+    \vphi_{12}&=\Gamma_{12}^1\vphi_1+\Gamma_{12}^1\vphi_2+h_{12}N\\
+    \vphi_{21}&=\Gamma_{21}^1\vphi_1+\Gamma_{21}^1\vphi_2+h_{21}N\\
+    \vphi_{22}&=\Gamma_{22}^1\vphi_1+\Gamma_{22}^1\vphi_2+h_{22}N\\
+.\end{align*}
+Weingarten equation, \(A=(a_i^j)\)
+\[
+    \begin{bmatrix}
+        N_1 \\ N_2
+    \end{bmatrix}=A\begin{bmatrix}
+        \vphi_1 \\ \vphi_2
+    \end{bmatrix}
+.\] Then \[
+    a_i^j=-h_{ik}g^{kj}
+.\] Lets write above equations as \[
+    \begin{cases}
+        \vphi_{ij}=\Gamma_{ij}^k\vphi_k+h_{ij}N \\
+        N_i=a_i^j=\vphi_j
+    \end{cases}
+    \implies \text{The only unknown are }\Gamma_{ij}^k
+.\] Moreover, \[
+    \vphi_{ij}=\vphi_{ji}\implies \Gamma_{ij}^k=\Gamma_{ji}^k
+.\] \[
+    \left<\vphi_{ij},\vphi_p\right> =\Gamma_{ij}^k \left<\vphi_k,\vphi_p\right> 
+    =\Gamma_{ij}^kg_{kl}
+.\] So
+\begin{gather*}
+    \pdv{g_{ip}}{x^j}-\left<\vphi_i,\vphi_{pj}\right> 
+    =\left<\vphi_{ij},\vphi_p\right> =\Gamma_{ij}^kg_{kp} \\
+    \pdv{g_{jp}}{x^i}-\left<\vphi_j,\vphi_{pi}\right> 
+    =\left<\vphi_{ji},\vphi_p\right> =\Gamma_{ji}^kg_{kp} \\
+    \pdv{g_{ij}}{x^p}=\left<\vphi_{ip},\vphi_j\right>
+    +\left<\vphi_i,\vphi_{jp}\right> 
+\end{gather*}
+Hence \[
+    2\Gamma_{ij}^k g_{kp}=\pdv{g_{jp}}{x^i}+\pdv{g_{ip}}{x^j}-\pdv{g_{ij}}{x_{p}}
+.\] \[
+    \implies 2\Gamma_{ij}^kg_{kp}g^{pq}
+    =(\pdv{g_{jp}}{x^i}+\pdv{g_{ip}}{x^j}-\pdv{g_{ij}}{x_{p}})g^{pq}
+.\] We get \[
+    \Gamma_{ij}^k=\frac{1}{2}(\pdv{g_{jp}}{x^i}+\pdv{g_{ip}}{x^j}g^{pk}
+    -\pdv{g_{ij}}{x_{p}})
+.\] 
+
+\begin{remark}
+    We multiply \(g^{pk}\) form right because of the choice of row vector. In
+    modern convention of the column vector, \[
+        \Gamma_{ij}^k=\frac{1}{2}g^{kp}(\pdv{g_{jp}}{x^i}+\pdv{g_{ip}}{x^j}
+        -\pdv{g_{ij}}{x_{p}})
+    .\] 
+\end{remark}
+\begin{definition}
+    \(\Gamma_{ij}^k\) is called the Christoffel symbols. They're uniquely determined
+    by the 1st fundamental form.
+\end{definition}
+
+
+\newpage
