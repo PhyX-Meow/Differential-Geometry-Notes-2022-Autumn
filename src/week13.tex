@@ -589,3 +589,305 @@ or
 -\sum_{\beta=1}^q 
 \tensor*{T}{^{i_1\ldots i_p}_{j_1\ldots\theta \ldots j_q}}
 \Gamma\indices*{_{kj_\beta}^\theta}\]
+\section{The Gauss-Bonnet formula}
+\subsection{Statements and corollaries}
+\begin{enumerate}[(1)]
+    \item The local version 
+    \begin{itemize}
+        \item \(S\): oriented surface.
+        \item \(\gamma\colon U\subset \mathbb{R}^2\to S\) orthogonal
+        local parametrization. (\ie\ \(g_{12}=0\))
+        \item \(R\subset \gamma(U)\) is a simply connected region. 
+        (\ie\ homeomorphic to a disk)
+        \item \(\partial R\): boundary of \(R\), which is a simple
+        closed, piecewise regular positively oriented with the orientation
+        induced from S.
+        \item \(\alpha\colon [0,l]\to S\) is the parametrization of
+        \(\partial R\), with arclength parametrization.
+        \item \(\alpha(s_0),\ldots,\alpha(s_k)\) are the vertices of
+        \(\alpha(s)\), \ie\ break-up points.
+        \item \(\theta_0,\ldots,\theta_k\) external angles of \(\alpha\).
+    \end{itemize}
+    The Gauss-Bonnet formula is 
+    \[
+        \underbracket{\sum_{i=0}^k \theta_i}_{0-\text{d(T.C.)}}+
+        \underbracket{\sum_{i=0}^k\int_{s_i}^{s_{i+1}}
+        k_g(s)\dd s}_{1-\text{d(T.C.)}}+
+        \underbracket{\iint_{R}K \dd \sigma}_{
+            2-\text{d(T.C.)}
+        }=2\pi.\footnote{T.C.=total curvature.}   
+    \]
+    \begin{center}
+        \includegraphics[scale=0.3]{picture/week13/local Gauss-Bonnet.png}
+    \end{center}
+    \begin{definition}[External angle]
+        At the vertex \(\alpha(s_i)\), if \(\alpha(s_i)\) is not a cusp,
+        let \(\theta_i\) be the angle from \(\alpha'(s_i-0)\) to
+        \(\alpha'(s_i+0)\) along the orientation of the curve, 
+        \(-\pi<\theta_i<\pi\). If \(\alpha(s_i)\) is a cusp,
+        let \(\theta_i=\pi\).
+    \end{definition}
+    \begin{center}
+        \includegraphics[scale=0.4]{picture/week13/external angle.png}
+    \end{center}
+    \item The global version
+    \begin{center}
+        \includegraphics[scale=0.3]{picture/week13/global Gauss-Bonnet.png}
+    \end{center}
+    \begin{itemize}
+        \item \(S\) is an oriented surface.
+        \item \(R\subset S\) connected regular compact region.
+        \item \(\partial R\) are simple closed, piecewise regular
+        curves \(\partial R=\bigsqcup_{i=1}^k C_i\), where \(C_i\)
+        are simple closed piecewise regular curves and \(C_i\cap C_j=
+        \emptyset\). \(\partial R\) has induced orientation from \(S\).
+        \item \(\theta_1,\ldots,\theta_p\) are all external angles
+        of \(C_1,\ldots,C_k\).
+    \end{itemize}
+    \begin{center}
+        \includegraphics[scale=0.4]{picture/week13/boundary
+        orientation.png}
+    \end{center}
+    \begin{theorem}[Gauss-Bonnet theorem]
+        \[\sum_{i=1}^p\theta_i+\sum_{j=1}^k\oint_{C_j}k_g(s)\dd s
+        +\iint_{R}K\dd \sigma =2\pi \chi(R).\]
+        \(\chi(R)\) is the Euler characteristic of region \(R\).
+    \end{theorem}
+    To define \(\chi(R)\), let's consider a triangulation of \(R\),
+    \ie\ a family of set of triangles \(\cup_{i\in\Lambda}T_i\)
+    in \(S\) satisfying.
+    \begin{enumerate}[(1)]
+        \item \(R=\cup_{i\in\Lambda}T_i\).
+        \item If \(T_i\cap T_j\neq \emptyset\), then \(T_i\cap T_j\)
+        is either a common vertex or a common edge of \(T_i\) and
+        \(T_j\).
+        \item Each common edge has only two angles attaching(attached)
+        to it.
+    \end{enumerate}
+    \begin{definition}
+        The Euler characteristic of \(R\) is defined as 
+        \[\chi(R)=V-E+F.\]
+        Here, \(V\)= number of vertices in the triangles. 
+        \(E\)= number of edges in the triangles. 
+        \(F\)= number of faces in the triangles.
+    \end{definition}
+    An important topological fact is \(\chi(R)\) is independent of the
+    choice of the triangulation.
+    \begin{center}
+        \includegraphics[scale=0.35]{picture/week13/euler number.png}
+    \end{center}
+    \begin{corollary}
+        If \(S\) is an oriented compact surface without boundary, then
+        \[
+            \underbrace{\iint_S K\dd A}_{\mathclap{
+                \text{Integration of local geometry quantity}}   
+            }=2\pi \chi(S)=
+            \underbrace{4\pi(1-g)}_{\mathclap{
+                \text{global topological quantity}
+            }}.
+            \footnote{
+                From algebraic topology, \(\chi(S)=2-2g\), where
+                \(g\) is the genus.
+            }   
+        \]
+    \end{corollary}
+    \begin{remark}
+        This corollary sheds light on how to find a topological
+        invariant by integrating a local geometric quantity
+        (curvature-related function). The beauty of the Gauss-Bonnet
+        is that it links two different subjects in math by just finding
+        the relationship of meaningful subjects.
+    \end{remark}
+    \begin{example}
+        \begin{itemize}
+            \item \(g=0\) sphere \(\iint_S K\dd A=4\pi\).
+            \item \(g=1\) torus \(\iint_S K\dd A=0\).
+            \item \(g\ge 2\) higher genus torus 
+            \(\iint_S K\dd A<0\)
+        \end{itemize}
+    \end{example}
+    \begin{example}
+        Let's consider a geodesic triangle \(T\) on surface \(S\),
+        by local Gauss-Bonnet
+        \[
+            \sum_{i=1}^3\theta_i +\iint_T K\dd \sigma =2\pi.    
+        \]
+        Let \(\psi_i=\pi-\theta_i\) be the interior angles, then
+        \[
+            \sum_{i=1}^3\psi_i=3\pi-\sum_{i=1}^3=\pi+\iint_T K\dd \sigma    
+        \]
+        Consequence:\begin{enumerate}[(1)]
+            \item On \(\mathbb{S}^2\), \(K>0\Rightarrow\sum_{i=1}^3
+            \psi_i>\pi\).
+            \item On a surface with \(K=0\Rightarrow \sum_{i=1}^3
+            \psi_i=\pi\).
+            \item On a surface with \(K<0\Rightarrow \sum_{i=1}^3
+            \psi_i<\pi\).
+        \end{enumerate}
+        \begin{center}
+            \includegraphics[scale=0.4]{picture/week13/area of 
+            triangles.png}
+        \end{center}
+        Another important observation is considering geodesic triangles
+        \(A,B,C\). Let's assume the length of each corresponding
+        edges (geodesics) are the same, \ie\ 
+        \[
+            d_{\mathbb{S}^2}(x_0,x_1)
+            =d_{\mathbb{R}^2}(\bar{x_0},\bar{x_1})
+            =d_{\mathbb{H}^2}(\widetilde{x_0},\widetilde{x_1}).    
+        \]
+        \[
+            d_{\mathbb{S}^2}(x_1,x_2)
+            =d_{\mathbb{R}^2}(\bar{x_1},\bar{x_2})
+            =d_{\mathbb{H}^2}(\widetilde{x_1},\widetilde{x_2}).    
+        \]
+        \[
+            d_{\mathbb{S}^2}(x_0,x_2)
+            =d_{\mathbb{R}^2}(\bar{x_0},\bar{x_2})
+            =d_{\mathbb{H}^2}(\widetilde{x_0},\widetilde{x_2}).    
+        \]
+        Then \(d_{\mathbb{S}^2}(x_2,x_m)>d_{\mathbb{R}^2}(\bar{x_2},
+        \bar{x_m})>d_{\mathbb{H}^2}(\widetilde{x_2},\widetilde{x_m})\).
+
+    This observation enables us to use surfaces of \(K=1,0,-1\)
+    as model spaces to define a general ``curved''  metric space,
+    these spaces are called \(CAT(k)\) surface, \(K=0,\pm 1\).
+    For example, \(CAT(0)\) surface means a complete metric space
+    of \(\dim=2\) such that any two points can be joint by a geodesic
+    (defined by given metric) and \(CAT(0)\) (also called NPC space)
+    means \(K\le 0\). This condition is characterized by
+    \[
+        d^2(x_2,x_m)\le m d^2(x_1,x_2)+(1-m)d^2(x_0,x_2)-
+        m(1-m)d^2(x_0,x_1)
+        \tag{1}
+    \]
+    where \(d(x_0,x_m)=m \cdot d(x_0,x_1)\).
+    \end{example}
+    \begin{question}
+        Can you recognize how the inequality in (1) comes out?
+    \end{question}
+    \begin{remark}
+        On a surface (not necessarily compact) with \(K=-1\),
+        local Gauss-Bonnet gives
+        \[
+            \sum_{i=1}^3\psi_i =\pi -Area(\Delta).    
+        \]
+        \[
+          \Rightarrow 0\le Area(\Delta)\le \pi.  
+        \]
+        In particular, if \(Area(\Delta)\to 0\), then \(\sum \psi_i
+        \to \pi\). Then limiting geodesic triangle looks like:
+        \begin{center}
+            \includegraphics[scale=0.4]{picture/week13/degenerate 
+            triangle.png}
+        \end{center}
+    \end{remark}
+    From the Gauss-Bonnet, we also have the following.
+    \begin{corollary}[Rotation index]
+        Let \(C\) be a simple closed regular curve in \(\mathbb{R}^2\),
+        then \(\int_C k\dd s=2\pi\).
+    \end{corollary}
+\end{enumerate}
+\subsection{Proof of the (local) Gauss formula}
+\begin{lemma}[Topological result]
+    Let \(\alpha\colon [0,l]\to S\) be the boundary curve
+    \(\partial R\).
+    
+    \(\alpha(s_0),\ldots,\alpha(s_k)\):
+    vertices of \(\alpha(s)\).
+
+    \(\theta_0,\ldots,\theta_k\): external angles of \(\alpha\).
+
+    Let \(\varphi_i\colon [s_i,s_{i+1}]\to \mathbb{R}\)
+    be the angle from \(\gamma_u\) to \(\alpha'(s)\),
+    then 
+    \[\sum_{i=0}^k \left(\vphi_i(s_{i+1})-\vphi_i(s_i)\right)
+    +\sum_{i=0}^k \theta_i=\pm 2 \pi.\]
+    Where \(\pm\) depends on the orientation of \(\alpha\).
+    \label{lemma 1 of local Gauss-Bonnet}
+\end{lemma}
+\begin{center}
+    \includegraphics[scale=0.3]{picture/week13/topological result.png}
+\end{center}
+Proof of this can be found in Do Carmo's book (sec 5-7, theorem2).
+\begin{lemma}
+    \label{lemma 2 of local Gauss-Bonnet}
+    Let \(\gamma(u,v)\) be local orthogonal parametrization,
+    \(\alpha(s)\): regular curve with arclength parameter.
+    Let \(\vphi(s)\) be the angle between \(\gamma_u\) and \(\alpha'(s)\),
+    then
+    \[
+        k_g=\dv{\vphi}{s}-\frac{E_v}{2\sqrt{E G}}u'(s)+
+        \frac{G_u}{2\sqrt{EG}}v'(s).
+    \]
+\end{lemma}
+\begin{proof}
+    Already obtained in the proof of the Liouville formula.
+\end{proof}
+Assuming two lemmas above, we'll give a proof of the local Gauss-Bonnet.
+\begin{proof}
+    Let \(\vphi_i=\vphi_i(s)\) be angle functions from \(\gamma_u\)
+    to \(\alpha'(s)\) in \([s_i,s_{i+1}]\). Integrate \(k_g(s)\)
+    with expression in \cref{lemma 2 of local Gauss-Bonnet}
+    \[
+        \Rightarrow \sum_{i=0}^k\int_{s_i}^{s_{i+1}}
+        k_g(s)\dd s=
+        \underbracket{
+            \sum_{i=0}^k \int_{s_i}^{s_{i+1}}
+            \dv{\vphi_i}{s}\dd s
+        }_{\text{(1)}}
+        \underbracket{
+            +\sum_{i=0}^k\int_{s_i}^{s_{i+1}}
+        \left(
+            \frac{G_u}{2\sqrt{EG}}v'(s)
+            -\frac{E_v}{2\sqrt{E G}}u'(s)
+        \right)\dd s
+        }_{(2)}.
+    \]
+    (1): 
+    \[
+        \sum_{i=0}^k \int_{s_i}^{s_{i+1}}
+            \dv{\vphi_i}{s}\dd s 
+        =\sum_{i=0}^k\vphi_i(s_{i+1})-\vphi_i(s_i)
+        \xlongequal{\cref{lemma 1 of local Gauss-Bonnet}}%这也太丑了
+        2\pi-\sum_{i=0}^k. 
+    \]
+    (positive sign is due to \(\alpha(s)\) is positively oriented.)
+    (2):
+    \begin{align*}
+        &\sum_{i=0}^k\int_{s_i}^{s_{i+1}}
+        \left(
+            \frac{G_u}{2\sqrt{EG}}v'(s)
+            -\frac{E_v}{2\sqrt{E G}}u'(s)
+        \right)\dd s\\
+        =& \sum_{i=0}^k \int_{\alpha_i}
+        \frac{G_u}{2\sqrt{EG}}\dd v
+        -\frac{E_v}{2\sqrt{E G}}\dd u
+        \xlongequal[\text{formula}]{\text{divergence}}%丑
+        \iint_{\gamma^{-1}(R)}\left(\frac{G_u}{2\sqrt{EG}}\right)_v
+        +\left(\frac{E_v}{2\sqrt{E G}}\right)_u \dd u\dd v\\
+        =&-\iint_{\gamma^{-1}(R)}K\sqrt{EG}\dd u\dd v
+        =-\iint_{\gamma^{-1}(R)}K \dd A.
+        \footnotemark
+    \end{align*}
+    \footnotetext{Use homework 12 Problem 1.}
+\end{proof}
+\begin{proof}[Proof of global Gauss-Bonnet]
+    Subdivide \(S\) by giving a triangulation of \(S\), such that
+    each triangle \(T_i\) is contained in a local parametrization
+    with \(F=0\), then apply local Gauss-Bonnet formula and
+    \(\chi(S)=V-E+F\).(Details are left as exercises.)
+\end{proof}
+\begin{exercise}
+    Let \(S^2(R)\) be a radius \(R\) sphere, verify the Gauss-Bonnet
+    formula directly by computation.
+\end{exercise}
+\begin{exercise}
+    Let \(S\) be a closed convex surface in \(\mathbb{R}^3\). Check the
+    Gauss-Bonnet formula.
+\end{exercise}
+\begin{remark}
+    We shall see another nicer proof of the local Gauss-Bonnet for the
+    region bounded by a smooth curve. The proof is due to Simon
+    Donaldson.
+\end{remark}
