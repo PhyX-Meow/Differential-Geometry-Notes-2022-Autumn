@@ -69,13 +69,15 @@ Weingarten equation, \(A=(a_i^j)\)
     \end{bmatrix}
 .\] Then \[
     a_i^j=-h_{ik}g^{kj}
-.\] Lets write above equations as \[
+.\] Lets write above equations as
+\begin{equation}\label{eq:motion}
     \begin{cases}
         \vphi_{ij}=\Gamma_{ij}^k\vphi_k+h_{ij}N \\
         N_i=a_i^j=\vphi_j
     \end{cases}
     \implies \text{The only unknown are }\Gamma_{ij}^k
-.\] Moreover, \[
+.\end{equation}
+Moreover, \[
     \vphi_{ij}=\vphi_{ji}\implies \Gamma_{ij}^k=\Gamma_{ji}^k
 .\] \[
     \left<\vphi_{ij},\vphi_p\right> =\Gamma_{ij}^k \left<\vphi_k,\vphi_p\right> 
@@ -111,5 +113,99 @@ Hence \[
     by the 1st fundamental form.
 \end{definition}
 
+Next we derive the Gauss equation, we'll see the Gaussian curvature can be
+expressed only in 1st fundamental form.
+
+So far, we have obtained \[
+    \vphi_{ij}=\Gamma_{ij}^k\vphi_k+h_{ij}N
+    \quad\&\quad
+    N_p=a_p^q\vphi_q
+.\] Then
+\begin{align*}
+    \vphi_{ijp}&= \partial_p \Gamma_{ij}^k\vphi_k+\Gamma_{ij}^k\vphi_{kp}+
+    \partial_ph_{ij} N+h_{ij}N_p \\
+    &= \partial_p\Gamma_{ij}^k\vphi_k+\Gamma_{ij}^k(\Gamma_{kp}^q+h_{kp}N)
+    +\partial_p h_{ij} N+h_{ij}a_p^q \vphi_q, \\
+    \vphi_{ipj}
+    &= \partial_j\Gamma_{ip}^k\vphi_k+\Gamma_{ip}^k(\Gamma_{kj}^q+h_{kj}N)
+    +\partial_j h_{ip} N+h_{ip}a_j^q \vphi_q
+.\end{align*}
+The derivative is taken in \(\mathbb{R}^3\), so the two expression should be
+the same, we got 
+\begin{align*}
+    \vphi_{ijp}-\vphi_{ipj}
+    =&(\partial_p\Gamma_{ij}^k-\partial_j\Gamma_{ip}^k)\vphi_k+(\Gamma_{ij}^k
+    \Gamma_{kp}^q-\Gamma_{ip}^k\Gamma_{kj}^q)\vphi_q+(h_{ij}a_p^q-h_{ip}a_j^q)
+    \vphi_q &\text{(tangential)} \\
+    &+(\Gamma_{ij}^kh_{kp}-\Gamma_{ip}^kh_{kj}+\partial_p h_{ij}-\partial_{j}
+    h_{ip})N &\text{(normal)} \\
+    =& 0
+\end{align*}
+\begin{remark}
+    If the ambient space is not \(\mathbb{R}^n\), LHS should give curvature of
+    the ambient space.
+\end{remark}
+
+Note that \(\vphi_i\) and \(N\) are perpendicular, we can split tangential part
+and normal part of the equation, and use \(a_{p}^k=-h_{pq}g^{qk}\) we get:
+
+Normal part:
+\begin{equation}\label{eq:codazzi}
+    \partial_p h_{ij}-\Gamma_{pi}^kh_{kj}=\partial_j h_{ip}-\Gamma_{ji}^kh_{kp}
+.\end{equation}
+
+Tangential part: \[
+    (h_{ij}h_{pq}-h_{ip}h_{jq})g^{qk}
+    =\partial_p \Gamma_{ij}^k-\partial_j\Gamma_{ip}^k
+    +\Gamma_{ij}^l\Gamma_{lp}^k-\Gamma_{ip}^l\Gamma_{lj}^k
+.\] multiply by \(g^{kr}\) we get
+\begin{equation}\label{eq:gauss}
+    h_{ij}h_{pq}-h_{ip}h_{jq}=
+    g_{qk}\left(\partial_p \Gamma_{ij}^k-\partial_j\Gamma_{ip}^k
+    +\Gamma_{ij}^l\Gamma_{lp}^k-\Gamma_{ip}^l\Gamma_{lj}^k\right)
+.\end{equation}
+
+\cref{eq:codazzi} is called the Codazzi equation and~\cref{eq:gauss} is called
+the Gauss equation. Take \(i=j,p=q\) in Gauss equation, we see LHS becomes \[
+    h_{ii}h_{pp}-h_{ip}h_{pi}=\det\begin{bmatrix}
+        h_{ii} & h_{ip} \\
+        h_{pi} & h_{pp}
+    \end{bmatrix}
+.\] For 2 dim case, if \(i\neq p\), this gives exactly \(\det\II\). Note RHS
+is purely determined by \(I\), hence \(K=\frac{\det\II}{\det I}\) only depends
+on \(I\), it is an intrinsic geometric quantity.
+
+{\color{red}\large !} Gaussian curvature is the local geometric invariant of
+surfaces.
+
+We look back Codazzi equation, we can add a term as \[
+    \partial_{p}h_{ij}-\Gamma_{pi}^kh_{kj}-\boxed{\Gamma_{pj}^kh_{ki}}
+    =\partial_{j}h_{ip}-\Gamma_{ji}^kh_{kp}-\boxed{\Gamma_{jp}^kh_{ki}}
+.\] In terms of covariant derivative \(\nabla\), this writes \[
+    \nabla_p h_{ij}=\nabla_{j} h_{ip}
+.\] \ie\ All 3 index of \(\nabla_p h_{ij}\) are symmetric.
+
+\begin{remark}
+    We don't need to memorize the Gauss-Codazzi equations precisely. It
+    suffices to work it out step by step once we know local parametrization.
+    And there is a much more simple form of the equations after we introduced
+    notations in Riemannian geometry.
+\end{remark}
+
+We also call the Gauss-Codazzi equations are the integrability to solve
+the equation of motion~\cref{eq:motion}.
+
+\begin{theorem}[Fundamental theorem of surface theory (local)]
+    Let \(U\subset \mathbb{R}^2\) be open, connected set. Given two quadratic
+    form \(I=g_{ij}\dd{x^i}\dd{x^j}, \II=h_{ij}\dd{x^i}\dd{x^j}\), \st\ \(I\) is
+    positively definite. Moreover, the Gauss-Codazzi equations are satisfied.
+    Then there is a surface \(S\) in \(\mathbb{R}^3\) \st\ \(I,\II\) are the 1st
+    and 2nd fundamental form of \(S\) with \(U\) a coordinate chart.
+
+    The surface \(S\) is unique up to rigid motion.
+\end{theorem}
+\begin{proof}
+    Skip. (Can be found in Do Carmo's book)
+\end{proof}
 
 \newpage
