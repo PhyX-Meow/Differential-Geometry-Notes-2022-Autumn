@@ -195,7 +195,7 @@ We look back Codazzi equation, we can add a term as \[
 We also call the Gauss-Codazzi equations are the integrability to solve
 the equation of motion~\cref{eq:motion}.
 
-\begin{theorem}[Fundamental theorem of surface theory (local)]
+\begin{theorem}[Fundamental theorem of surface theory (local)]\hfill\\
     Let \(U\subset \mathbb{R}^2\) be open, connected set. Given two quadratic
     form \(I=g_{ij}\dd{x^i}\dd{x^j}, \II=h_{ij}\dd{x^i}\dd{x^j}\), \st\ \(I\) is
     positively definite. Moreover, the Gauss-Codazzi equations are satisfied.
@@ -208,4 +208,155 @@ the equation of motion~\cref{eq:motion}.
     Skip. (Can be found in Do Carmo's book)
 \end{proof}
 
-\newpage
+\section{An invitation of Riemannian Geometry}
+We have introduced the concept of smooth manifold \(M\), \ie\ \(M\) is a
+topological manifold together with a smooth structure, given by a collection
+of coordinate covering \(M=\bigcup_{\alpha}U_\alpha\) \st\ 
+\begin{enumerate}[(1)]
+    \item \(\vphi_\alpha\colon U_\alpha\to \vphi_\alpha(U_\alpha)\subset
+        \mathbb{R}^n\), is homeomorphism.
+    \item \(\forall\,\alpha,\beta\), \(U_\alpha\cap U_\beta\neq\emptyset
+        \implies\) the transition function \(\vphi_\beta\circ \vphi_\beta^{-1}\)
+        on \(U_{\alpha}\cap U_\beta\) is smooth.
+\end{enumerate}
+Each \((U_\alpha,\vphi_\alpha)\) is called a coordinate patch.
+
+Now a basic question is how to take derivative on \(M\)? This question is
+natural to be asked since we want to apply the technique in calculus to study
+\(M\).
+
+First, we need to know how to differentiate \(f\in C^\infty(M)\), this has been
+done by introducing ``tangent vector'' \& ``tangent vector field''.
+
+Recall a smooth vector field \(X\) on \(M\) is a smooth map sending \(p\in M\)
+to a vector \(X_p\in T_pM\). Let \(\Gamma(TM)\) be set of all smooth vector
+fields on \(M\). \(X_p\) is understood geometrically as \(\forall\,f\in C^\infty
+(M)\), \[
+    (Xf)(p)=X_p(f)=\eval{\dv{t}}_{t=0}f(\alpha(t))
+    =\lim_{t\to 0}\frac{f(\alpha(t))-f(p)}{t}
+.\] Where \(\alpha(t)\) is any curve with initial value \(p\) and initial
+velocity \(X_p\). We temporarily take this definition and try to generalize
+it to Lie derivative. Soon we shall take the viewpoint that \(X_p\) as first
+order derivative and generalize it to covariant derivative.
+
+\subsection{Lie derivative}
+Now we want to take derivatives of vector fields. First let's consider \(M=
+\mathbb{R}^n\). Let \(V,W\) be two smooth vector fields, \(p\in \mathbb{R}^n\),
+and
+\begin{equation}\label{eq:lie-diff-Rn}
+    \mathrm{D}_{V_p}W(p)=\lim_{t\to 0}\frac{W(p+tV_p)-W(p)}{t}
+.\end{equation}
+This just means the rate of ``change of value of \(W\)'' w.r.t. the ``change
+of points in the domain''.
+
+There're two things to be paid more attention:
+\begin{enumerate}[(1)]
+    \item \(p+tV_p\in \mathbb{R}^n\) is defined via linear structure of
+        \(\mathbb{R}^n\).
+    \item \(W(p+tV_p)-W(p)\), again, the subtraction makes sense by the linear
+        structure of \(\mathbb{R}^n\). In which, we can identify \[
+            T_p \mathbb{R}^n\cong T_{p+tV_p}\mathbb{R}^n\cong \mathbb{R}^n
+        .\] 
+\end{enumerate}
+
+Next we consider general \(M\) as a manifold, \(V,W\in \Gamma(TM)\). To
+generalize~\cref{eq:lie-diff-Rn} to manifolds, we have to reconsider (1) and
+(2).
+\begin{enumerate}[(1)]
+    \item Given \(p\) and initial velocity \(V_p\), we can choose a smooth
+    curve \(\alpha(t)\) as a replacement of ``linear perturbation in
+    \(\mathbb{R}^n\)''
+    \item Then consider the vector field \(W\) (restricted on \(\alpha(t)\)).
+    \ie\ \(W(\alpha(t))\in T_{\alpha_(t)}M\). However \(T_{\alpha(t)}\neq
+    T_pM\), not the same linear space. To do the subtraction, we need to
+    ``move'' \(W(\alpha(t))\) back to \(T_pM\). This can be done by viewing \[
+        \alpha(t)\colon p \mapsto \alpha(t)
+    \] as a smooth map from \(M\) to \(M\) (at least locally). Then we can
+    define a map \[
+        \alpha(-t)\colon \alpha_(t) \mapsto p.
+        \quad\text{(again from }M\text{ to }M\text{)}
+    \] We have
+    \begin{align*}
+        \dd{\alpha(-t)}_{\alpha(t)}\colon T_{\alpha(t)}M &\longrightarrow
+        T_p M \\
+        W(\alpha(t)) &\longmapsto \left(\dd{\alpha(-t)}\right)_{\alpha(t)}
+        (W(\alpha(t)))\in T_p M
+    .\end{align*}
+    Then \(\left(\dd{\alpha(-t)}\right)_{\alpha(t)}(W(\alpha(t)))\) and \(W_p\)
+    both live in \(T_p M\).
+\end{enumerate}
+
+\begin{definition}[Lie derivative] \[
+    \mathcal{L}_V W(p):=\lim_{t \to 0} \frac{\left(\dd{\alpha(-t)}_{\alpha(t)}
+    \right)(W(\alpha(t)))-W(p)}{t}
+\] is called the Lie derivative of \(W\) along \(V\), of course, we can write
+above as \[
+    \mathcal{L}_V W(p):=\eval{\dv{t}}_{t=0}
+    \left(\dd{\alpha(-t)}_{\alpha(t)}\right)(W(\alpha(t)))
+.\] 
+\end{definition}
+
+Note that \(\mathcal{L}_V W\) is still a smooth vector field (Exercise). The
+computational formula is given by
+\begin{prop} \[
+    \mathcal{L}_V W=\left[V,W\right]=VW-WV
+.\] In some books, people just take this as the definition of Lie derivative.
+\end{prop}
+
+\([V,W]\) is called the Lie bracket, defined by \(\forall\,f\in C^\infty(M)\),
+\[
+    [V,W](f)=V(W(f))-W(V(f))
+.\] One should check this do give a derivation and defines a smooth vector
+field.
+
+Note if we write \(\mathcal{L}_V f=V(f)\), then above equation writes \[
+    (\mathcal{L}_V W)(f)=\mathcal{L}_V(W(F))-W(\mathcal{L}_V f)
+.\] \ie\ \[
+    \mathcal{L}_V(W(f))=(\mathcal{L}_V W)(f)+W(\mathcal{L}_V f)
+.\] This is Leibniz rule for Lie derivative.
+
+Locally, let \(V=V^i\pdv{x^i},W=W^j\pdv{x^j}\), then
+\begin{align*}
+    [V,W]&= [V^i\pdv{x^i},W^j\pdv{x^j}]=V^i\pdv{x^i}(W^j\pdv{x^j})
+    -W^j\pdv{x^j}(V^i\pdv{x^i}) \\
+    &= V^i\pdv{W^j}{x^i}\pdv{x^j}+V^iW^j\pdv{x^ix^j}
+    -W^j\pdv{V^i}{x^j}\pdv{x^i}-W^jV^i\pdv{x^ix^j} \\
+    &= V^i\pdv{W^j}{x^i}\pdv{x^j}-W^j\pdv{V^i}{x^j}\pdv{x^i} \\
+    &= (V^i\pdv{W^j}{x^i}-W^i\pdv{V^j}{x^i})\pdv{x^j}
+.\end{align*}
+
+Let's pause to introducing Lie derivative until we need more properties of it.
+
+\subsection{Affine connection \& Covariant derivative}
+Now we take another viewpoint of tangent vector fields. \ie\ A smooth vector
+field \(V\) on \(M\) is understood as a 1st order differential operator acting
+on \(C^\infty(M)\). \ie\ \(V\in \Gamma(TM)\), \(f\in C^\infty(M)\), \(V(f)\) is
+a smooth function \st\ \[
+    V(f)(p)=V_p(f)
+.\] where \(V_p\colon C^\infty(M)\to \mathbb{R}\) \st\ 
+\begin{enumerate}[(1)]
+    \item \(V_p(f+\lambda g)=V_p(f+\lambda V_p(g))\),
+    \item \(V_p(fg)=V_p(f)g(p)+f(p)V_p(g)\).
+\end{enumerate}
+Lets also write \(V(f)=\nabla_V f\), then \(\forall\,V,W\in \Gamma(TM)\),
+\(h\in C^\infty(M)\), we have \[
+    \nabla\colon \Gamma(TM)\times C^\infty(M)\to C^\infty(M),
+    \quad(V,f)\mapsto \nabla_V f,
+\]
+satisfies:
+\begin{enumerate}[(1)]
+    \item \(\nabla_{V+hW}f=\nabla_V f+h\nabla_W f\),
+    \item \(\nabla_V(f+\lambda h)=\nabla_V f+\lambda \nabla_V h\),
+    \item \(\nabla_V(fh)=(\nabla_V)h+f\nabla_V h\).
+\end{enumerate}
+
+In a similar fashion, we define the covariant derivative \(\nabla_V W\),
+by requiring (1)-(3) above, more precisely, \(\forall\,V,W,Z\in \Gamma(TM),
+f\in C^\infty(M),\lambda\in \mathbb{R}\),
+\begin{enumerate}[(1)]
+    \item \(\nabla_{V+fZ}W=\nabla_V w+f\nabla_Z W\). (\(C^\infty\)-linear
+        in subscript vector filed)
+    \item \(\nabla_V(W+\lambda Z)=\nabla_V W+\lambda\nabla_V Z\).
+        (\(\mathbb{R}\)-linear in vector fields)
+    \item \(\nabla_V(fW)=(\nabla_V f)W+f\nabla_V W\). (Leibniz rule)
+\end{enumerate}
