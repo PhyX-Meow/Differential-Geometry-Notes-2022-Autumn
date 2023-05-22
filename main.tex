@@ -1,3 +1,4 @@
+% !TeX program = xelatex
 % 本文档编写于 2022 年 9 月 13 日，使用 TeXLive 2022 编译通过
 % 请使用不低于 2021 版的 TeXLive (在苹果系统上可以是 MacTeX) 编译此文档
 % 其它编译器不保证编译效果的正确性，不要使用早已过时并且存在许多 bug 的 CTeX 套装
@@ -15,10 +16,10 @@
                                % 设置纸张大小为 A4，页边距为1英寸
 
 \usepackage{amsmath}           % AMS 的主包
-\usepackage{amssymb}           % AMS 符号包，会自动加载 amsfonts
-\usepackage{latexsym}          % 几个额外的特殊符号，包括 \Box
+% \usepackage{amssymb}           % AMS 符号包，会自动加载 amsfonts
+% \usepackage{latexsym}          % 几个额外的特殊符号，包括 \Box
 \usepackage{mathrsfs}          % \mathscr 字体样式
-\usepackage{eucal}             % 更改 \mathcal 的字体样式
+% \usepackage{eucal}             % 更改 \mathcal 的字体样式
 \usepackage{amsthm}            % AMS 的定理环境
 \usepackage{mathtools}         % 一些额外的数学环境功能，包括 \dfrac
 \usepackage{stmaryrd}          % 更更多的特殊符号
@@ -44,7 +45,7 @@
                                % 如果需要用 natbib，请自行注释掉这一行然后正常使用
 \usepackage{tcolorbox}         % 绘制彩色文本框的宏包
 \tcbuselibrary{most}           % 加载 tcolorbox 的库
-\usepackage{bm}                % 为所有数学字体添加粗体，命令 \bm{abcd}
+% \usepackage{bm}                % 为所有数学字体添加粗体，命令 \bm{abcd}
 \usepackage{slashed}           % 在符号上添加反划线，命令 \slashed
 
 %==============================%
@@ -56,6 +57,10 @@
 \usepackage{physics}           % 提供了方便地打出 d/dx 等符号的命令
 \usepackage{engord}            % 英文中的序数    
 %==============================%
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\usepackage[default]{fontsetup}
+%==============================%
+
 
 %==============================%
 %    私货，定义了一些小命令    %
@@ -193,7 +198,9 @@
 \chapter{Intrinsic geometry}
 \input{src/week10.tex}
 \input{src/week11.tex}
+\input{src/week12.tex}
 \input{src/week13.tex}
+\input{src/week14.tex}
 %==============================%
 
 % \printbibliography{}

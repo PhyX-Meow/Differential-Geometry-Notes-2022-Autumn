@@ -1,0 +1,498 @@
+\subsection{Geodesic curvature}
+Let \(\alpha(s)\colon I\to S\) be a regular curve, at each point \(p\in \alpha\).
+We have two o.n. frames:
+\begin{enumerate}[(1)]
+    \item Frenet's formula \(\{\vec{t}(s),\vec{n}(s),\vec{b}(s)\}\);
+    \item \(\{\vec t(s),N(s)\times \vec t(s),N(s)\}\), \(N(s)\) is unit normal of
+        \(S\) at \(\alpha(s)\).
+\end{enumerate}
+Using the second frame, we have \[
+    \left<\alpha''(s),N(s)\right> =\II(\alpha'(s),\alpha'(s))=k_n,
+    \text{ normal curvature at }\alpha(s)
+.\] 
+
+\begin{definition}[Geodesic curvature]
+    \[
+        k_g:=\left<\alpha''(s),N(s)\times \vec t(s)\right> 
+    \] is called geodesic curvature.
+\end{definition}
+
+By the Frenet formula, \(\alpha''(s)=\vec t'(s)=k\vec n(s)\), let \(\theta\) be the
+angle between \(\vec n(s)\) and \(N(s)\), then
+\begin{align}
+    k_n&= k\cos\theta=\left<\alpha''(s),N(s)\right> &\text{normal curvature} \\
+    k_g&= \pm k\sin\theta=\left<\alpha''(s),\right> &\text{geodesic curvature}
+.\end{align}
+The sign of expression of \(k_g\) depends on the choice of normal of surface
+and orientation of \(\alpha(s)\).
+
+Hence \[
+    k^2=k_n^2+k_g^2
+.\] And \(\alpha(s)\) is geodesic \(\iff \vec n\parallel N\iff k_n=k\iff k_g=0\).
+
+\begin{exercise}[Liouvill formula]
+    Let \(\vphi(u,v)\) be an orthogonal parametrization of a regular surface \(S\),
+    \(\alpha(s)\) be a regular curve on \(S\) with arclength parameter.
+    Let \(\theta(s)\) be the angle between \(u\)-curve and \(\alpha'(s)\). Then \[
+        k_g=\dv{\theta}{s}-\frac{1}{2\sqrt{G}}\pdv{\log E}{v}\cos\theta
+        +\frac{1}{2\sqrt{E}}\pdv{\log G}{u}\sin\theta
+    .\] 
+\end{exercise}
+
+\subsection{Length minimizing curves (variational viewpoint)}
+\((M,g)\) be Riemannian manifold, let \(\gamma(s)\colon [0,l]\to M\) be a curve
+with arc-length parameter. \(\gamma(0)=:p,\gamma(l)=:q\). Let \(\Gamma(s,t)\) be a
+family of smooth variation with endpoints fixed.
+\ie\ \(\Gamma(s,t)\colon [0,l]\times (-\eps,\eps)\to M\) \st\ \(\forall\,t\in (-\eps,
+\eps)\), \(\Gamma(s,t_0)\) is a \(C^\infty\) curve with initial point \(p\) and
+endpoint \(q\), and, \(\Gamma(s,0)=\gamma(s)\).
+
+Consider the arc-length functional \[
+    L(\Gamma(s,t))=\int_{0}^{l}\left|\pdv{\Gamma(s,t)}{s}\right|\dd{s}
+.\] 
+Then
+\begin{equation}\label{eq:variation-geodesic}
+\begin{split}
+    \eval{\dv{t}}_{t=0}L(\Gamma(s,t))
+    &=\int_{0}^{l}\frac{1}{2}\left<\dot\gamma(s),\dot\gamma(s)\right> ^{-\frac{1}{2}}
+    \eval{\dv{t}}_{t=0}\left<\dv{\Gamma(s,t)}{s},\dv{\Gamma(s,t)}{s}\right> \dd{s} \\
+    &=\int_{0}^{l}\left<\eval{\frac{\mathrm{D}}{\dd{t}}}_{t=0}
+    \left(\pdv{\Gamma(s,t)}{s}\right),\dot\gamma(s)\right> \dd{s}.
+\end{split}
+\end{equation}
+
+\begin{lemma}
+    \[
+        \frac{\mathrm{D}}{\dd{t}}\left( \pdv{\Gamma(s,t)}{s} \right) 
+        =\frac{\mathrm{D}}{\dd{s}}\left(\pdv{\Gamma(s,t)}{t}\right)
+    .\] 
+\end{lemma}
+\begin{proof}
+Let \((x^1,\ldots,x^n)\) be local coordinate \st\ \(\Gamma(s,t)\) is contained
+in this coordinate chart.
+\begin{flalign*}
+    \implies &\Gamma(s,t)=(x^1(s,t),\ldots,x^n(s,t))
+    \implies \begin{cases}
+        \pdv{\Gamma}{s}=x^i_s\pdv{x^i} \\
+        \pdv{\Gamma}{t}=x^i_t\pdv{x^i}
+    \end{cases}. &
+\end{flalign*}
+\begin{flalign*}
+    \implies \frac{\mathrm{D}}{\dd{t}}\left(\pdv{\Gamma}{s}\right)
+    &=\frac{\mathrm{D}}{\dd{t}}\left(x^i_s\pdv{x^i}\right) & \\
+    &=x^i_{st}\pdv{x^i}+x^i_s x^j_t\nabla_{\pdv{x^i}}\pdv{x^j} \\
+    &=\frac{\mathrm{D}}{\dd{s}}\left(\pdv{\Gamma}{t}\right)
+.\end{flalign*}
+\end{proof}
+
+Then
+\begin{flalign*}
+    \text{\cref{eq:variation-geodesic}}
+    &= \int_{0}^{l}\left<\frac{\mathrm{D}}{\dd{s}}\left(\eval{\pdv{\Gamma}{t}}_{t=0}
+    \right),\dot\gamma(s)\right> \dd{s} & \\
+    &= \eval{\left<\eval{\pdv{\Gamma}{t}}_{t=0},\dot\gamma(s)\right>}_0^l
+    -\int_{0}^{l}\left<\eval{\pdv{\Gamma}{t}}_{t=0},\nabla_{\dot\gamma}
+    \dot\gamma\right> \dd{s}
+.\end{flalign*}
+Note the variational family fix endpoints.
+\begin{flalign*}
+    \implies & \eval{\pdv{\Gamma}{t}}_{t=0}=\eval{\pdv{\Gamma}{t}}_{t=0}(l)=0 &
+\end{flalign*}
+Hence
+\begin{flalign*}
+    \text{\cref{eq:variation-geodesic}}
+    &=-\int_{0}^{l}\left<\eval{\pdv{\Gamma}{t}}_{t=0},\nabla_{\dot\gamma}\dot\gamma
+    \right> \dd{s} &
+\end{flalign*}
+Hence Euler-Lagrange equation is \(\nabla_{\dot\gamma}\dot\gamma=0\) (geodesic
+equation).
+
+We conclude that if \(\gamma(s)\) is a curve having shortest length between two points
+on \(M\), then it must be a geodesic. Conversely, we only have geodesics are local
+minimizing curves (prove later).
+
+\begin{example}
+    Every great circle on \(\mathbb{S}^2\) is a geodesic.
+\end{example}
+Note \[
+    \nabla_{\dot\gamma}\dot\gamma=0\iff \ddot x^k(t)+\Gamma_{ij}^k(x(t))\dot x^i(t)
+    \dot x^j(t)=0.
+\] By ODE theory, at each point \(p=(x^1(t_0),\ldots,x^n(t_0))\) with any prescribed
+direction \(v=\dot x^k(t_0)\pdv{x^k}\), there is a unique geodesic starting at \(p\)
+with initial velocity \(v\). Locally, \ie\ \(\exists\,\gamma(t)\colon (0,\eps)\to M\)
+geodesic \st\ \(\gamma(0)=p,\dot\gamma(0)=v\).
+
+\begin{remark}
+\begin{enumerate}[(1)]
+\item Previously, we have considered the length functional of a family of curves
+    \(\Gamma(s,t)=\gamma_t(s)\colon [0,l]\to M\): \[
+        L(\gamma_t(s))=\int_{0}^{l}\left|\dot\gamma_t(s)\right|\dd{s}
+    .\] In fact, when we consider the Euler-Lagrange equation, it's more convenient
+    to consider the ``energy'' functional 
+    \begin{equation}\label{eq:energy-functional}
+        E(\gamma_t(s))=\frac{1}{2}\int_{0}^{l}\left|\dot\gamma_t(s)\right|^2\dd{s}
+    .\end{equation}
+    (Then there won't appear denominator term).
+\item A generalization of such type of functional: let \(u\colon(M,g)\to (N,h)\)
+    be \(C^\infty\) map, the energy functional is \[
+        E(u)=\int_{M}\left|\dd{u}\right|^2\dd{V_g}
+    .\] If \((x^1,\ldots,x^m)\) is local coordinate of \(M\), \(u(x)=(u^1,\ldots,u^n)
+    \), then \[
+        \left|\dd{f}\right|_{g,h}^2=g^{ij}h_{\alpha\beta}
+        \pdv{u^\alpha}{x^i}\pdv{u^\beta}{x^j}
+    .\] As special cases:
+    \begin{enumerate}[(a)]
+    \item If \(M\) is an interval \([a,b]\), \(u\colon [a,b]\to (N,h)\), \(E(u)\)
+        is just~\cref{eq:energy-functional}.
+    \item If \(M=\Omega\subset \mathbb{R}^n,N=\mathbb{R}\), \ie\ \(u\) is smooth
+        function \(\Omega\to \mathbb{R}\) with compact support, \[
+            E(u)=\int_{\mathbb{R}^n}|\dd{f}|^2\dd{x^1}\cdots \dd{x^n}
+        .\] Then Euler-Lagrange equation is just harmonic function equation.
+    \end{enumerate}
+\end{enumerate}
+\end{remark}
+
+\begin{definition}
+    The solution of Euler-Lagrange equation of~\cref{eq:energy-functional} is called
+    harmonic maps.
+\end{definition}
+
+\subsection{Complete manifold}
+From geodesic equation \(\nabla_{\dot\gamma}\dot\gamma=0\), \(\forall\,p\in M,v\in
+T_p M\), \(\exists\) unique geodesic \(\gamma(t)\colon (-\eps,\eps)\to M\) \st\ 
+\(\gamma(0)=p,\dot\gamma(0)=v\). In fact we can write \(\gamma(t)=\exp_p(tv)\) locally.
+
+A natural question to ask in how large the defining domain of \(\gamma(t)\) could be.
+
+\noindent{\large\color{blue}\boxed{Observation}} If \(I_1,I_2\) are two interval in
+\(\mathbb{R}, t_0\in I_1\cap I_2\), \(\gamma_1\colon I_1\to M,\gamma_2\colon I_2\to M\)
+are two geodesics \st\ \(\gamma_1(t_0)=\gamma_2(t_0)\) and \(\dot\gamma_1(t_0)
+=\dot\gamma_2(t_0)\). Then \(\gamma_1\) and \(\gamma_2\) agree on \(I_1\cap I_2\) by
+uniqueness of solution of ODE\@.
+
+Then \(\gamma_1\cup \gamma_2\) is an extension of geodesics \(\gamma_1\) and
+\(\gamma_2\). Furthermore, it is also a geodesic defined on \(I_1\cup I_2\).
+
+\begin{definition}[Maximal geodesic]\hfill\\
+    \(\gamma(t)\colon I\to M\) is called a maximal geodesic if \(I\) is the largest
+    defining domain of \(\gamma(t)\), \ie\ it cannot be extended to a geodesic on
+    a larger interval containing \(I\).
+\end{definition}
+\begin{remark}
+    A maximal geodesic can be defined on
+    \begin{enumerate}[(1)]
+    \item \(\mathbb{R}\);
+    \item Finite open interval \((a,b)\);
+    \item Half interval \((-\infty,b)\) or \((a,+\infty)\).
+    \end{enumerate}
+\end{remark}
+\begin{definition}[Complete manifold]\hfill\\
+    A Riemannian manifold \((M,g)\) is called (geodesic) complete if all maximal
+    geodesics are define on \(\mathbb{R}\).
+\end{definition}
+\begin{remark}
+    This means each geodesic starting from a point \(p\) with initial velocity \(v\)
+    can be extended from both sides for all time. Furthermore, \(\exp_p\colon
+    T_p M\to M\) is defined for all \(v\in T_p M\).
+\end{remark}
+
+\begin{example}
+    \(\mathbb{R}^2\setminus\{0\}\) is not geodesic complete. Consider geodesic
+    \(\gamma(t)=(t,0)\), which can only be defined on \((-\infty,0)\).
+\end{example}
+
+For the completeness of a manifold, we mention the Hopf-Rinow theorem, the proof of
+which will be left to Riemannian geometry course.
+
+Note the Riemannian metric \(g\) on \(M\) defines a distance function \[
+    d(p,q)=\inf\{L(\gamma):\gamma\text{ piecewise smooth from } p \text{ to }q\}
+.\] Then \(M\) became a metric space.
+
+Recall a metric space \((M,d)\) is complete if every Cauchy sequence is convergent.
+
+\begin{theorem}[Hopf-Rinow]\label{thm:hopf-rinow}
+    Let \((M,g)\) be a manifold without boundary, TFAE\@:
+    \begin{enumerate}[(1)]
+    \item \((M,g)\) is geodesic complete.
+    \item \((M,g)\) is geodesic complete at some \(p\in M\), \ie\ \(\exp_p\) is defined
+        on whole \(T_p M\).
+    \item \((M,d)\) is complete metric space.
+    \item \(A\subset M\) is compact iff \(A\) is bounded and closed.
+    \item Every closed geodesic ball \(\overline{B}(p,r)\) is compact.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+    If \((M,g)\) is complete, then any \(p,q\in M\) can be jointed by a minimal
+    geodesic, \ie\ the distance \(d(p,q)\) is realized by length of a geodesic.
+\end{corollary}
+\begin{corollary}
+    If \((M,g)\) is closed manifold (compact without boundary), then \((M,g)\) is
+    complete. In particular, any surface without boundary in \(\mathbb{R}^3\) which is
+    a closed subset is complete.
+\end{corollary}
+
+\begin{remark}
+    One of the famous incomplete Riemannian metric lies in the study of geometry of
+    the moduli space (or Teichm\"uller space) of Riemann surfaces: \[
+        T_g=\frac{\{\text{Conformal structure of }\Sigma_g\}}{\text{Orientation
+        preserving diffeomorphisms}}
+    .\] On \(T_g\), each point represents a Riemann surface of genus  \(g\) with a
+    given conformal structure. There is a metric on such space defined by \(L^2\)
+    pairing of infinitesimal conformal structure at each point. Such metric is called
+    the Weil-Petersson metric an it's not complete.
+\end{remark}
+
+\noindent{\color{red}\underline{Key fact:}} Studying the metric completion of
+Weil-Petersson metric is related to the compactification of the moduli space!
+This is one of many correspondence of Differential Geometry \(\longleftrightarrow\)
+Algebraic Geometry.
+
+\subsection{Exponential map \& geodesic spherical coordinate}
+Let's first see a rescaling argument of geodesic:
+
+We have seen \(\forall\,p\in M\), along any prescribed velocity \(v\in T_p M\), there
+is a unique geodesic \(\gamma(t)\colon [0,\eps)\to M\) \st\ \(\gamma(0)=p,
+\dot\gamma(0)=v\). By rescaling the velocity \(v\rightsquigarrow\lambda v\), we obtain
+the geodesic \(\beta(\tau)\colon[0,\frac{\eps}{\lambda})\to M\), which has the same
+trace with \(\gamma(t)\) and \(\beta(0)=p,\dot\beta(0)=\lambda v\). In particular,
+we introduce notation \[
+    \gamma(t,v)=\gamma(t),\quad \beta(\tau,\lambda v)=\beta(\tau),\quad \lambda\tau=t
+.\] Then \(\beta(\tau,\lambda v)=\beta(\tau)=\gamma(t)=\gamma(t,v)=\gamma(\lambda\tau,v
+),\forall\,\tau\in [o,\frac{\eps}{\lambda})\).
+
+This rescaling argument allows us to consider geodesics defined on \([0,1]\).
+\begin{definition}[Exponential map]
+    Let \(p\in M,v\in T_p M,\gamma\colon[0,1]\to M\) is a geodesic \st\ \(\gamma(0)=p,
+    \gamma'(0)=v\). The exponential map is defined as
+    \begin{align*}
+        \exp_p\colon T_p M &\longrightarrow M \\
+        v &\longmapsto \exp_p(v)=\gamma(1)
+    .\end{align*}
+\end{definition}
+Note the length of \(\gamma\) between \(p\) and \(\gamma(1)\) is \(|v|\), and
+\(\gamma(t)=\exp_p(tv)\) for \(t\in [0,1]\), \(\exp_p(0)=p\). Hence geodesic \(\gamma
+(t)\) is the image of ray from \(0\) in \(T_p M\) under \(\exp_p\).
+
+We state the following fact without proof:
+\begin{prop}
+    \(\exists\,\eps>0\) \st\ \(\exp_p\colon B(0,\eps)\to M\) is a diffeomorphism
+    where \(B(0,\eps)\) is ball of radius \(\eps\) centered at origin in \(T_p M\).
+\end{prop}
+\begin{remark}
+    The radius \(\eps\) could be very large or even \(\infty\), but also could be
+    a finite number.
+\end{remark}
+
+\begin{example}
+    \(\exp_p\colon T_p M\to M\) where \(p\) is north pole in \(\mathbb{S}^2\).
+    \(\exp_p(v)=q\) the south pole if \(|v|=\pi\), then \(\exp_p\) fails to be a
+    diffeomorphism on \(B(0,r),r>\pi\).
+\end{example}
+
+\begin{definition}
+    \(W\subset M\) is called a normal neighbourhood of \(p\), if for some \(U\subset 
+    T_p M\) containing 0, \(\exp_p\colon U\to W\) is diffeomorphism.
+\end{definition}
+
+For normal neighbourhood, we can endow coordinate at \(p\) by considering the image
+of Cartesian coordinate and polar coordinate at origin of \(T_p M\cong \mathbb{R}^n\).
+
+\subsubsection*{Normal coordinate}
+Let \(e_1,\ldots,e_n\) be orthonormal basis of \(T_p M\cong \mathbb{R}^n\), for any
+vector \(v\in U\subset T_p M\), write \(v=x^i e_i\).
+Then we say \(q=\exp_p(v)\) has coordinate \((x^1,\ldots,x^n)\). In particular,
+\(\exp_p(tv)\) has coordinate \((tx^1,\ldots,tx^n)\) and \(p\) has coordinate \(0\).
+
+Since \(\gamma(t)=\exp_p(tv)\) satisfies geodesic equation, it writes: \[
+    \gamma^k(t)=tx^k,\ \Gamma_{ij}^k(\gamma(t))x^i x^j=0\quad
+    (\ddot \gamma^k(t)+\Gamma_{ij}^k(\gamma(t))\dot x^i(t)\dot x^j(t)=0)
+.\] At \(p=\gamma(0)\), \(\Gamma_{ij}^k(\gamma(0))x^i x^j=0\). Since \(v=x^i e_i\) is
+chosen arbitrarily, we conclude that \(\Gamma_{ij}^k=0\) at \(p\).
+Moreover, \(g_{ij}(p)=g(e_i,e_j)=\delta_{ij}\).
+
+We summarize that the normal coordinate \((x^1,\ldots,x^n)\) in a neighbourhood of 
+\(p\) has the following properties:
+\begin{enumerate}[(1)]
+\item \(p=(0,\ldots,0)\) ;
+\item \(g_{ij}(p)=\delta_{ij}\) ;
+\item \(\Gamma_{ij}^k(p)=0\);
+\item \(\tensor{R}{_{ij}^k_l}(p)=(\pdv{x^i}\Gamma_{jl}^k-\pdv{x^j}\Gamma_{il}^k)(p)\);
+\item \(\triangle_g f(p)=g^{ij}(\partial_i \partial_j f-\Gamma_{ij}^k \partial_k f)(p)
+    =\triangle f(p)\).
+\end{enumerate}
+
+\subsubsection*{Geodesic spherical coordinate}
+Take \((\rho,\theta^1,\ldots,\theta^{n-1})\) as polar coordinate in \(T_p M\cong 
+\mathbb{R}^n\). Let \(U\) be normal neighbourhood of \(p\in M\). Then \\
+Geodesic sphere \(=\) image of \(\{r=r_0\}\) under \(\exp_p\); \\
+Radial geodesic \(=\) image of \(\{\theta=\theta_0\}\) under \(\exp_p\).
+
+\((\rho,\theta^1,\ldots,\theta^{n-1})\) is called the geodesic spherical coordinate
+and the vector fields are \(\pdv{\rho},\pdv{\theta^1},\ldots,\pdv{\theta^{n-1}}\).
+
+Note \(\theta=\theta_0\) is a ``straight ray'' and \(\rho\) is just the arc-length
+parameter of radial geodesic. Hence in \((\rho,\theta^1,\theta^{n-1})\) coordinate
+the coefficient of the Riemannian metric. \[
+    g_{11}=g(\pdv{\rho},\pdv{\rho})=1\iff \pdv{\rho}\text{ is a radial unit vector
+    filed}
+.\] Next we study \(g_{\rho\theta^i}\), we'll show it's 0. Let's argue for surface
+since \(\theta=\theta_0\) is geodesic, 
+\begin{flalign*}
+    \implies & \nabla_{\pdv{\rho}}\pdv{\rho}=0
+    \implies \Gamma_{11}^1\pdv{\rho}+\Gamma_{11}^2\pdv{\theta}=0. & \\
+    \implies & \Gamma_{11}^1=0, \Gamma_{11}^2=0 \\
+    & 0=\Gamma_{11}^1=g^{12}\partial_1 g_{12}=-\frac{1}{\det g}g_{12}\partial_1 g_{12}
+.\end{flalign*}
+Since \(g^{22}=\frac{1}{\det g}g^{11}\neq 0\), \(\partial_1 g_{12}=0\), \ie\ \(g_{12}\)
+is independent of \(\rho\).
+
+Note that \((x_1,x_2)=(\rho\cos\theta,\rho\sin\theta)\), \[
+    g_{12}=g(\pdv{\rho},\pdv{\theta})=g(\cos\theta\pdv{x^1}+\sin\theta\pdv{x^2},
+    -\rho\sin\theta\pdv{x^1}+\rho\cos\theta\pdv{x^2})
+.\] Hence \(g_{12}(\rho,\theta)=\lim_{\rho \to 0} g_{12}(\rho,\theta)=0\).
+
+\begin{exercise}
+    Proof \(g_{\rho\theta^i}=0\) for general case.
+\end{exercise}
+
+We summarize: In geodesic polar coordinate \((\rho,\theta^1,\ldots,\theta^{n-1})\),
+\begin{enumerate}[(1)]
+\item \(\pdv{\rho}\) is a unit vector field generating a radical geodesic;
+\item \(\pdv{\rho}\perp \pdv{\theta}\), \ie\ radial geodesic is orthogonal to
+    geodesic spheres.
+\end{enumerate}
+These two results are called the \emph{Gauss Lemma}.
+
+Hence in geodesic polar coordinate, the metric is \[
+    \dd{s}^2=\dd{\rho}^2+\tilde{g}_{ij}(\rho,\theta)\dd{\theta^i}\dd{\theta^j}
+.\] 
+
+\begin{exercise}
+    If \(S\) is a surface, \((\rho,\theta)\) is geodesic polar coordinate, show that \[
+        \lim_{\rho \to 0} \sqrt{G}=0,\quad
+        \lim_{\rho \to 0} (\sqrt{G})_\rho=1
+    .\] 
+\end{exercise}
+\begin{remark}
+    In surface case, the Gaussian curvature has expression \[
+        K=-\frac{(\sqrt{G})_{\rho\rho}}{\sqrt{G}}
+        =-\pdv[2]{\rho}(\log \sqrt{G})
+        -(\pdv{\rho}\log\sqrt{G})^2
+    .\] 
+\end{remark}
+
+{\color{red}
+So far, we have seen two useful local expression of Gaussian curvature:
+\begin{enumerate}[(1)]
+\item \(\dd{s}^2=\dd{r}^2+G(r,\theta)\dd{\theta}^2\implies 
+    K=-\frac{(\sqrt{G})_{rr}}{\sqrt{G}}\);
+\item \(\dd{s}^2=\lambda(u,v)(\dd{u}^2+\dd{v}^2)
+    \implies K=-\frac{1}{2\lambda}\triangle \log\lambda\).
+\end{enumerate}
+}
+
+\noindent\underline{\bfseries Recall:}
+\begin{itemize}
+\item \(\mathbb{R}^2\): \(\dd{s^2}=\dd{r^2}+r^2\dd{\theta}^2\implies K=0\).
+\item \(\mathbb{S}^2\): \(\dd{s^2}=\dd{r^2}+\sin^2 r\dd{\theta}^2\implies K=1\).
+\item \(\mathbb{H}^2\): \(\dd{s^2}=\dd{r^2}+\sinh^2 r\dd{\theta}^2\implies K=-1\).
+\end{itemize}
+Conversely, if we prescribe the Gaussian curvature \(K=0,\pm1\), then solving
+ODE \[
+    \begin{cases}
+        (\sqrt{G})_{rr}+K\sqrt{G}=0, \\
+        \lim_{r\to 0}\sqrt{G}=0,\ \lim_{r\to 0}(\sqrt{G})_r=1
+    \end{cases}
+.\] Hence, \(\dd{s}^2\) can be written in standard form above. This implies if two
+regular surfaces have the same constant Gaussian curvature, they must be locally
+isometric. This is \emph{Minding's theorem}.
+
+\subsection{Applications of Geodesic Polar Coordinate}
+
+Recall previously, by comparing the area \(A\) of a small neighbourhood of \(p\in S\)
+and the Area \(\overline{A}\) of its Gaussian image, then \[
+    |K(p)|=\lim_{A \to 0} \frac{\overline{A}}{A}
+.\] We also mentioned two more results:
+\begin{enumerate}[I.]
+\item Let \(C(r)\) be the image of circle of radius \(r\) centered at 0 in \(T_p S\)
+    under exponential map, \ie\ the geodesic circle of radius \(r\), then \[
+        K(p)=\lim_{r \to 0} 3\cdot\frac{2\pi r-L(C(r))}{\pi r^3}
+    .\]
+\item Consider similarly the geodesic disk \(D(r)\), then \[
+    K(p)=\lim_{r \to 0} 12\cdot \frac{\pi r^2-A(D(r))}{\pi r^4}
+.\]
+\end{enumerate}
+The proof of I and II both rely on the Taylor's expansion of metric tensor.
+\begin{proof}
+I. \[
+    L(C(r))=\lim_{\eps \to 0} \int_{\eps}^{2\pi-\eps}\sqrt{G}\dd{\theta}
+\] Since we care abort \(r\to 0\), we use Taylor's expansion of \(\sqrt{G}\).
+
+Recall that \(\eval{\sqrt{G}}_{r=0}=0,\eval{(\sqrt{G})_r}_{r=0}=1\) and \(K=
+-\frac{(\sqrt{G})_{rr}}{\sqrt{G}}\). Hence \[
+    (\sqrt{G})_{rr}+K\sqrt{G}=0
+,\] and \(\eval{(\sqrt{G})_{rr}}_{r=0}=0\). Take one more derivative we have \[
+    (\sqrt{G})_{rrr}+K_r\sqrt{G}+K(\sqrt{G})_{r}=0
+.\] Let \(r=0\), we see \[
+    K(p)=-\eval{(\sqrt{G})_{rrr}}_{r=0}
+.\] Hence the expansion is 
+\begin{equation}\label{eqn:geodesic-circle}
+    \sqrt{G}(r,\theta)=r-\frac{r^3}{3!}K(p)+o(r^3)
+.\end{equation}
+Then \(L(C(r))=2\pi r-\frac{r^3}{3}\pi K(p)+o(r^3)\), this gives I.
+
+II.\@Follows by integrating \cref{eqn:geodesic-circle} from \(r=0\) to \(R\). We get \[
+    A(R)=\int_{0}^{R}L(C(r))\dd{r}=\pi R^2-\frac{R^4}{12}\pi K(p)+o(R^4)
+.\] This gives II.
+\end{proof}
+
+\subsection{Geodesics are Locally Length Minimizing}
+\(\forall\,p\in S\), take a normal neighbourhood \(U\) of \(p\). The metric in geodesic
+polar coordinate is \[
+    \dd{s}^2=\dd{r}^2+G(r,\theta)\dd{\theta}^2
+.\] By shrinking \(U\), we further require \(U=\{\exp_p(v):v\in B(0,\eps)\subset
+T_p S\}\). For any \(q=(r_0,\theta_0)\in U\), we have \(r_0<\eps\), consider all
+piecewise smooth curve from \(p\) to \(q\) on \(S\). Let \(\gamma(t)\colon [0,t_0]
+\to S\) be such a curve. First observe that if \(\gamma(t)\) is entirely contained
+in \(U\), we can let \(\gamma(t)=(r(t),\theta(t))\), then \[
+    \gamma'(t)=r'(t)\pdv{r}+\theta'(t)\pdv{\theta}
+.\] This gives 
+\begin{align*}
+    L(\gamma(t))&=\int_{0}^{t_0}\left(|r'(t)|^2+|\theta'(t)|^2 G(r,\theta)\right)
+    ^{\frac{1}{2}}\dd{t} \\
+    &\ge \int_{0}^{t_0}|r'(t)|\dd{t}\ge \int_{0}^{t_0}r'(t)\dd{d}=r(t_0)=r_0
+.\end{align*}
+Equality holds iff \(\theta'(t)\equiv 0\). \ie\ \(\gamma\) is the radical ray, which
+is the geodesic from \(p\) to \(q\), given by \[
+    \gamma(t)=\exp_p(r(t)\pdv{r})
+.\] If the curve is not entirely in \(U\), let \(t_1\) be the first time \(\gamma\)
+meets the boundary. Then for any \(t_2<t_1\) we know the length of \(\eval{\gamma}_{
+[0,t_2]}\) must be greater than the geodesic one, \ie\ \[
+    L(\gamma|_{[0,t_2]})=\int_{0}^{t_2}|\gamma'(t)|\dd{t}\ge r(t_2)
+.\] Let \(t_2\to t_1\) we see \(L(\gamma)\ge r(t_1)=\eps>r_0\).
+
+We conclude that in \(U\), any piecewise smooth curve has greater length than
+(radical) geodesic.
+
+\begin{remark}
+\begin{enumerate}[(1)]
+\item By the Cauchy problem's solution to geodesic equation \[
+    \begin{cases}
+        \ddot{x}^k(t)+\Gamma_{ij}^k(t)\dot{x}^i(t)\dot{x}^j(t)=0 \\
+        \gamma(0)=p,\ \dot\gamma(0)=v_0
+    \end{cases}
+.\] There is a unique geodesic starting at \(p\), with initial velocity \(v_0\). Hence
+in this arguement, by shrinking \(U\) if necessary, we can see in \(U\), there is
+unique minimizing geodesic from \(p\) to \(q\).
+\item {\color{blue}Try to think about how large the normal neighbourhood could be.}
+
+    This will be answered after we study the second variation of arc-length 
+    and this problem is related to the global geometry of the surface.
+\item It's important to study the behavior of a family of geodesics from a point.
+    The local picture should be kept in mind is:
+
+    {\color{orange}``The smaller curvature is, the faster geodesics will separate''}
+\end{enumerate}
+\end{remark}
+
