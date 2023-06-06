@@ -1,0 +1,205 @@
+\section{Method of Moving Frame}
+Let \(\vphi(x^1,x^2)\) be a local coordinate of \(S\hookrightarrow\mathbb{R}^3\).
+We have already studied the \emph{equation of motion} of coordinate frame \(\{\vphi_1,
+\vphi_2,\vec{N}\}\). Recall that we obtained: 
+\begin{equation}\label{eq:recall-eq-motion}
+    \begin{cases}
+        \vphi_{ij}=\Gamma_{ij}^k\vphi_k+h_{ij}N \\
+        N_p=a_p^q\vphi_q
+    \end{cases}
+.\end{equation}
+Where \[
+    \begin{cases}
+        \Gamma_{ij}^k=\frac{1}{2}g^{kl}(\partial_i g_{jl}+\partial_j g_{il}-\partial_l
+        g_{ij}) \\
+        a_p^q=-h_{pk}g^{kq}
+    \end{cases}
+.\] And \(g,h\) be the first and second fundamental forms.
+
+Furthermore, the Gauss-Codazzi equation is the integrability condition to solve
+\cref{eq:recall-eq-motion}. This phenomenon can be view more generally as \[
+    C^0\xlongrightarrow{\dd}C^1\xlongrightarrow{\dd}C^2
+.\] \(\dd^2=0\iff\) integrability condition. 
+
+\subsection{Darboux moving frame (Local orthonormal frame)}
+\subsubsection{Curve case}
+Let \(\alpha(s)\) be a space curve, \(s\) be the arc-length 
+parameter. Recall we have learned the Frenet frame \(\{T,N,B\}\), which is orthonormal
+along \(\alpha(s)\) where \[
+    T(s)=\alpha'(s),\quad N(s)=\frac{\alpha''(s)}{|\alpha''(s)|},\quad
+    B(s)=T(s)\wedge N(s)
+.\] And the equation of motion is \[
+    \dv{s}\begin{pmatrix}
+        T(s) \\ N(s) \\ B(s)
+    \end{pmatrix}=\begin{pmatrix}
+        0 & k(s) & 0 \\
+        -k(s) & 0 & -\tau(s) \\
+        0 & \tau(s) & 0
+    \end{pmatrix}\begin{pmatrix}
+        T(s) \\ N(s) \\ B(s)
+    \end{pmatrix}
+.\] Recall that we derived the equation from geometry.
+
+Now let \(e_1,e_2,e_3\) be any orthonormal frame along \(\alpha(s)\). Let's fix
+\(e_1(s)=\alpha'(s)\) and take differential \[
+    \dd{e_i}(s)=e_i'(s)\dd{s}\quad \text{(vector valued 1-form)}
+.\] Note \(e_i'(s)\) is still a vector field, let \[
+    e_i'(s)=\sum_{j=1}^{3}b_i^j(s)e_i(s)
+.\] Then \[
+    \dd{e_i}(s)=b_i^j(s)\underbrace{\dd{s}}_{\text{1-form}}
+    \underbrace{e_j(s)}_{\text{vector}}
+.\] About coefficients \(b_i^j\), since \(\left<e_i,e_j\right> =0\), \(\implies b_i^j
++b_j^i=0\), \ie\ \[
+    \begin{cases}
+        e_1'=b_1^2e_2+b_1^3e_3 \\
+        e_2'=-b_1^2e_1+b_2^3e_3 \\
+        e_3'=-b_1^3e_1-b_2^3e_2
+    \end{cases}
+.\] By fixing \(e_1=\alpha'\), any other orthonormal frame \(\{e_1,\tilde{e}_2,
+\tilde{e}_3\}\) is obtained by rotating \(e_2\) and \(e_3\). \ie\ \[
+    \begin{pmatrix}
+        e_2 \\ e_3
+    \end{pmatrix}=\begin{pmatrix}
+        \cos\theta & \sin\theta \\
+        -\sin\theta & \cos\theta
+    \end{pmatrix}\begin{pmatrix}
+        e_2 \\ e_3
+    \end{pmatrix}
+.\] Then we have \[
+    (b_1^2,b_1^3)=(\tilde{b}_1^2,\tilde{b}_1^3)\begin{pmatrix}
+        \cos\theta & \sin\theta \\
+        -\sin\theta & \cos\theta
+    \end{pmatrix}
+.\] By choosing \(\theta\), we can let \(\tilde{b}_1^3=0\), then \[
+    \begin{cases}
+        \tilde{e}_1'=\tilde{b}_1^2 \\
+        \tilde{e}_2'=-\tilde{b}_1^2\tilde{e}_1+\tilde{b}_2^3\tilde{e}_3 \\
+        \tilde{e}_3'=-\tilde{b}_2^3\tilde{e}_2
+    \end{cases}
+.\] Since \(\alpha''(s)=\tilde{e}_1'(s)=\tilde{b}_1^2\tilde{e}_2=k(s)N(s)\),
+we see \(\tilde{b}_1^2=k\) up to a sign. If we further let \(\tilde{e}_2=N\),
+then \(\tilde{e}_3=\tilde{e}_1\wedge \tilde{e}_2\) is just \(B\). Hence
+\(\tilde{b}_2^3=\tau\).
+
+\subsubsection{Surface case}
+Our next goal is to study the 1st and 2nd fundamental form
+in terms of local orthonormal frame.
+
+\textbf{Existence:} \\
+Let \(\vphi(x^1,x^2)\) be a local coordinate chart on \(U\subset S\), then \(TS\big|_U
+=\Span{\vphi_1,\vphi_2}\). Let \[
+    e_1=\frac{\vphi_1}{|\vphi_1|},\quad e_2=\frac{\vphi_2-\left<\vphi_2,e_1\right> e_1}
+    {|\vphi_2-\left<\vphi_2,e_1\right> e_1|}
+.\] Then \(\{e_1,e_2\}\) is an orthonormal frame. Moreover, let \(e_3=e_1\wedge e_2\),
+then \(e_3\) is unit normal vector field on \(U\). \(\{e_1,e_2,e_3\}\) gives
+an orthonormal frame of \(\mathbb{R}^3\) on \(U\).
+
+For any other orthonormal frame \(\{\tilde{e}_1,\tilde{e}_2\}\) on \(U\), it differs
+from \(\{e_1,e_2\}\) by an \(SO(2)\) matrix \[
+    R(x^1,x^2)=\begin{pmatrix}
+        \Gamma_{11}(x^1,x^2) & \Gamma_{12}(x^1,x^2) \\
+        \Gamma_{21}(x^1,x^2) & \Gamma_{22}(x^1,x^2)
+    \end{pmatrix}
+.\] And for any \(p\in U\), \(\det R(p)=1\).
+
+Now, let's assume \(\{e_1,e_2\}\) be any orthonormal frame on \(U\), \(e_3=e_1\wedge 
+e_2\). Then there exists a linear transformation \(T=T(x^1,x^2)\in GL(2)\), such that
+\[
+    \begin{pmatrix}
+        \vphi_1 \\ \vphi_2
+    \end{pmatrix}=T\begin{pmatrix}
+        e_1 \\ e_2
+    \end{pmatrix}\implies \begin{cases}
+        \vphi_1=t_1^1e_1+t_1^2e_2 \\
+        \vphi_2=t_2^1e_1+t_2^2e_2
+    \end{cases}
+.\] Note \(\vphi=\vphi(x^1,x^2)\), 
+\begin{flalign*}
+    \implies\dd{\vphi}&=\vphi_1\dd{x^1}+\vphi_2\dd{x^2} &
+    \implies &\dd{\phi} \text{ is a vector valued differential 1-form on }U \\
+    &&&\text{\ie\ }\dd{\vphi}\in \Gamma(U,\vphi^*(T\mathbb{R}^3\otimes T^*U))
+    \text{(basis change)}&=(t_1^1e_1+t_1^2e_2)\dd{x^1}+(t_2^1e_1+t_2^2e_2)\dd{x^2} \\
+    &=(t_1^1\dd{x^1}+t_2^1\dd{x^2})e_1+(t_1^2\dd{x^1}+t_2^2\dd{x^2})e_2 \\
+    &=\omega^1e_1+\omega^2e_2
+.\end{flalign*}
+Where \((\omega^1,\omega^2)=(\dd{x^1},\dd{x^2})\cdot T\). \ie\ in terms of orthonormal
+frame \(\{e_1,e_2\}\) on \(U\), \[
+    \dd{\vphi}=\omega^1e_1+\omega^2e_2
+.\] 
+
+Now, we study the 1st and 2nd fundamental form in terms of \(\{e_1,e_2\}\).
+Recall that \[
+    I=(\dd{s}^2_{\mathbb{R}^3})\big|_S=\delta_{ij}\dd{y^i}\dd{y^j}
+    =(\dd{y^1})^2+(\dd{y^2})^2+(\dd{y^3})^2
+.\] Note \(\vphi=\vphi(x^1,x^2)=(y^1(x^1,x^2),y^2(x^1,x^2),y^3(x^1,x^2))\). Then \[
+    \dd{\vphi}=(\dd{y^1},\dd{y^2},\dd{y^3})
+.\] Hence \[
+    I=\left<\dd{\vphi},\dd{\vphi}\right> _{\mathbb{R}^3}
+.\] Plug in \(\dd{\vphi}=\omega^1e_1+\omega^2e_2\), we have \[
+    I=\left<\omega^1e_1+\omega^2e_2,\omega^1e_1+\omega^2e_2\right>_{\mathbb{R}^3}
+    =(\omega^1)^2+(\omega^2)^2
+.\]
+\begin{remark}\hfill
+\begin{itemize}
+\item \(\{\omega^1,\omega^2\}\) are dual coframe of \(\{e_1,e_2\}\), \ie\ \(\omega^i
+    (e_j)=\delta^i_j\).
+\item \(\{\omega^1,\omega^2\}\) is orthonormal frame on \(T^*U\).
+\end{itemize}
+\end{remark}
+
+Next, we study the 2nd fundamental form in terms of \(\{e_1,e_2\}\) and \(e_3=e_1
+\wedge e_2\). \(\dd{e_i}\) is vector valued 1-forms on \(U\), and \(\{e_1,e_2,e_3\}\)
+is basis for \(\mathbb{R}^3\), so \[
+    \dd{e_i}=\omega_i^je_j
+.\] Where \(w_i^j\) are differential 1-forms on \(U\). Moreover \[
+    \omega_i^j=\left<\dd{e_i},e_j\right> =-\left<e_i,\dd{e_j}\right> =-\omega_j^i
+.\] Since \(e_3\) is the unit normal, \(-\dd{e_3}\) is just the Weingarten map, hence
+\begin{align*}
+    \II&=-\left<\dd{e_3},\dd{\vphi}\right> =-\left<\omega_3^1e_1+\omega_3^2e_2,
+    \omega^1e_1+\omega^2e_2\right> \\
+    =-\omega_3^1\omega^1-\omega_3^2\omega^3=\omega_1^3\omega^1+\omega_2^3\omega^2
+.\end{align*}
+
+In summary, if \(\{e_1,e_2,e_3\}\) is orthonormal frame of \(S\) on \(U\), with
+\(e_1,e_2\in T_U S\), \(e_3\in N_U S\), and \(\omega^1,\omega^2\in T_U^*S\) is
+dual coframe of \(\{e_1,e_2\}\), then \[
+    \begin{cases}
+        \dd{e_i}=\omega_i^je_j \\
+        \omega_i^j+\omega_j^i=0
+    \end{cases},\quad \begin{cases}
+        I=(\omega^1)^2+(\omega^2)^2 \\
+        \II=\omega_1^3\omega^1+\omega_2^3\omega^2
+    \end{cases}
+.\] 
+\begin{remark}\hfill
+\begin{itemize}
+\item Here \(\omega^i,\omega_j^k\) are covariant 1-tensors, \[
+    \omega^i\omega_i^k=\frac{1}{2}(\omega^i\otimes\omega_i^k+\omega_i^k\otimes\omega^i)
+    \quad \text{(symmetrization of }\omega^i,\omega_j^k\text{)}
+.\] 
+\item Since \(\omega_1^3,\omega_2^3\) are differential 1-forms on \(U\), \ie\ \(
+    \omega_1^3,\omega^3\in T_U^*S=\Span\{\omega^1,\omega^2\}\), we can let \[
+        \begin{cases}
+            \omega_1^3=A_{11}\omega^1+A_{12}\omega^2 \\
+            \omega_2^3=A_{21}\omega^1+A_{22}\omega^2
+        \end{cases}
+    .\] Then \[
+        \II=(\omega^2,\omega^2)\begin{pmatrix}
+            A_{11} & A_{12} \\
+            A_{21} & A_{22}
+        \end{pmatrix}\begin{pmatrix}
+            \omega^1 \\ \omega^2
+        \end{pmatrix}
+    .\] In particular, since \(\II\) is symmetric, \(A_{12}=A_{21}\).
+\end{itemize}
+
+\subsection{Exterior Derivative \& Cartan's Structure Equation}
+\subsubsection{Differential forms}
+Reference: Kodaira's book \emph{Complex manifolds and Deformation of Complex Structures}
+
+Let \(M\) be a smooth manifold of dimension \(n\), let \(\{U_\alpha\}\) be a coordinate covering of \(M\).
+
+
+
+
+\end{remark}
