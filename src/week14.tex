@@ -192,14 +192,258 @@ dual coframe of \(\{e_1,e_2\}\), then \[
         \end{pmatrix}
     .\] In particular, since \(\II\) is symmetric, \(A_{12}=A_{21}\).
 \end{itemize}
+\end{remark}
 
 \subsection{Exterior Derivative \& Cartan's Structure Equation}
 \subsubsection{Differential forms}
 Reference: Kodaira's book \emph{Complex manifolds and Deformation of Complex Structures}
 
-Let \(M\) be a smooth manifold of dimension \(n\), let \(\{U_\alpha\}\) be a coordinate covering of \(M\).
+Let \(M\) be a smooth manifold of dimension \(n\), let \(\{U_\alpha\}\) be a coordinate covering of \(M\). Define
+\begin{itemize}
+\item \(\Omega^0(M)=C^\infty(M)=\{\text{smooth functions on }M\}\)
+    \(f\in \Omega^0(M)\) is called a \emph{smooth 0-form}.
+\item \(\Omega^1(M)=\Gamma(M,T^*M)=\{\text{smooth co-vector fields on }M\}\).
+    \(\omega\in \Omega^1(M)\) is called a \emph{smooth 1-form}
+\end{itemize}
 
+Note on each \(U_\alpha\), \[
+    \omega\big|_{U_\alpha}=a_i\dd{x_\alpha^i}
+\] where \(a_i=a_i(x_\alpha^1,\ldots,x_\alpha^n)\) are smooth functions on
+\(U_\alpha\). On \(U_\alpha\cap U_\beta\), \[
+    \omega\big|_{U_\alpha\cap U_\beta}=a_i\dd{x_\alpha^i}=b_j\dd{x_\beta^j}
+.\] Then \[
+    \begin{pmatrix}
+        a_1 \\ \vdots \\ a_n
+    \end{pmatrix}=\begin{pmatrix}
+        \displaystyle\pdv{(x_\beta^1,\ldots,x_\beta^n)}{(x_\alpha^1,\ldots,x_\alpha^n)}
+    \end{pmatrix}\begin{pmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{pmatrix}
+.\] \ie\ a smooth 1-form on \(S\) is obtained by gluing local differential 1-forms
+using the transition functions.
 
+Using the similar idea, we define a smooth 2-form \(\eta\in \Omega^2(M)\) as:
+\begin{itemize}
+\item On each \(U_\alpha\), \(\eta_\alpha=\frac{1}{2!}f_{\alpha ij}\dd{x_\alpha^i}
+    \wedge \dd{x_\alpha^j}\). Where \(f_{\alpha ij}\) are smooth functions on
+    \(U_\alpha\), \(\dd{x_\alpha^i}\wedge \dd{x_\alpha^j}=-\dd{x_\alpha^j}\wedge 
+    \dd{x_\alpha^i}\).
+\item On \(U_\alpha\cap U_\beta\), \(\eta_\alpha=\eta_\beta\), then \[
+        \eta=\frac{1}{2!}f_{\alpha ij}\dd{x_\alpha^i}\wedge \dd{x_\alpha^j}
+        =\frac{1}{2!}f_{\beta ij}\dd{x_\beta^i}\wedge \dd{x_\beta^j}
+    \] is called a \emph{differential 2-form} on \(M\). Note that \[
+        \eta_\alpha=\eta_\beta\implies 
+        f_\alpha=f_\beta \det(\pdv{(x_\beta^1,\ldots,x_\beta^n)}
+        {(x_\alpha^1,\ldots,x_\alpha^n)})
+    .\] 
+\item Let \(\Omega^2(M)=\Gamma(M,\wedge^2T^*M)=\{\text{smooth 2-forms on }M\}\).
+\end{itemize}
 
+In general, a smooth \(k\)-form \(\eta\in \Omega^k(M)\) is defined as:
+\begin{itemize}
+\item On each \(U_\alpha\), \(\eta_\alpha=\frac{1}{2!}f_{\alpha i_1\cdots i_k}
+    \dd{x_\alpha^i}\wedge\cdots\wedge\dd{x_\alpha^j}\).
+    Where \(f_{\alpha i_1\cdots i_k}\) are smooth functions on \(U_\alpha\),
+    \(\dd{x_\alpha^i}\wedge \dd{x_\alpha^j}=-\dd{x_\alpha^j}\wedge\dd{x_\alpha^i}\).
+\item On \(U_\alpha\cap U_\beta\), \(\eta_\alpha=\eta_\beta\), then \[
+        \eta=\frac{1}{2!}f_{\alpha ij}\dd{x_\alpha^i}\wedge \dd{x_\alpha^j}
+        =\frac{1}{2!}f_{\beta ij}\dd{x_\beta^i}\wedge \dd{x_\beta^j}
+    \] is called a \emph{differential 2-form} on \(M\).
+\end{itemize}
 
-\end{remark}
+\subsubsection{Wedge Product}
+Let \(\omega\in \Omega^p(M),\eta\in \Omega^q(M)\), locally \[
+    \omega=\frac{1}{p!}\omega_{i_1\cdots i_p}\dd{x^{i_1}}\wedge \cdots \dd{x^{i_p}},
+    \quad\eta=\frac{1}{q!}\eta_{j_1\cdots j_q}\dd{x^{j_1}}\wedge \cdots \dd{x^{j_q}}
+.\] Then define \[
+    \omega\wedge\eta=\frac{1}{p!q!}\omega_{i_1\cdots i_p}
+    \eta_{j_1\cdots j_q}\dd{x^{i_1}}\wedge \cdots \dd{x^{i_p}}\wedge
+    \dd{x^{j_1}}\wedge \cdots \dd{x^{j_q}}
+.\] 
+
+\noindent\textbf{Example.}
+\(p=q=1\), \(\omega=\omega_i\dd{x^i},\eta=\eta_j\dd{x^j}\) \[
+    \omega\wedge \omega_i\eta_j\dd{x^i}\wedge\dd{x^j}
+    =\frac{1}{2}\sum_{i<j}(\omega_i\eta_j-\omega_j\eta_i)\dd{x^i}\wedge \dd{x^j}
+.\] If \(\dim M=2\), \(\omega=\omega_1\dd{x^1}+\omega_2\dd{x^2}\), \(\eta=\eta_1
+\dd{x^1}+\eta_2\dd{x^2}\), \[
+    \omega\wedge \eta=\frac{1}{2}(\omega_1\eta_2-\omega_2\eta_1)\dd{x^1}\wedge
+    \dd{x^2}
+.\] And \(\omega\wedge \eta=-\eta\wedge \omega\).
+
+\subsubsection{Exterior derivative}
+\begin{itemize}
+\item \(\dd\colon \Omega^0(M)\longrightarrow \Omega^1(M),f\longmapsto\dd{f}\).
+    Locally, \(\dd{f}=\pdv{f}{x^i}\dd{x^i}\).
+\item \(\dd\colon \Omega^1(M)\to \Omega^2(M),\omega\mapsto \dd{\omega}\).
+    Locally, write \(\omega=\omega_i\dd{x^i}\), then
+    \begin{align*}
+        \dd{\omega}&=\dd{\omega_i}\wedge \dd{x^i}=\pdv{\omega_i}{x^j}\dd{x^i}
+        \wedge \dd{x^i} \\
+        &=\frac{1}{2}(\pdv{\omega_i}{x^j}-\pdv{\omega_j}{x^i})\dd{x^j}\wedge\dd{x^i}\\
+        &=\sum_{j<i}(\pdv{\omega_i}{x^j}-\pdv{\omega_j}{x^i})\dd{x^j}\wedge\dd{x^i}
+    .\end{align*}
+\item Generally, for a \(k\)-form \(\eta=\frac{1}{k!}\eta_{i_1\cdots i_k}\dd{x^{i_1}}
+    \wedge \cdots \wedge \dd{x^{i_k}}\), \[
+        \dd{\eta}=\frac{1}{(k+1)!}\sum_{i_0,\ldots,i_k}(\dd{\eta})_{i_0\cdots i_k}
+        \dd{x^{i_0}}\wedge \dd{x^{i_1}}\wedge \cdots \wedge \dd{x^{i_k}}
+    .\] Then we have \[
+        (\dd{\eta})_{i_0i_1\cdots i_k}=\sum_{s=0}^k(-1)^s
+        \pdv{x^{i_s}}\eta_{i_0i_1\cdots i_{s-1}i_{s+1}\cdots i_k}
+    .\] 
+\end{itemize}
+
+\noindent\textbf{Exercise:}
+\begin{enumerate}[(1)]
+\item Check that \(\dd\colon \Omega^n(M)\to 0\), \ie\ for any \(n\)-form \(\eta\),
+    \(\dd{\eta}=0\).
+\item Check that \(\dd^2=0\). Then we have \[
+    \cdots\longrightarrow\Omega^{k-1}(M)\xrr{\dd}\Omega^k(M)
+    \xrr{\dd}\Omega^{k+1}(M)\longrightarrow\cdots\qquad (*)
+    \] This implies \(\img(\dd\colon \Omega^k\to \Omega^{k+1})\subset \ker(\dd\colon
+    \Omega^k\to \Omega^{k+1})\), hence \((*)\) is a chain complex. Then from Algebraic
+    Topology, we can define the \(k\)-th cohomology group \[
+        H_{\text{dR}}^k(M)=\ker \dd/\img \dd
+    ,\] which is called the \(k\)-th de Rham cohomology group of \(M\). Moreover
+    \(b_k=\dim H_{\text{dR}}^k(M)\) is called the \(k\)-th Betti number of \(M\).
+\end{enumerate}
+
+\begin{theorem}[de Rham]
+    Let \(M\) be a smooth manifold, then for all \(k\), \[
+        H_{\text{dR}}^k(M)\cong H^k(M,\mathbb{R})
+    .\] Where the RHS is the \(k\)-th singular cohomology groups of \(M\).
+\end{theorem}
+
+\begin{enumerate}[(3)]
+\item The exterior derivative and the wedge product satisfy \[
+    \dd{(\omega\wedge \eta)}=\dd{\omega}\wedge \eta+(-1)^p\omega\wedge \dd{\eta}
+.\] For \(\omega\in \Omega^p(M)\), \(\eta\in \Omega^q(M)\).
+\end{enumerate}
+
+\subsection{Cartan's Structure Equation}
+Let \(\vphi(x^1,x^2)\) be local coordinate on \(U\), \(T_US=\Span\{e_1,e_2\}\),
+orthonormal basis, \(e_3=e_1\wedge e_2\). Then \[
+    \begin{cases}
+        \dd{\vphi}=\omega^1e_1+\omega^2e_2 & (1)\\
+        \dd{e_i}=\omega_i^1e_1+\omega_i^2e_2+\omega_i^3e_3 & (2)
+    \end{cases},\qquad\omega_i^j=-\omega_j^i
+.\]
+
+Take exterior derivative of (1),
+\begin{align*}
+    0&=\dd{\dd{\vphi}}=\dd{\omega^1}e_1-\omega^1\wedge\dd{e_1}+\dd{\omega^2}e_2
+    -\omega^2\wedge\dd{e_2} \\
+    &=\dd{\omega^1}e_1-\omega^1\wedge(\omega_1^2e_2+\omega_1^3e_3)+\dd{\omega^2}e_2
+    -\omega^2\wedge(\omega_2^1e_1+\omega_2^3e_3) \\
+    &=(\dd{\omega^1}-\omega^2\wedge \omega_2^1)e_1+(\dd{\omega^2}-\omega^1\wedge 
+    \omega_1^2)e_2-(\omega^1\wedge \omega_1^3+\omega^2\wedge \omega_2^3)e_3
+.\end{align*}
+Hence
+\begin{equation}\label{eq:structure1}
+    \begin{cases}
+        \dd{\omega^1}=\omega^2\wedge \omega_2^1 \\
+        \dd{\omega^2}=\omega^1\wedge \omega_1^2 \\
+        \omega^1\wedge \omega_1^3+\omega^2\wedge \omega_2^3=0
+    \end{cases},\qquad \omega_2^1+\omega_1^2=0
+.\end{equation}
+Note \[
+    \begin{cases}
+        \omega_1^3=A_{11}\omega^1+A_{12}\omega^2 \\ 
+        \omega_2^3=A_{21}\omega^1+A_{22}\omega^2
+    \end{cases}\implies \boxed{\begin{aligned}
+        &\,\omega^1\wedge \omega_1^3+\omega^2\wedge \omega_2^3 \\
+        =&\,A_{12}\omega^1\wedge \omega^2+A_{21}\omega^2\wedge \omega^1 \\
+        =&\,(A_{12}-A_{21})\omega^1\wedge \omega^2
+    \end{aligned}}
+\] Hence \(A_{12}=A_{21}\)
+
+Take exterior derivative of (2),
+\begin{align*}
+    0&=\dd{\dd{e_i}}=\dd{(\omega_i^je_j)}=\dd{\omega_i^j}e_j-\omega_i^j\wedge\dd{e_j}\\
+    &=\dd{\omega_i^j}e_j-\omega_i^j\wedge (\omega_j^ke_k) \\
+    &=(\dd{\omega_i^j}-\omega_i^k\wedge \omega_k^j)e_j
+.\end{align*}
+Hence \(\dd{\omega_i^j}=\omega_i^k\wedge \omega_k^j\). Note \(\omega_i^j+\omega_j^i=0
+\implies\) only \(\omega_1^3,\omega_1^3,\omega_2^3\) is non-zero. Then\
+\begin{equation}\label{eq:structure2}
+    \begin{cases}
+        \dd{\omega_1^2}=\omega_1^3\wedge \omega_3^2 & \text{(Gauss)} \\
+        \dd{\omega_1^3}=\omega_1^3\wedge \omega_2^3 & \text{(Codazzi I)} \\
+        \dd{\omega_2^3}=\omega_2^1\wedge \omega_1^3 & \text{(Codazzi II)}
+    \end{cases}
+.\end{equation}
+
+\Cref{eq:structure1} and \cref{eq:structure2} are called Cartan's 1st and 2nd
+structure equations.
+
+Let's further compute the first equation in \cref{eq:structure2}.
+\begin{align*}
+    \dd{\omega_1^2}&=\omega_1^3\wedge \omega_3^2 \\
+    &=(A_{11}\omega^1+A_{12}\omega^2)\wedge (-(A_{21}\omega^1+A_{22}\omega^2)) \\
+    &=-(A_{11}A_{22}-A_{12}A_{21})\omega^1\wedge\omega^2 \\
+    &=-K\omega^1\wedge \omega^2
+.\end{align*}
+Hence if we only consider the surface \(S\) itself without the ambient \(\mathbb{R}^3\)
+then Cartan's structure equation is
+\begin{equation}\label{eq:cartan}
+    \begin{cases}
+        \dd{\omega^1}=\omega^2\wedge \omega_2^1 \\
+        \dd{\omega^2}=\omega^1\wedge \omega_1^2 \\
+        \dd{\omega_1^2}=-K\omega^1\wedge \omega^2
+    \end{cases}
+.\end{equation}
+
+\noindent\textbf{Exercise.} Let \(\dd{s}^2=\dd{r}^2+\vphi(r)^2\dd{\theta}^2\),
+check that \[
+    K=-\frac{\vphi''(r)}{\vphi(r)}
+.\] 
+
+In Riemannian Geometry, we can also derive Cartan's structure equation.
+
+Let \((M,g)\) be Riemannian manifold, \(\nabla\) be the Levi-Civita connection.
+Choose \(\{e_1,\ldots,e_n\}\) be local orthonormal frame and \(\{\omega^1,\ldots,
+\omega^n\}\) be the dual frame.
+
+For any vector field \(X\), let \(\nabla_X e_j=\omega_j^i(X)e_i\), where \(\omega_j^i\)
+is the connection 1-form, satisfying \(\omega_i^j+\omega_j^i=0\).
+For any vector field \(X,Y\), \[
+    R(X,Y)e_j=\Omega_j^i(X,Y)e_i
+.\] Where \(\Omega_j^i\) is the curvature 2-form, satisfying \[
+    \begin{cases}
+        \Omega_j^i(X,Y)+\Omega_j^i(Y,X)=0 \\ 
+        \omega_j^i=\frac{1}{2}\tensor{R}{_k_l^i_j}\omega^k\wedge \omega^l
+    \end{cases}
+.\] Then the Cartan's structure equation is
+\begin{equation}\label{eq:cartan-ndim}
+    \dd{\omega^i}=\omega^j\wedge \omega_j^i \\
+    \dd{\omega_j^i}=\omega_j^k\wedge \omega_k^i+\omega_j^i
+.\end{equation}
+
+Next, we give an more precise explanation of the equation of motion. In \[
+    \begin{cases}
+        \dd{e_1}=\omega_1^2e_2+\omega_1^3e_3 \\
+        \dd{e_2}=\omega_2^1e_1+\omega_2^3e_3 \\
+        \dd{e_3}=\omega_3^1e_1+\omega_3^2e_2
+    \end{cases}
+.\] \(\{e_1,e_2\}\) are tangent vector fields of \(S\). In first and second equations,
+we only consider the tangential components and denote \[
+    \begin{cases}
+        \nabla e_1=\omega_1^2e_2 \\
+        \nabla e_2=\omega_2^1e_1
+    \end{cases}
+.\] \ie\ for any vector field \(X\), \[
+    \begin{cases}
+        \nabla_X e_1=\omega_1^2(X)e_2 \\
+        \nabla_X e_2=\omega_2^1(X)e_1
+    \end{cases}
+.\] Note as functions, \(\omega_1^2(X)=-\omega_2^1(X)\).
+
+\(e_3\) is the unit normal (Gauss map) \(\implies-\dd{e_3}\) is Weingarten map.
+Recall that we let \[
+    \omega_1^3=A_{11}\omega^1+A_{12}\omega^2 \\
+    \omega_2^3=A_{21}\omega^1+A_{22}\omega^2
+.\] Then \[
+    \II(e_i,e_j)=\left<-\dd{e_3}(e_i),e_j\right> =\omega_i^3(e_j)=A_{ij}
+\] for \(i,j\in \{1,2\}\). This explains \(\omega_1^3\) and \(\omega_2^3\) are
+just component of Weingarten map in terms of \(\{e_1,e_2\}\).
+
