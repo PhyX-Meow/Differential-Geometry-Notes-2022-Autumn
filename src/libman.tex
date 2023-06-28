@@ -1,0 +1,325 @@
+\section{Rigidity of Sphere}
+In this section, we present two rigidity results about spheres in \(\mathbb{R}^3\),
+one is Liebmann's theorem, and another is Alexandorov's theorem.
+
+\subsection{Liebmann's Theorem}
+\begin{theorem}[Liebmann]
+    Let \(S\) be a closed connected surface in \(\mathbb{R}^3\), assume \(S\) has
+    constant Gaussian curvature, then \(S\) is a sphere.
+\end{theorem}
+\begin{proof}
+    By compactness of \(S\), there must be an elliptic point on \(S\), so \(K>0\).
+    
+    \underline{Goal:} All points on \(S\) are umbilical.
+
+    Then \(S\) must lie in the sphere \(\mathbb{S}(x_0,\frac{1}{K})\), it must be this
+    sphere since it is closed and connected.
+
+    To prove the goal, consider the function on \(S\) \[
+        F=(k_1-k_2)^2
+    \] where \(k_1,k_2\) are principal curvatures. If \(F\not\equiv 0\), assume
+    \(F\) attain maximal at \(p\in S\), where \(F(p)>0\). Since \(K=k_1k_2>0\),
+    wlog assume \(k_1(p)>k_2(p)>0\). Then in a neighbourhood of \(p\), we can assume
+    \(k_1>k_2\). Note that \(F\) attains local maximum at \(p\), so \(k_1\) is
+    attaining local maximum and \(k_2\) has local minimum.
+    Choose local coordinate such that at \(p\),
+    \begin{align*}
+        I&=g_{11}(\dd{x^1})^2+g_{22}(\dd{x^2})^2 \\ 
+        \II&=h_{11}(\dd{x^1})^2+h_{22}(\dd{x^2})^2
+    .\end{align*}
+    Let \(A_{11}=\frac{h_{11}}{g_{11}}=k_1,A_{22}=\frac{h_{22}}{g_{22}}=k_2\).
+    In homework 10, we have computed the Codazzi equation \[
+        \partial_2 \log\sqrt{g_{11}}=\frac{\partial_2 A_{11}}{A_{22}-A_{11}},
+        \quad \partial_1\log\sqrt{g_{22}}=\frac{\partial_1 A_{22}}{A_{11}-A_{22}}
+    .\] Hence \(\partial_2g_{11}=\partial_1g_{22}=0\) at \(p\).
+    For Gaussian curvature,
+    \begin{align*}
+        K&=-\frac{1}{\sqrt{g_{11}g_{22}}}\left(\partial_1\left(\frac{\partial_1\sqrt{g_{22}}}{\sqrt{g_{11}}}\right)+\partial_2\left(\frac{\partial_2\sqrt{g_{11}}}{\sqrt{g_{22}}}\right)\right) \\
+        \overset{\text{at }p}&{=}-\frac{1}{\sqrt{g_{11}g_{22}}}\left(\frac{\partial_1^2g_{22}}{2\sqrt{g_{11}g_{22}}}+\frac{\partial_2^2g_{11}}{2\sqrt{g_{11}g_{22}}}\right)
+    .\end{align*}
+    Note that \(k_1\) has local maximum \(\implies \partial_2^2k_1<0\). Hence \[
+        \partial_2^2g_{11}\sim \frac{\partial_2^2k_1}{k_2-k_1}\ge 0
+    .\] Similarly \[
+        \partial_1^2g_{22}\sim \frac{\partial_1^2k_2}{k_1-k_2}\ge 0
+    .\] Then \(K(p)\le 0\), this is a contradiction. Hence \(F\equiv 0\) on \(S\).
+\end{proof}
+
+Let's summarize a lemma we have shown in above proof.
+\begin{lemma}
+    Let \(S\) be a regular surface and \(p\in S\) such that
+    \begin{itemize}
+    \item \(K(p)>0\),
+    \item \(p\) is local maximum of \(k_1\) and local minimum of \(k_2\).
+    \end{itemize}
+    Then \(p\) is an umbilical point of \(S\).
+\end{lemma}
+
+\begin{remark}
+    With a similar argument we can show that:
+\end{remark}
+\begin{theorem}
+    Let \(S\) be a connected closed surface, \(K>0\) everywhere. Assume \(H\) is
+    constant, then \(S\) is sphere.
+\end{theorem}
+A key observation in the proof of both Liebmann's theorem and this one is that
+one principal curvature is a decreasing function of the other.
+
+\section{Another proof of Liebmann's theorem}
+Our proof will be based on the following formula:
+\begin{theorem}[Minkowski formula]
+    Let \(S\) be a closed surface in \(\mathbb{R}^3\), \(p\in S\), then
+    \begin{itemize}
+    \item \(\int_{S}\dd{A}=-\int_{S}H\left<p,\vec{n}\right> \dd{A}\).
+    \item \(\int_{S}H\dd{A}=-\int_{S}K\left<p,\vec{n}\right> \dd{A}\).
+    \end{itemize}
+\end{theorem}
+Assume the formula first, we prove the Liebmann's theorem.
+\begin{proof}
+    Wlog assume the origin is contained inside \(S\), let \(p\) be the position vector
+    field of \(S\) in \(\mathbb{R}^3\), \(\vec{n}\) be the inner normal. Since \(K\)
+    is positive constant and \(H^2\ge K\). Choose a point \(q\) with maximum distance
+    to the origin we see \(\II(q)>0\). Hence \(H\ge \sqrt{K}>0\) holds on \(S\) since
+    \(H\) is continuous function. Then
+    \begin{align*}
+        -\int_{S}K\left<p,\vec{n}\right> \dd{A}&=\int_{S}H\dd{A}
+        \ge \int_{S}\sqrt{K}\dd{A} \\
+        &=\sqrt{K}\int_{S}\dd{A}=-\sqrt{K}\int_{S}H\left<p,\vec{n}\right> \dd{A} \\
+        &\ge-K\int_{S}\left<p,\vec{n}\right> \dd{A}
+    .\end{align*}
+    Hence \(H^2=K\) and all points are umbilical.
+\end{proof} 
+Next we prove Minkowski's formula.
+\begin{proof}
+    Let \(\vphi(x^1,x^2)\) be local coordinate, in particular, \(p=\vphi(x^1,x^2)\)
+    be the position vector, \(\vec{n}=\frac{\vphi_1\wedge \vphi_2}{|\vphi_1\wedge
+    \vphi_2|}\) is the unit normal.
+
+    To understand the integrand in the formula, let's do some perturbation. We perturb
+    the surface along the normal direction, let \[
+        \vphi_t(x^1,x^2)=\vphi(x^1,x^2)+t\vec{n}(x^1,x^2)
+    .\] Then \[
+        \dd{A_t}=\left|\pdv{\vphi_t}{x^1}\wedge \pdv{\vphi_t}{x^2}\right|
+        \dd{x^1}\dd{x^2}
+    .\] Consider the linearization 
+    \begin{align*}
+        \eval{\dv{t}}_{t=0}\dd{A_t}&=\frac{1}{|\partial_1\vphi\wedge \partial_2\vphi|}
+        \left<\pdv{n}{x^1}\wedge \pdv{\vphi}{x^2}+\pdv{\vphi}{x^1}\wedge \pdv{n}{x^2},
+        \pdv{\vphi}{x^1}\wedge \pdv{\vphi}{x^2}\right> \dd{x^1}\dd{x^2} \\
+        &=\left<n_1\wedge \vphi_2+\vphi_1\wedge n_2,\vec{n}\right> \dd{x^1}\dd{x^2}
+    .\end{align*}
+    Note that \begin{gather*}
+        n_1=-A_{11}\vphi_1-A_{12}\vphi_2 \\
+        n_2=-A_{12}\vphi_1-A_{22}\vphi_2
+    \end{gather*}
+    Hence \begin{align*}
+        n_1\wedge \vphi_2+\vphi_1\wedge n_2&=-A_{11}\vphi_1\wedge \vphi_2-A_{22}\vphi_1
+        \wedge \vphi_2 \\ 
+        &=-(A_{11}+A_{22})\vphi_1\wedge \vphi_2 \\ 
+        &=-2H\vphi_1\wedge \vphi_2
+    .\end{align*}
+    So \begin{align*}
+        \eval{\dv{t}}_{t=0}\dd{A_t}&=-2H\left<\vphi_1\wedge \vphi_2,\vec n\right> 
+        =-2H|\vphi_1\wedge \vphi_2|\left<\vec{n},\vec{n}\right> \\
+        &=-2H|\phi_1\wedge \vphi_2|\dd{x^1}\dd{x^2} \\
+        &=-2H\dd{A}
+    .\end{align*}
+    Now we compute
+    \begin{align*}
+        -2H|\vphi_1\wedge \vphi_2|&=-2H\left<\vphi_1\wedge \vphi_2,n\right> \\
+        &=\left<n_1\wedge \vphi_2+\vphi_1\wedge n_2,n\right>
+        =\left<\vphi_1\wedge n_2,n\right> -\left<\vphi_2\wedge n_1,n\right> \\
+        &=\pdv{x^1}\left<\vphi\wedge n_2,n\right> -\left<\vphi\wedge n_{21},n\right> 
+        -\left<\vphi\wedge n_2,n_1\right> \\
+        &\ -\pdv{x^2}\left<\vphi\wedge n_1,n\right> +\left<\vphi\wedge n_{12},n\right> 
+        +\left<\vphi\wedge n_1,n_2\right> \\
+        &=\pdv{x^1}\left<\vphi\wedge n_2,n\right> -\pdv{x^2}\left<\vphi\wedge n_1,
+        n\right> +2\left<\vphi\wedge n_1,n_2\right> \\
+        &=\pdv{x^1}\left<\vphi\wedge n_2,n\right> -\pdv{x^2}\left<\vphi\wedge n_1,
+        n\right> +2\left<n_1\wedge n_2,\vphi\right> 
+    .\end{align*}
+    Note that \[
+        n_1\wedge n_2=(A_{11}A_{22}-A_{12}^2)\vphi_1\wedge\vphi_2=K\vphi_1\wedge\vphi_2
+    .\] Hence we have a local equality \[
+        -2H|\vphi_1\wedge \vphi_2|=\pdv{x^1}\left<\vphi\wedge n_2,n\right> 
+        -\pdv{x^2}\left<\vphi\wedge n_1,n\right> +2K|\vphi_1\wedge \vphi_2|
+        \left<n,\vphi\right> 
+    .\] To make it global one can integrate w.r.t. \(\dd{x^1}\wedge \dd{x^2}\),
+    notice \[
+        \left(\pdv{x^1}\left<\vphi\wedge n_2,n\right> -\pdv{x^1}\left<\vphi\wedge n_1,
+        n\right> \right)\dd{x_1}\wedge \dd{x^2}
+        =\dd\left(\left<\vphi\wedge n_2,n\right> \dd{x^2}+\left<\vphi\wedge n_1,
+        n\right> \dd{x^2}\right)
+    .\] Also \[
+        |\vphi_1\wedge \vphi_2|\dd{x^1}\wedge \dd{x^2}
+        =\sqrt{\det g}\dd{x^1}\dd{x^2}=\dd{A}
+    .\] Hence \[
+        -2\int_{S}H\dd{A}=2\int_{S}K\left<\vphi,n\right> \dd{A}
+        +\int_{S}\dd(\cdots)
+    .\] The third term is zero by Stokes' formula. We proved (2).
+    
+    For (1), again we start from \[
+        n_1\wedge \vphi_2+\vphi_1\wedge n_2=-2H|\vphi_1\wedge \vphi_2|\vec{n}
+    .\] Then \begin{align*}
+        -2H\left<\vphi,\vec{n}\right> |\vphi_1\wedge \vphi_2|&=
+        \left<n_1\wedge \vphi_2+\vphi_1\wedge n_2,\vphi\right> \\
+        &=\left<n_1\wedge \vphi_2,\vphi\right> +\left<\vphi_1\wedge n_2,\vphi\right> \\
+        &=\pdv{x^1}\left<n\wedge \vphi_2,\vphi\right> -\left<n_1\wedge \vphi_{21},
+        \vphi\right> -\left<n\wedge \vphi_2,\vphi_1\right> \\
+        &\ -\pdv{x^2}\left<n\wedge \vphi_1,\vphi\right> +\left<n\wedge \vphi_{12},
+        \vphi\right> +\left<n\wedge \vphi_1,\vphi_2\right> \\
+        &=\pdv{x^1}\left<n\wedge \vphi_2,\vphi\right> -\pdv{x^2}\left<n\wedge \vphi_1,
+        \vphi\right> +2|\vphi_1\wedge \vphi_2|
+    .\end{align*}
+    Hence similarly, \[
+        -2H\left<\vphi,n\right> \dd{A}=2\dd{A}+\dd(\cdots )
+    .\] And then \[
+        \int_{S}\dd{A}=-\int_{S}H\left<\vphi,n\right> \dd{A}
+    \] by stokes' formula.
+\end{proof}
+
+\subsection{A little generalization}
+Now we provide another proof of Liebmann's theorem by using a more general argument.
+We started with a very useful and important formula which is frequently used in the
+study of hypersurface \(M^n\) in \(\mathbb{R}^{n+1}\).
+
+Let \(\dd{s}^2=g_{ij}\dd{x^i}\dd{x^j}\), \(\II=h_{ij}\dd{x^1}\dd{x^j}\) be the 1st
+and 2nd fundamental form. And \(\dd{n}\colon TM\to TM\) be given by \[
+    \begin{pmatrix}
+        n_1 \\ \vdots \\ n_n
+    \end{pmatrix}=-\begin{pmatrix}
+    \\
+    \ & A_i^j & \ \\
+    \ 
+    \end{pmatrix}_{n\times n}\begin{pmatrix}
+        \vphi_1 \\ \vdots \\ \vphi_n
+    \end{pmatrix},\qquad A_i^j=h_{ik}g^{kj}
+.\] The length of the 2nd fundamental form is defined by \[
+    |\II|^2=h_{ij}h_{kl}g^{ik}g^{jl}=A_j^k A_k^j=\tr A^2
+.\] We compute
+\begin{align*}
+    \frac{1}{2}\triangle |\II|^2&=\frac{1}{2}g^{pq}\nabla_p\nabla_q(g^{ik}g^{jl}h_{ij}
+    h_{kl}) \\ &=\frac{1}{2}g^{pq}g^{ik}g^{jl}\left(\nabla_p\nabla_q h_{ij}h_{kl}
+    +\nabla_p\nabla_q h_{kl}h_{ij}+\nabla_p h_{ij}\nabla_q h_{kl}+\nabla_p h_{kl}
+    \nabla_q h_{ij}\right) \\
+    &=g^{pq}g^{ik}g^{jl}\left(\nabla_p\nabla_q h_{ij}h_{kl}+\nabla_p h_{ij}\nabla_q
+    h_{kl}\right) \\
+    &=|\nabla\II|^2+g^{pq}g^{ik}g^{jl}(\nabla_p\nabla_q h_{ij})h_{kl}
+.\end{align*}
+In the following computation, we first choose local orthonormal frame \(\{e_1,\ldots,
+e_n\}\). Note that \(\triangle |\II|^2\) is a global expression, which is independent
+of choice of coordinate. We can always choose suitable coordinate frame to simplify
+the computation. Note that \(g_{ij}=\delta_{ij}\) now, and we do not distinguish
+upper and lower indices.
+\begin{align*}
+    \frac{1}{2}\triangle |\II|^2&=|\nabla\II|^2+\sum_{p,i,j}(\nabla_p\nabla_p h_{ij})
+    h_{ij} \\ &=|\nabla\II|^2+\sum_{p,i,j}(\nabla_p\nabla_i h_{pj})h_{ij}
+    \quad \text{(By Codazzi equation)} \\
+    &=|\nabla\II|^2+\sum_{p,i,j}(\nabla_i\nabla_p h_{pj}+R_{pipk}h_{kj}+R_{pijk}h_{pk})
+    h_{ij} \quad \text{(Ricci identity)} \\
+    &=|\nabla\II|^2+\sum_{p,i,j}(\nabla_i\nabla_j h_{pp}+R_{pipk}h_{kj}-R_{pikj}h_{pk})
+    h_{ij} \\
+    &=|\nabla\II|^2+\sum_{i,j}(n\nabla_i\nabla_j H)h_{ij}
+    +\sum_{p,i,j,k}(R_{pipk}h_{kj}-R_{pikj}h_{pk})h_{ij}
+.\end{align*}
+Note we still have freedom to choose local frame such that \[
+    h_{ij}=\lambda_i\delta_{ij}
+.\] Then 
+\begin{align*}
+    &\ \sum_{p,i,j,k}(R_{pipk}h_{kj}-R_{pikj}h_{pk})h_{ij}
+    &=\sum R_{pipi}\lambda_i\lambda_i-R_{pipi}\lambda_p\lambda_i \\ 
+    &=\sum \lambda_i(\lambda_i-\lambda_p)R_{pipi} \\
+    &=\sum(\lambda_i-\lambda_p)^2R_{pipi}-\sum\lambda_i(\lambda_i-\lambda_p)R_{ipip} \\
+    &=\sum(\lambda_i-\lambda_p)^2R_{pipi}-\sum\lambda_i(\lambda_i-\lambda_p)R_{ipip}
+.\end{align*}
+Hence we got \[
+    \frac{1}{2}\triangle|\II|^2=|\nabla\II|^2+n\sum(\nabla_i\nabla_j H)h_{ij}
+    +\frac{1}{2}\sum (\lambda_i-\lambda_p)^2R_{ipip}
+.\] 
+\begin{remark}
+    In above process of deriving the equality. We only used the assumption that
+    \(M\hookrightarrow \mathbb{R}^{n+1}\) is a hypersurface. Moreover, the existence
+    of local orthonormal frame \(\{e_1,\ldots,e_n,e_{n+1}\}\) with \(e_{n+1}\) be the
+    unit normal, is just analog to the case of surfaces in \(\mathbb{R}^3\). We
+    summarize this important formula as a proposition.
+\end{remark}
+
+\begin{prop}
+    Let \((M^n,g)\hookrightarrow\mathbb{R}^{n+1}\) be a smooth hypersurface.
+    \(\II=h_{ij}\dd{x^i}\dd{x^j}\) be the 2nd fundamental form. In local orthonormal
+    frame, let \(h_{ij}=\lambda_i\delta_{ij}\), then \[
+        \frac{1}{2}\triangle|\II|^2=|\nabla\II|^2+n\sum(\nabla_i\nabla_j H)h_{ij}
+        +\frac{1}{2}\sum (\lambda_i-\lambda_p)^2R_{ipip}
+    .\] 
+\end{prop}
+We can further handle this formula:
+\begin{align*}
+    \frac{1}{2}\triangle|\II|^2&=|\nabla\II|^2+n\sum\nabla_i(\nabla_j H h_{ij})
+    -n\sum\nabla_j H\nabla_i h_{ij}+\frac{1}{2}\sum (\lambda_i-\lambda_p)^2R_{ipip} \\
+    &=|\nabla\II|^2+\underbrace{n\sum\nabla_i(\nabla_j H h_{ij})}_{\text{divergence
+    form}}-n^2|\nabla H|^2+\frac{1}{2}\sum(\lambda_i-\lambda_p)^2R_{ipip}
+.\end{align*}
+
+\begin{proof}[One more proof of Liebmann's theorem]
+    In terms of the orthonormal frame we have chosen, we have \[
+        |\II|^2=\lambda_1^2+\lambda_2^2,\quad K=\lambda_1\lambda_2,\quad
+        H=\frac{1}{2}(\lambda_1+\lambda_2)
+    .\] Then \[
+        2K=4H^2-|\II|^2\qquad\text{(1)}
+    .\] If \(K=C>0\) then \(R_{1212}=K>0\), so \(\frac{1}{2}(\lambda_1-\lambda_2)^2
+    R_{1212}\ge 0\). Take derivative of (1), we have \[
+        0=2\nabla_i K=8H\nabla_i H-2h_{pq}\nabla_i h_{pq}
+    .\] Hence \[
+        4H\nabla_i H=h_{pq}\nabla_i h_{pq}\leftarrow\text{this is a vector}
+    .\] Take length on both sides, we get \[
+        4|H||\nabla H|=|h_{pq}\nabla_i h_{pq}|\le |\II||\nabla\II|\quad
+        \text{(Cauchy-Schwarz)}
+    .\] By (1), \(K\ge 0\implies |\II|\le 2|H|\), hence \(|\nabla\II|\ge 2|\nabla H|\).
+    Put this into the formula, we have \[
+        \frac{1}{2}\triangle |\II|^2=\underbrace{|\nabla\II|^2-4|\nabla H|^2}_{\ge 0}
+        +2\sum\nabla_i(\nabla_j H h_{ij})+\frac{1}{2}(\lambda_1-\lambda_2)^2K
+    .\] Integrate over \(S\), we have \[
+        0\ge \frac{K}{2}\int_{S}(\lambda_1-\lambda_2)^2\dd{A}
+    .\] Hence \(\lambda_1=\lambda_2\) everywhere since \(K>0\).
+\end{proof}
+\begin{remark}
+    With a similar argument, in Riemannian Geometry we can show
+    \begin{enumerate}[(1)]
+    \item \(M^n\hookrightarrow\mathbb{R}^{n+1}\) closed hypersurface, assume \(H\)
+        is constant and \(\mathrm{Ric}(M)\ge 0\), then \(M\cong \mathbb{S}^n\).
+    \item \(M^n\hookrightarrow\mathbb{R}^{n+1}\) closed hypersurface, assume the
+        scalar curvature \(S\) is constant and \(\mathrm{Ric}\ge 0\), then
+        \(M\cong \mathbb{S}^n\).
+    \end{enumerate}
+    Reference: 1. Do Carmo's book. 2. Peng Jiagui, Chen Qing's book.
+    3. Shen Yibing's book, chaper 5 section 3.
+\end{remark}
+
+\subsection{Hadamard-Stoker theorem}
+\begin{theorem}
+    If \(S\) is a connected closed surface in \(\mathbb{R}^3\), with Gaussian
+    curvature \(K>0\). Then \(S\) is diffeomorphic to \(\mathbb{S}^2\).
+\end{theorem}
+\begin{proof}
+    Consider the Gaussian map \(N\colon S\to \mathbb{S}^2\). First, since \(K_p=
+    \det N_p>0\), \(\dd{N_p}\) is a linear iso. We know \(N\) is a local diffeomorphism
+    near each \(p\in S\). Further more, \(N(S)\) is an open subset of \(\mathbb{S}^2\).
+    On the other hand, \(S\) is compact, \(N\) is continuous. So \(N(S)\) is a
+    compact subset of \(\mathbb{S}^2\). Hence \(N(S)\) must be whole \(\mathbb{S}^2\),
+    and \(N\) is a surjection.
+    
+    Next, we show \(N\) is injective. If \(\exists\,p\neq q\) on \(S\) such that
+    \(N(p)=N(q)\), using the Hausdorff property we can find neighbourhood
+    \(U\) of \(p\), \(V\) of \(q\) such that \(U\cap V=\emptyset\). But \(N(U)=
+    N(V)=W\) is neighbourhood of \(N(p)=N(q)\). Hence \(N\colon S\setminus U\to
+    \mathbb{S}^2\) is still surjective.
+
+    On one hand, \[
+        \int_{S\setminus U}K\dd{A}\ge \int_{\mathbb{S}^2}\dd{A_{\mathbb{S}^2}}
+        =4\pi
+    .\] On the other hand since \(K>0\), \(\int_{S}K>0\), by Gasuss-Bonnet theorem, \[
+        \int_{S}K=4\pi
+    .\] Hence \[
+        4\pi=\int_{S}K=\int_{S\setminus U}K+\int_{U}K>\int_{S\setminus U}K\ge 4\pi
+    .\] Contradiction. Thus \(N\) is surjective.
+\end{proof}
+Reference: Motiel-Ros's book or Peng Jiagui, ChenQing's book.
